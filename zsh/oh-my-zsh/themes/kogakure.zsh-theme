@@ -19,16 +19,16 @@ ZSG_THEME_GIT_UPSTREAM=" %{$fg[red]%}📡%{$reset_color%} "
 
 # Ruby Version
 if which rvm-prompt &> /dev/null; then
-  ruby_version="$bracket_color"["$ruby_color\${\$(~/.rvm/bin/rvm-prompt i v g)#ruby-}$bracket_color"]"%{$reset_color%}"
+  ruby_version="$ruby_color\${\$(~/.rvm/bin/rvm-prompt i v g)#ruby-}%{$reset_color%}"
 else
   if which rbenv &> /dev/null; then
-    ruby_version="$bracket_color"["$ruby_color\${\$(rbenv version | sed -e 's/ (set.*$//' -e 's/^ruby-//')}$bracket_color"]"%{$reset_color%}"
+    ruby_version="$ruby_color\${\$(rbenv version | sed -e 's/ (set.*$//' -e 's/^ruby-//')}%{$reset_color%}"
   fi
 fi
 
 # Node Version
 if which nvm &> /dev/null; then
-  nvm_version="$bracket_color"["$nvm_color\${\$(nvm version)}$bracket_color"]"%{$reset_color%}"
+  nvm_version="$nvm_color\${\$(nvm version)}%{$reset_color%}"
 fi
 
 # Is Git repository upstream?
@@ -49,7 +49,7 @@ prompt_start=""
 prompt_end="💬  "
 
 # Put it all together!
-RPROMPT="$ruby_version$nvm_version"
+RPROMPT="$ruby_version $nvm_version"
 PROMPT="
 $dir$git_upstream$git
 $prompt_end"
