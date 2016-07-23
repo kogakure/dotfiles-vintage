@@ -72,6 +72,9 @@ brew install git-extras
 # Version Control Visualization Tool
 brew install gource
 
+# Numerical library for C and C++
+brew install gsl
+
 # User-friendly cURL replacement (command-line HTTP client
 brew install httpie
 
