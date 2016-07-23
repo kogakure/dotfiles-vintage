@@ -49,6 +49,7 @@ prompt_start=""
 prompt_end="💬  "
 
 # Put it all together!
+RPROMPT="$ruby_version$nvm_version"
 PROMPT="
-$ruby_version$nvm_version $dir$git_upstream$git
+$dir$git_upstream$git
 $prompt_end"
