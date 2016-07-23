@@ -48,3 +48,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install TMUX plugins
 ~/.tmux/plugins/tpm/bin/install_plugins
+
+# Install Vim plugins
+vim +PlugInstall +qall
