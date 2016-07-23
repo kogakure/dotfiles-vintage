@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Delete Python compiled files
+
+find ./ -type f -name "*.pyc" -exec rm -f {} \;

@@ -1,0 +1,94 @@
+#!/usr/bin/perl
+
+#===============================================================================
+#
+#         FILE:  renametree.pl
+#
+#        USAGE:  ./renametree.pl 
+#
+#  DESCRIPTION:  rename files and directories in the current tree to
+#                eliminate special characters
+#
+#      OPTIONS:  ---
+# REQUIREMENTS:  ---
+#         BUGS:  ---
+#        NOTES:  ---
+#       AUTHOR:  Felix M. Palmen (fmp), <fmp@palmen.homeip.net>
+#      COMPANY:  
+#      VERSION:  1.0
+#      CREATED:  10.09.2008 15:35:57 CEST
+#     REVISION:  ---
+#===============================================================================
+
+use strict;
+use warnings;
+
+use File::Find ();
+use File::Copy ();
+
+my %replacements = (
+    '[\001-\040]'   =>  '-',
+    '\_'            =>  '-',
+    '\,'            =>  '-',
+    'ä'             =>  'ae',
+    '\xc3\xa4'      =>  'ae',
+    'a\xcc\x88'     =>  'ae',
+    'ö'             =>  'oe',
+    '\xc3\xb6'      =>  'oe',
+    'o\xcc\x88'     =>  'oe',
+    'ü'             =>  'ue',
+    '\xc3\xbc'      =>  'ue',
+    'u\xcc\x88'     =>  'ue',
+    'Ä'             =>  'Ae',
+    '\xc3\x84'      =>  'Ae',
+    'A\xcc\x88'     =>  'Ae',
+    'Ö'             =>  'Oe',
+    '\xc3\x96'      =>  'Oe',
+    'O\xcc\x88'     =>  'Oe',
+    'Ü'             =>  'Ue',
+    '\xc3\x9c'      =>  'Ue',
+    'U\xcc\x88'     =>  'Ue',
+    'ß'             =>  'ss',
+    '\xc3\x9f'      =>  'ss',
+    '\&'            =>  'und',
+    '\+'            =>  'und',
+    '\°'            =>  '-Grad',
+    '\('            =>  '-',
+    '\)'            =>  '-',
+    '\['            =>  '-',
+    '\]'            =>  '-',
+    '\{'            =>  '-',
+    '\}'            =>  '-',
+    '\<'            =>  '-',
+    '\>'            =>  '-',
+    '\?'            =>  '',
+    '\!'            =>  '',
+    '\^'            =>  '',
+    '\"'            =>  '',
+    '\´'            =>  '',
+    '\`'            =>  '',
+    '\#'            =>  '',
+    '\---'          =>  '-',
+    '\--'           =>  '-',
+);
+
+sub rename
+{
+    my $name = $_;
+    for (keys(%replacements))
+    {
+        $name =~ s/$_/${replacements{$_}}/g;
+    }
+    return if ($name eq $_);
+    if (-e $name)
+    {
+        my $i = 0;
+        ++$i while (-e $name.$i);
+        $name .= $i;
+    }
+
+    print "renaming: '$File::Find::name' => '$name'\n";
+    File::Copy::move($_, $name);
+}
+
+File::Find::finddepth(\&rename, ".");

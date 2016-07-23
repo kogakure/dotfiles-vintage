@@ -1,0 +1,1310 @@
+" #######################
+" ### Global Settings ###
+" #######################
+
+" Default shell
+set shell=/bin/zsh
+scriptencoding utf-8
+
+" ###############
+" ### Bundles ###
+" ###############
+
+if &compatible
+  set nocompatible
+endif
+
+filetype off
+
+call plug#begin('~/.vim/plugged')
+
+" ### Text editing ###
+" ####################
+Plug 'jiangmiao/auto-pairs'
+Plug 'kogakure/tabular'
+Plug 'kogakure/xptemplate'
+Plug 'mattn/emmet-vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'skwp/vim-html-escape', { 'on': ['HtmlEscape', 'HtmlUnEscape'] }
+Plug 'PeterRincker/vim-argumentative'
+
+" ### Git ###
+" ###########
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git', { 'for': ['git', 'gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail'] }
+Plug 'airblade/vim-gitgutter'
+
+" ### Colors ###
+" ##############
+Plug 'chriskempson/base16-vim'
+Plug 'ap/vim-css-color'
+
+" ### Sessions ###
+" ################
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveSession', 'DelteSession', 'CloseSession'] }
+Plug '907th/vim-auto-save'
+
+" ### GUI improvements ###
+" ########################
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'Shougo/neocomplete'
+Plug '1995eaton/vim-better-javascript-completion'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" ### Commands/Shell ###
+" ######################
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-rbenv'
+
+" ### Linting ###
+" ###############
+Plug 'scrooloose/syntastic'
+
+" ### Files ###
+" #############
+Plug 'Shougo/neomru.vim'
+Plug 'Shougo/neoyank.vim'
+Plug 'Shougo/unite-outline'
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'bogado/file-line'
+Plug 'tpope/vim-vinegar'
+Plug 'tsukkee/unite-tag'
+Plug 'Slava/vim-unite-files-ag'
+
+" ### Search ###
+" ##############
+Plug 'Lokaltog/vim-easymotion'
+Plug 'henrik/vim-indexed-search'
+Plug 'rking/ag.vim'
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'craigemery/vim-autotag'
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'tpope/vim-abolish'
+
+" ### Syntax, Indentation, Helper for Syntax ###
+" ##############################################
+Plug 'edsono/vim-matchit'
+
+" Stylesheets
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
+Plug 'wavded/vim-stylus',         { 'for': 'stylus' }
+
+" Markup Languages
+Plug 'othree/html5.vim',                 { 'for': ['html', 'eruby'] }
+Plug 'tpope/vim-haml',                   { 'for': 'haml' }
+Plug 'tpope/vim-liquid',                 { 'for': 'liquid' }
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
+Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
+Plug 'digitaltoad/vim-jade',             { 'for': 'jade' }
+
+" JavaScript
+Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
+Plug 'mxw/vim-jsx',                            { 'for': 'javascript' }
+Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
+Plug 'othree/es.next.syntax.vim',              { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
+Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
+Plug 'elzr/vim-json',                          { 'for': 'json' }
+
+
+" Ruby & Rails
+Plug 'tpope/vim-rails',          { 'for': ['ruby', 'eruby'] }
+Plug 'vim-ruby/vim-ruby',        { 'for': ['ruby', 'eruby'] }
+
+" PHP
+Plug 'StanAngeloff/php.vim'
+Plug 'vim-scripts/PHP-correct-Indenting'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'dsawardekar/wordpress'
+
+" Misc
+Plug 'xolox/vim-lua-ftplugin',   { 'for': 'lua' }
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'benmills/vimux'
+Plug 'skalnik/vim-vroom'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'galenframework/galen.vim'
+
+" Text Objects
+Plug 'glts/vim-textobj-comment'
+Plug 'jceb/vim-textobj-uri'
+Plug 'kana/vim-textobj-datetime'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'whatyouhide/vim-textobj-xmlattr'
+Plug 'nelstrom/vim-textobj-rubyblock'
+
+
+" Add plugins to &runtimepath
+call plug#end()
+
+filetype plugin indent on
+
+" Syntax highlighting
+syntax on
+
+" Colorscheme
+let base16colorspace=256 " Access colors present in 256 colorspace
+execute "colorscheme ".$THEME
+
+" Custom Colors
+highlight Conceal cterm=NONE ctermbg=NONE ctermfg=darkred
+highlight SpellBad cterm=underline ctermfg=white ctermbg=red
+highlight SpellCap cterm=underline
+highlight SpellLocal cterm=underline
+highlight SpellRare cterm=underline
+highlight Comment cterm=italic
+
+
+" ################
+" ### Settings ###
+" ################
+
+" Set <leader> to `,` instead to `\`
+let mapleader=","
+
+" <loacalleader> to `+`
+let maplocalleader="+"
+
+" Encoding to UTF-8
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Switch of modelines (is a risk for security)
+set modelines=0
+
+" Automatic save at file switch
+set autowrite
+
+" Update buffer automatically, when changed by extern
+set autoread
+
+" Conceal
+set conceallevel=0
+
+" Session Management
+let g:session_directory = "~/.vim/sessions"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>so :OpenSession
+nnoremap <leader>ss :SaveSession
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sx :CloseSession<CR>
+
+" Backups
+set undodir=$HOME/.vim/tmp/undo//
+set backupdir=$HOME/.vim/tmp/backup//
+set directory=$HOME/.vim/tmp/swap//
+set backupskip=/tmp/*,/private/tmp/*
+set backup
+set writebackup
+set noswapfile
+
+" Persistent (G)undo files between sessions
+set undofile
+set history=1000
+set undolevels=100
+
+" Update time to 1 second (Default: 4 seconds)
+set updatetime=1000
+
+" No line break
+set nowrap
+
+" Line numbering
+set number
+
+" Mark lines longer than 81 characters
+highlight ColorColumn ctermbg=Magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+" Increase line-height
+set linespace=2
+
+" Highlight line with cursor
+set cursorline
+
+" Show line and row of the cursor
+set ruler
+
+" Tabs and indentation
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set expandtab
+set autoindent
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+set copyindent
+set shiftround
+
+" Search on the oposite of the file when reaching end/beginning
+set wrapscan
+
+" Ignore case when searching (unless using capital letters)
+set ignorecase
+set smartcase
+
+" use forward slash
+set shellslash
+
+" Height of command line
+set ch=1
+
+" No beeping
+set visualbell
+
+" Intuitive backspacing
+set backspace=indent,eol,start
+
+" Use hidden buffers
+set hidden
+
+" Don't delete the word, but put a $ to the end till exit the mode
+set cpoptions+=$
+
+" Fast terminal connection
+set ttyfast
+
+" Set title of the window
+set title
+
+" Show status line
+set laststatus=2
+
+" Hightlight matching paar (brackets etc.)
+set showmatch
+
+" Welcome screen (e. g. no welcome message)
+set shortmess=aoOtI
+
+" 256 colors
+set t_Co=256
+
+" Don’t refresh while executing a macro
+set lazyredraw
+
+" Show partially completed commands
+set showcmd
+
+" Show the mode
+set showmode
+
+" Hide mouse cursor while typing
+set mousehide
+
+" Active mouse in terminal mode
+set mouse=a ttymouse=xterm2
+
+" Don’t syntax highlight lines longer than 800 characters
+set synmaxcol=800
+
+" Timeout for waiting after pressing <leader>
+set timeoutlen=500
+
+" Fold the code
+set foldenable
+
+" Don’t show the foldcolumn
+set foldcolumn=0
+
+" Default fold is marker
+set foldmethod=marker
+set foldlevelstart=20
+
+" Visuall select of just pasted stuff
+nnoremap gp `[v`]
+nnoremap gy `[v`]y
+
+" Reload all open buffers
+nnoremap <leader>ra :tabdo exec "windo e!"
+
+" Keep 3 lines context above and below
+set scrolloff=3
+
+" Enable positioning of cursor where no character is
+set virtualedit=all
+
+" Remove fixed password for encryption (:X)
+set key=
+set cryptmethod=blowfish
+
+" Better command line completion
+set wildmenu
+
+" Complete files like a shell
+set wildmode=list:longest,list:full
+
+" Ignorier stuff
+set wildignore+=*.py[co]
+set wildignore+=*.gem,gems/**
+set wildignore+=*/tmp/**
+set wildignore+=*/htdocs/css/v/**,*/htdocs/js/v/**
+set wildignore+=*/vendor/ruby/**
+set wildignore+=*.sqlite3,*.db
+set wildignore+=*.png,*.gif,*.jpeg,*.jpg,*.tiff,*.psd
+set wildignore+=*.pdf,*.graffle
+set wildignore+=*.zip,*.tar,*.tar.gz
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
+set wildignore+=*.doc,*.docx,*.xls,*.xlsx,*.ppt,*.pptx,*.gsheet
+set wildignore+=*.mp4,*.mov,*.m4v,*.mp3
+set wildignore+=*.dmg
+set wildignore+=*.sw?
+set wildignore+=.DS_Store,Icon
+set wildignore+=*.pages
+set wildignore+=*/vendor/bundle/**
+set wildignore+=*/dist/**
+set wildignore+=*/build/assets/**,*/build/development/**,*/build/production/**
+set wildignore+=*/node_modules/**
+set wildignore+=*/bower_components/**,*/_bower_components/**
+
+" Don’t break lines
+set textwidth=0
+
+" Show full tag when autocompleting
+set showfulltag
+
+" Which characters to use for statuslines etc.
+set fillchars=diff:⣿,vert:│
+
+" Ignore whitespace in DIFFs
+set diffopt+=iwhite
+
+" Highlight search results
+set hlsearch
+
+" Switch of highlighting with ',h'
+nnoremap <silent> <leader>h :nohlsearch<CR>
+nnoremap <leader>th :call ToggleSearchHighlighting()<CR>
+"
+" Start highlighting search results while typing
+set incsearch
+
+" Show invisibles (tabs, line endings etc.)
+set list
+
+" Choose symbols to show invisibles
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮,space:·
+
+" Show line breaks
+set showbreak=↪
+
+" Close HTML elemente with XHTML rules
+let xml_use_xhtml = 1
+
+" Better syntax hightlighting for Python
+let python_highlight_all = 1
+
+" Changing cursor shape per mode
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+if exists('$TMUX')
+  " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+  let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
+  let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+  autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+else
+  let &t_SI .= "\<Esc>[4 q"
+  let &t_EI .= "\<Esc>[2 q"
+  autocmd VimLeave * silent !echo -ne "\033[0 q"
+endif
+
+" for tmux to automatically set paste and nopaste mode at the time pasting
+" (as happens in VIM UI)
+function! WrapForTmux(s)
+  if !exists('$TMUX')
+    return a:s
+  endif
+
+  let tmux_start = "\<Esc>Ptmux;"
+  let tmux_end = "\<Esc>\\"
+
+  return tmux_start . substitute(a:s, "\<Esc>", "\<Esc>\<Esc>", 'g') . tmux_end
+endfunction
+
+let &t_SI .= WrapForTmux("\<Esc>[?2004h")
+let &t_EI .= WrapForTmux("\<Esc>[?2004l")
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+" Split the window below and right of the current window
+set splitbelow
+set splitright
+
+" Spell checker language to German
+" To clean the custom files :runtime spell/cleanadd.vim
+set spelllang=de_de,en_us
+set spellfile+=~/.vim/spell/de.utf-8.add " (1)zg, (1)zw
+set spellfile+=~/.vim/spell/en.utf-8.add " 2zg, 2zw
+
+" Custom Dictionaries (<C-x> <C-k>)
+" http://ftp.vim.org/vim/runtime/spell/
+set dictionary+=~/.vim/dictionary/de_user.txt
+set dictionary+=~/.vim/dictionary/de_neu.txt
+set dictionary+=~/.vim/dictionary/en_us.txt
+
+" Custom Thesauri (Synonyms) (<C-x> <C-t>)
+set thesaurus+=~/.vim/thesaurus/de_user.txt
+set thesaurus+=~/.vim/thesaurus/de_openthesaurus.txt
+
+set complete+=kspell
+
+
+" ################
+" ### Mappings ###
+" ################
+
+" ESC remapping
+imap jk <ESC>
+
+" Unmapping of arrow keys
+noremap <down> <Nop>
+noremap <left> <Nop>
+noremap <right> <Nop>
+noremap <up> <Nop>
+inoremap <down> <Nop>
+inoremap <left> <Nop>
+inoremap <right> <Nop>
+inoremap <up> <Nop>
+vnoremap <down> <Nop>
+vnoremap <left> <Nop>
+vnoremap <right> <Nop>
+vnoremap <up> <Nop>
+
+" Keep the window centered
+noremap G Gzzzv
+noremap n nzzzv
+noremap N Nzzzv
+noremap } }zzzv
+noremap { {zzzv
+
+" Close all buffers
+nnoremap XX :qa<CR>
+
+" VimDiff Mappings
+nnoremap <leader>dj ]c
+nnoremap <leader>dk [c
+
+" Add lines in NORMAL Mode
+nnoremap gn o<ESC>k
+nnoremap gN O<ESC>j
+
+" Change to the folder of the current file
+nnoremap <silent> <leader>ccc :cd %:p:h<CR>:pwd<CR>
+
+" Toggle between wrap and nowrap
+nnoremap <silent> <F5> :call ToggleWrap()<CR>
+nnoremap <leader>tw :call ToggleWrap()<CR>
+
+" Toggle ColorColumn at 80, 100 and 120 or only the current line
+nnoremap <leader>tcc :call ToggleColorColumn()<CR>
+
+" Move one-lined tags to new lines
+noremap <leader>uwt 0/>a$?</i:nohlsearch
+
+" Change marks mapping (ma)
+nnoremap ' `
+nnoremap ` '
+
+" Extended TextObjects
+" http://connermcd.com/blog/2012/10/01/extending-vim%27s-text-objects/
+let pairs = { ":" : ":",
+      \ "." : ".",
+      \ "<bar>" : "<bar>",
+      \ "*" : "*",
+      \ "-" : "-",
+      \ "_" : "_" }
+
+for [key, value] in items(pairs)
+  exe "nnoremap ci".key." T".key."ct".value
+  exe "nnoremap ca".key." F".key."cf".value
+  exe "nnoremap vi".key." T".key."vt".value
+  exe "nnoremap va".key." F".key."vf".value
+  exe "nnoremap di".key." T".key."dt".value
+  exe "nnoremap da".key." F".key."df".value
+  exe "nnoremap yi".key." T".key."yt".value
+  exe "nnoremap ya".key." F".key."yf".value
+endfor
+
+" Faster linewise scrolling
+noremap <C-e> 3<C-e>
+noremap <C-y> 3<C-y>
+
+" Escape/Unescape of HTML entities
+noremap <leader>he :call HtmlEscape()<CR>
+noremap <leader>hue :call HtmlUnEscape()<CR>
+
+" Open the current file with Firefox, Google Chrome or Safari
+noremap <silent> <leader>ff :! open -a firefox.app %:p<CR>
+noremap <silent> <leader>gc :! open -a google\ chrome.app %:p<CR>
+noremap <silent> <leader>sf :! open -a safari.app %:p<CR>
+
+" Quick toggle between buffers
+noremap <leader>j :b#<CR>
+
+" Command mode
+nnoremap <space> :
+
+" Set spell checker to `s`
+" zg (good), zG (good temp), zw (wrong), zW (wrong temp)
+nnoremap <silent> <leader>s :set spell!<CR>
+
+" Open .vimrc in a new buffer, reload .vimrc
+nnoremap <leader>v :e $MYVIMRC<CR>
+nnoremap <leader>vb :e ~/.vimrc.bundles<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>hs :e ~/.hammerspoon/init.lua<CR>
+
+" Exit INSERT MODE with 'jk' herauskommen
+inoremap jk <ESC>
+
+" Simulate CTRL-Q of TextMate for 'Reformat Paragraph'
+nnoremap <leader>q gqip
+
+" Simulate CTRL-ALT-Q of TextMate for 'Unwrap Paragraph'
+nnoremap <leader>qq vipJ
+
+" Replace all Tabs with Whitespace
+noremap <silent> <leader>rt :retab<CR>
+
+" Vsplits/Splits enlarge/shrink
+noremap <kPlus> <C-w>+
+noremap <kMinus> <C-w>-
+noremap <kDivide> <C-w><
+noremap <kMultiply> <C-w>>
+
+" Indentation in VISUAL Mode like in INSERT Mode
+vnoremap > >gv
+vnoremap < <gv
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
+
+" Open a quickfix window for the last search
+nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+" Map ALT-Tab to auto complete
+inoremap <A-Tab> <C-N>
+inoremap <A-S-Tab> <C-P>
+
+" Complete all buffers
+set complete=.,w,b,u,t
+set completeopt=longest,menuone,preview
+
+" Delete all buffers
+nnoremap <silent> <leader>da :exec "1," . bufnr('$') . "bd"<CR>
+
+" Toogle `set list`
+nnoremap <leader>l :set list!<CR>
+
+" Strip Whitespace manually
+nnoremap <silent> <leader>sw :StripWhitespace<CR>
+
+" Add dashes to words
+set iskeyword+=-
+
+" Mapping for easier OmniCompletion
+inoremap <C-]> <C-X><C-]>
+inoremap <C-F> <C-X><C-F>
+inoremap <C-D> <C-X><C-D>
+inoremap <C-L> <C-X><C-L>
+inoremap <C-O> <C-X><C-O>
+
+" Indent the whole source code
+nnoremap <leader>f gg=G
+
+" Open for Markdown preview in Marked
+nnoremap <leader>m :silent !open -a Marked\ 2.app '%:p'<CR>
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Octopress: Isolate or Integrate posts
+nnoremap <leader>oo :!octopress isolate %<CR>
+nnoremap <leader>oi :!octopress integrate<CR>
+
+" System clipboard
+set clipboard=unnamed
+
+" Add semicolon or comma to the end of the line
+nnoremap <leader>; A;<ESC>
+nnoremap <leader>. A,<ESC>
+
+" Delete last character of line
+nnoremap <leader>x $x
+
+
+" ###############
+" ### Plugins ###
+" ###############
+
+" ### Vimux ###
+" #############
+
+let g:VimuxHeight = "30"
+let g:VimuxOrientation = 'v'
+let g:VimuxUseNearestPane = 0
+
+" Mappings
+nmap <leader>vp :VimuxPromptCommand<cr>
+nmap <leader>vr :VimuxRunCommand("
+nmap <leader>vl :VimuxRunLastCommand<cr>
+nmap <leader>vi :VimuxInspectRunner<CR>
+nmap <leader>vc :VimuxCloseRunner<cr>
+nmap <leader>vx :VimuxInterruptRunner<cr>
+nmap <Leader>vb :VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
+
+" ### Pandoc ###
+" ##############
+
+let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
+let g:pandoc#modules#disabled = ["folding"]
+let g:pandoc#spell#default_langs = ['de_de', 'en_us']
+
+" ### AutoSave ###
+" ################
+
+let g:auto_save = 0
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 0
+
+" ### JSX ###
+" ###########
+
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" ### Vim-JavaScript ###
+" ######################
+
+" Conceal
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
+
+" ### Emmet ###
+" #############
+
+autocmd FileType html,eruby imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType css,scss,pcss,postcss imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType javascript imap <tab> <plug>(emmet-expand-abbr)
+
+" ### Fugitive ###
+" ################
+
+let g:fugitive_github_domains = ['source.xing.com']
+
+" ### XPTemplate ###
+" ##################
+
+" Remap of <C-\> auf <C-t>
+let g:xptemplate_key = "<C-t>"
+
+" Remomte spaces inside of brackets: () instead of ( )
+let g:xptemplate_vars = "SParg=''"
+
+" Name and Email
+let g:xptemplate_vars = "author=Stefan Imhoff&email=stefan@imhoff.name"
+
+" ### Vim-JSON ###
+" ################
+
+" Don’t conseal punctuation
+let g:vim_json_syntax_conceal = 0
+
+" ### Vim-Move ###
+" ################
+
+" Use CTRL instead of ALT
+let g:move_key_modifier = "S-C"
+
+" ### Tablular ###
+" ################
+
+" Automatic Mapping with pipe
+inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+
+" ### Vim-Commentary ###
+" ######################
+
+autocmd FileType apache set commentstring=#\ %s
+autocmd FileType gspec set commentstring=#\ %s
+
+" ### Vim-Speeddating ###
+" #######################
+
+autocmd VimEnter * SpeedDatingFormat %d.%m.%Y
+
+" ### Vim-Session ###
+" ###################
+
+let g:session_autosave = 'no'
+let g:session_autoload = 'no'
+let g:session_autosave_periodic = "5"
+let g:session_default_name = 'default'
+
+" ### Numbers ###
+" ###############
+
+" Exclude plugins
+let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl']
+
+" ### Dispatch ###
+" ################
+
+noremap <leader>dp :Dispatch
+
+" ### Tern ###
+" ############
+
+" Activate mappings (http://usevim.com/files/tern_keyboard.pdf)
+let g:tern_map_keys=1
+
+" Show hints when stopping typing
+let g:tern_show_argument_hints='on_hold'
+
+" ### Unite ###
+" #############
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#profile('default', 'context.smartcase', 1)
+call unite#custom#profile('default', 'context.ignorecase', 1)
+
+call unite#custom#source('files_ag, file_rec, file_rec/async, file_rec/git', 'matchers', ['converter_relative_word', 'matcher_fuzzy'])
+call unite#custom#source('files_ag', 'ignore_pattern', 'node_modules')
+
+let g:unite_enable_start_insert=1
+let g:unite_source_history_yank_enable = 1
+let g:unite_prompt='💬 ' "»
+
+nnoremap <C-p> :Unite -buffer-name=search-for-fuzzy-file -start-insert -no-split files_ag<CR>
+nnoremap <leader>ut :Unite -buffer-name=search-for-fuzzy-file -start-insert -no-split files_ag<CR>
+nnoremap <leader>uf :Unite -no-split -start-insert -buffer-name=files file<CR>
+nnoremap <leader>mru :Unite -no-split -start-insert -buffer-name=mru file_mru<CR>
+nnoremap <leader>ur :Unite -no-split -start-insert -buffer-name=mru file_mru<CR>
+nnoremap <leader>uo :Unite -no-split -start-insert -buffer-name=outline outline<CR>
+nnoremap <leader>be :Unite -no-split -start-insert -buffer-name=buffer buffer<CR>
+nnoremap <leader>ub :Unite -no-split -start-insert -buffer-name=buffer buffer<CR>
+nnoremap <leader>uh :Unite -no-split -start-insert history/yank<CR>
+nnoremap <leader>ut :Unite -no-split -buffer-name=search-for-tag -start-insert tag<CR>
+
+" Custom mappings for the unite buffer
+autocmd FileType unite call s:unite_settings()
+function! s:unite_settings()
+  " Enable navigation with control-j and control-k in insert mode
+  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+endfunction
+
+" ### Ag ###
+" ##########
+
+nnoremap <leader>ag :Ag<space>
+
+" ### Gundo ###
+" #############
+
+" Toggle Gundo
+nnoremap <leader>gu :GundoToggle<CR>
+
+" ### JavaScript Libraries Syntax ###
+" ###################################
+
+" Use specific libraries
+let g:used_javascript_libs = 'jquery,underscore,backbone,react,flux,requirejs,jasmine,chai'
+
+" ### Gist ###
+" ############
+
+" Copy the Gist with '-c'
+let g:gist_clip_command = 'pbcopy'
+
+" Gist may recognize the filetype by the suffix
+let g:gist_detect_filetype = 1
+
+" Open browser after posting a Gist
+let g:gist_open_browser_after_post = 1
+
+" Allow password in .gitconfig
+let g:gist_use_password_in_gitconfig = 1
+
+" ### NeoComplete ###
+" ###################
+
+" Mapping
+noremap <leader>nc :NeoCompleteToggle<CR>
+
+" Turn of AutoComplPop.
+let g:acp_enableAtStartup = 0
+
+" Open at Start
+let g:neocomplete#enable_at_startup = 1
+
+" Don’t ignore case, when using a uppercase character
+let g:neocomplete#enable_smart_case = 1
+
+" Minimal keywort length
+let g:neocomplete#auto_completion_start_length = 3
+
+" Plugin key mappings
+inoremap <expr><C-g>     neocomplete#undo_completion()
+
+" <CR>: Clode pop-up and save indentation
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  " return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
+
+" <TAB>: Completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" <C-h>, <BS>: Close pop-up and delete character
+inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" ### Syntastic ###
+" #################
+
+" Enable Airline
+let g:airline#extensions#tabline#enabled = 1
+
+" Use Powerline Fonts for symbolse
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
+" Colorscheme
+let g:airline_theme = 'base16'
+
+" No top bar
+let g:airline#extensions#tabline#enabled = 0
+
+" Airline Whitespace
+let g:airline#extensions#branch#empty_message           = "No SCM"
+let g:airline#extensions#whitespace#enabled             = 1
+let g:airline#extensions#whitespace#symbol              = '!'
+let g:airline#extensions#whitespace#checks              = [ 'indent', 'trailing' ]
+let g:airline#extensions#whitespace#max_lines           = 20000
+let g:airline#extensions#whitespace#show_message        = 1
+let g:airline#extensions#whitespace#trailing_format     = 'trailing[%s]'
+let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
+
+" tmuxline Integration
+let g:airline#extensions#tmuxline#enabled = 1
+
+" Syntax Checker (:SyntasticInfo on a file)
+let g:syntastic_javascript_checkers     = ['eslint']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+let g:syntastic_ruby_checkers           = ['mri', 'rubocop']
+let g:syntastic_css_checkers            = ['stylelint']
+let g:syntastic_scss_checkers           = ['stylelint']
+
+" ### Splice ###
+" ##############
+
+let g:splice_prefix = "<leader>,,"
+
+" ### Gitgutter ###
+" #################
+
+let g:gitgutter_max_signs = 3000
+
+
+" #################
+" ### Functions ###
+" #################
+
+" Show syntax highlighting groups for word under cursor
+" Useful when editing colorschemes.
+nmap <leader><leader>p :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+" Toggle between search highlighting and no highlight
+function! ToggleSearchHighlighting()
+  if &hlsearch
+    set nohlsearch
+  else
+    set hlsearch
+  endif
+endfunction
+
+" Write file, even if the folders don’t exist
+function! HardcoreWrite()
+  execute '! mkdir -p %:h'
+  execute 'write'
+endfunction
+
+command! -register HardcoreWrite silent! call HardcoreWrite() | redraw!
+
+" Escape/unescape HTML
+function! HtmlEscape()
+  silent s/&/\&amp;/eg
+  silent s/</\&lt;/eg
+  silent s/>/\&gt;/eg
+endfunction
+
+function! HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&amp;/\&/eg
+endfunction
+
+" Automatic Tabular.vim with the (|)
+function! s:align()
+  let p = '^\s*|\s.*\s|\s*$'
+  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+    Tabularize/|/l1
+    normal! 0
+    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+  endif
+endfunction
+
+" Show colored columns
+function! ToggleColorColumn()
+  if &colorcolumn
+    highlight ColorColumn ctermbg=Magenta
+    set colorcolumn=
+  else
+    highlight ColorColumn ctermbg=Magenta
+    set colorcolumn=81,101,121
+  endif
+endfunction
+
+" Toggle between soft wrap and no wrap
+function! ToggleWrap()
+  if &wrap
+    echo "Wrap OFF"
+    set nowrap
+    set nolinebreak
+    set list
+    set textwidth=0
+    set virtualedit=all
+    set colorcolumn=
+    silent! nunmap <buffer> <Up>
+    silent! nunmap <buffer> <Down>
+    silent! nunmap <buffer> <Home>
+    silent! nunmap <buffer> <End>
+    silent! iunmap <buffer> <Up>
+    silent! iunmap <buffer> <Down>
+    silent! iunmap <buffer> <Home>
+    silent! iunmap <buffer> <End>
+  else
+    echo "Wrap ON"
+    set wrap
+    set linebreak
+    set nolist
+    set textwidth=0
+    set virtualedit=
+    set colorcolumn=
+    setlocal display+=lastline
+    noremap  <buffer> <silent> <Up>   gk
+    noremap  <buffer> <silent> <Down> gj
+    noremap  <buffer> <silent> <Home> g<Home>
+    noremap  <buffer> <silent> <End>  g<End>
+    inoremap <buffer> <silent> <Up>   <C-o>gk
+    inoremap <buffer> <silent> <Down> <C-o>gj
+    inoremap <buffer> <silent> <Home> <C-o>g<Home>
+    inoremap <buffer> <silent> <End>  <C-o>g<End>
+  endif
+endfunction
+
+" Delete buffer while keeping window layout (don't close buffer's windows).
+" Version 2008-11-18 from http://vim.wikia.com/wiki/VimTip165
+if v:version < 700 || exists('loaded_bclose') || &cp
+  finish
+endif
+let loaded_bclose = 1
+if !exists('bclose_multiple')
+  let bclose_multiple = 1
+endif
+
+" Display an error message.
+function! s:Warn(msg)
+  echohl ErrorMsg
+  echomsg a:msg
+  echohl NONE
+endfunction
+
+" Command ':Bclose' executes ':bd' to delete buffer in current window.
+" The window will show the alternate buffer (Ctrl-^) if it exists,
+" or the previous buffer (:bp), or a blank buffer if no previous.
+" Command ':Bclose!' is the same, but executes ':bd!' (discard changes).
+" An optional argument can specify which buffer to close (name or number).
+function! s:Bclose(bang, buffer)
+  if empty(a:buffer)
+    let btarget = bufnr('%')
+  elseif a:buffer =~ '^\d\+$'
+    let btarget = bufnr(str2nr(a:buffer))
+  else
+    let btarget = bufnr(a:buffer)
+  endif
+  if btarget < 0
+    call s:Warn('No matching buffer for '.a:buffer)
+    return
+  endif
+  if empty(a:bang) && getbufvar(btarget, '&modified')
+    call s:Warn('No write since last change for buffer '.btarget.' (use :Bclose!)')
+    return
+  endif
+  " Numbers of windows that view target buffer which we will delete.
+  let wnums = filter(range(1, winnr('$')), 'winbufnr(v:val) == btarget')
+  if !g:bclose_multiple && len(wnums) > 1
+    call s:Warn('Buffer is in multiple windows (use ":let bclose_multiple=1")')
+    return
+  endif
+  let wcurrent = winnr()
+  for w in wnums
+    execute w.'wincmd w'
+    let prevbuf = bufnr('#')
+    if prevbuf > 0 && buflisted(prevbuf) && prevbuf != w
+      buffer #
+    else
+      bprevious
+    endif
+    if btarget == bufnr('%')
+      " Numbers of listed buffers which are not the target to be deleted.
+      let blisted = filter(range(1, bufnr('$')), 'buflisted(v:val) && v:val != btarget')
+      " Listed, not target, and not displayed.
+      let bhidden = filter(copy(blisted), 'bufwinnr(v:val) < 0')
+      " Take the first buffer, if any (could be more intelligent).
+      let bjump = (bhidden + blisted + [-1])[0]
+      if bjump > 0
+        execute 'buffer '.bjump
+      else
+        execute 'enew'.a:bang
+      endif
+    endif
+  endfor
+  execute 'bdelete'.a:bang.' '.btarget
+  execute wcurrent.'wincmd w'
+endfunction
+command! -bang -complete=buffer -nargs=? Bclose call <SID>Bclose('<bang>', '<args>')
+
+
+" #####################
+" ### Auto commands ###
+" #####################
+
+" Colorscheme changes
+function! s:after_colorscheme()
+  highlight clear SpellBad
+  highlight clear SpellCap
+  highlight clear SpellLocal
+  highlight clear SpellRare
+
+  highlight SpellBad cterm=underline ctermfg=white ctermbg=red
+  highlight SpellCap cterm=underline
+  highlight SpellLocal cterm=underline
+  highlight SpellRare cterm=underline
+  highlight ExtraWhitespace ctermbg=red guibg=red
+endfunction
+
+augroup after_colorscheme
+  autocmd!
+  autocmd ColorScheme * call s:after_colorscheme()
+augroup END
+
+" Show trailing whitespace when moving to a new line or exit mode
+highlight ExtraWhitespace ctermbg=red guibg=red
+augroup WhitespaceMatch
+  " Remove ALL autocommands for the WhitespaceMatch group.
+  autocmd!
+  autocmd BufWinEnter * let w:whitespace_match_number =
+        \ matchadd('ExtraWhitespace', '\s\+$')
+  autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
+  autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
+augroup END
+function! s:ToggleWhitespaceMatch(mode)
+  let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
+  if exists('w:whitespace_match_number')
+    call matchdelete(w:whitespace_match_number)
+    call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
+  else
+    " Something went wrong, try to be graceful.
+    let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
+  endif
+endfunction
+
+" Show VCS conflict marker
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" Delete Fugitive buffer after leaving it
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" Remember cursor position
+augroup line_return
+  autocmd!
+  autocmd BufReadPost *
+        \ if line("'\"") > 1 && line("'\"") <= line("$") |
+        \   exe "normal! g`\"" |
+        \ endif
+augroup END
+
+" Strip whitespace when saving a file
+autocmd BufWritePre * StripWhitespace
+
+" ### File type specific ###
+" ##########################
+
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+
+" Git commit messages syntax
+autocmd BufRead,BufNewFile COMMIT_EDITMSG setfiletype git
+
+" Makefile
+autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+
+" Yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" Misc file types
+autocmd BufNewFile,BufRead *.rss set filetype=xml
+autocmd BufNewFile,BufRead *.json set filetype=json
+autocmd BufNewFile,BufRead *.command set filetype=sh syntax=sh
+autocmd BufNewFile,BufRead *.hbs set filetype=html syntax=handlebars
+autocmd BufNewFile,BufRead *.handlebars set filetype=html syntax=handlebars
+autocmd BufNewFile,BufRead *.hb set filetype=html syntax=handlebars
+autocmd BufNewFile,BufRead .xing set filetype=yaml syntax=yaml
+autocmd BufNewFile,BufRead *.pcss set filetype=css syntax=scss
+autocmd BufNewFile,BufRead *.postcss set filetype=css syntax=scss
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee syntax=coffee
+autocmd BufNewFile,BufRead *.gspec set filetype=gspec syntax=gspec
+
+" ### Stylesheets ###
+" ###################
+augroup ft_css
+  autocmd!
+  autocmd FileType css setlocal foldmethod=marker
+  autocmd FileType scss,sass,less,stylus setlocal foldmethod=indent
+  autocmd FileType css setlocal foldmarker={,}
+  autocmd FileType css,scss,sass,less,stylus setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd Filetype css,scss,sass,less,stylus setlocal iskeyword+=-
+  autocmd Filetype css,scss,sass,less,stylus setlocal ts=2 sts=2 sw=2 expandtab
+
+  " Sort CSS properties (better performance)
+  nnoremap <leader>sc ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
+augroup END
+
+" ### HTML ###
+" ############
+augroup ft_html
+  autocmd!
+  autocmd FileType html,eruby setlocal foldmethod=indent
+  autocmd FileType html,eruby setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd Filetype html,eruby setlocal ts=2 sts=2 sw=2 expandtab
+augroup END
+
+" ### XML ###
+" ###########
+augroup ft_xml
+  autocmd!
+  autocmd FileType xml setlocal foldmethod=indent
+  autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+  autocmd Filetype xml setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType xml set formatprg=xmllint\ --format\ -
+augroup END
+
+" ### JavaScript ###
+" ##################
+augroup ft_javascript
+  autocmd!
+  autocmd FileType javascript setlocal foldmethod=indent
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+  autocmd BufRead,BufNewFile *.jsx setfiletype javascript
+augroup END
+
+" ### JSON ###
+" ############
+augroup ft_json
+  autocmd!
+  autocmd FileType json set formatprg=jq\ '.'
+augroup END
+
+" ### Ruby ###
+" ############
+augroup ft_ruby
+  autocmd!
+  autocmd FileType ruby setlocal foldmethod=syntax
+  autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+  autocmd FileType ruby let g:rubycomplete_buffer_loading = 1
+  autocmd FileType ruby let g:rubycomplete_rails = 1
+  autocmd FileType ruby let g:rubycomplete_classes_in_global = 1
+augroup END
+
+" ### VimScript ###
+" #################
+augroup ft_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" ### Markdown ###
+" ################
+augroup ft_pandoc
+  autocmd!
+  autocmd BufNewFile,BufFilePRe,BufRead *.pdc set filetype=markdown.pandoc
+  autocmd BufNewFile,BufFilePRe,BufRead *.md set filetype=markdown.pandoc
+  autocmd BufNewFile,BufFilePRe,BufRead *.markdown set filetype=markdown.pandoc
+augroup END
+
+
+" #####################
+" ### Abbriviations ###
+" #####################
+
+iab sti Stefan Imhoff
+iab hh  Hamburg
+iab wob Wolfsburg
+
+let g:vimrcloaded = 1

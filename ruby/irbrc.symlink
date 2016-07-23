@@ -1,0 +1,31 @@
+#!/usr/bin/ruby
+require 'irb/completion'
+require 'irb/ext/save-history'
+require 'rubygems'
+
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:AUTO_INDENT] = true
+
+def gem_available?(gemname)
+  if Gem::Specification.methods.include?(:find_all_by_name)
+    not Gem::Specification.find_all_by_name(gemname).empty?
+  else
+    Gem.available?(gemname)
+  end
+end
+
+%x{gem install 'wirble' --no-ri --no-rdoc} unless gem_available?('wirble')
+Gem.refresh
+require 'wirble'
+
+Wirble.init
+Wirble.colorize
+
+colors = Wirble::Colorize.colors.merge({
+ :object_class => :purple,
+ :symbol => :purple,
+ :symbol_prefix => :purple
+})
+Wirble::Colorize.colors = colors

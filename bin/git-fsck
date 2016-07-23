@@ -1,0 +1,22 @@
+#!/usr/bin/python
+#
+# Check all git repositories in a directory recursively
+
+import os
+import os.path
+from subprocess import call
+
+if __name__ == "__main__":
+    apps_dir = os.path.abspath('.')
+    for app_name in os.listdir(apps_dir):
+        app_dir = os.path.abspath(os.path.join(apps_dir, app_name))
+        git_path = os.path.join(app_dir, '.git')
+        if os.path.lexists(git_path):
+            print ""
+            print "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *"
+            print ""
+            print "%s" % app_dir
+            os.chdir(app_dir)
+            call(['git', 'fsck'])
+        else:
+            continue

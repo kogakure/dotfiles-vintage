@@ -1,0 +1,187 @@
+##############
+### Aliase ###
+##############
+
+# Config-Files of ZSH
+alias zshconfig="vim ~/.zshrc"
+alias reload="source ~/.zshrc"
+
+# No autocorrect for these commands
+# unsetopt correct_all
+# unsetopt global
+alias tig="nocorrect tig"
+alias figlet="nocorrect figlet"
+alias gpg="nocorrect gpg"
+alias rake="noglob rake"
+alias bower="noglob bower"
+alias cask="noglob cask"
+alias deploy="bundle exec rake gen_deploy"
+
+# Deploy Octopress Blog
+alias deploy="bundle exec rake gen_deploy"
+
+# Shortcuts
+alias d="cd ~/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+
+# Verzeichnisse
+alias ll='ls -lisa'
+alias la='ls -la'
+alias ls-l='ls -l'
+alias cd..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias mkdir='mkdir -p'
+
+# Finder
+alias goo='open -a Google\ Chrome'
+alias ff='open -a Firefox'
+
+# Memory
+alias memcheck='ps -u $LOGNAME -o pid,rss,command'
+alias tu='top -o cpu' # CPU
+alias tm='top -o vsize' # Memory
+
+# Git
+alias gst='git status -sb'
+alias ga='git add'
+alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
+alias gb='git branch'
+alias gba='git branch -a'
+alias gsb='git show-branch'
+alias gg='git log'
+alias gh='git hist'
+alias gw='git whatchanged'
+alias gwp='git whatchanged -p'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gd='git diff' # Show differences between index and working tree
+alias gdc='git diff --cached' # Show changes in next commit (differences between index and last commit)
+alias gdh='git diff head' # Show difference between files in working tree and last commit
+alias gdt='git difftool'
+alias gfa='git fetch --all'
+alias gl='git pull'
+alias gu='git up'
+alias go='git checkout'
+alias glr='git pull --rebase'
+alias gp='git push'
+alias gpu='git push -u origin HEAD'
+alias gpf='git push -f'
+alias gmb='git merge-base master HEAD'
+alias grbi='git rebase -i '
+alias gsquashall='merge_base_commit=$(git merge-base `git symbolic-ref -q HEAD` master); git rebase -i $merge_base_commit'
+alias grb='git rebase master'
+alias gru='git remote update'
+alias gsl='git submodule foreach git pull'
+alias gsu='git submodule update'
+alias gho='$(git remote -v | grep github | sed -e "s/.*git\:\/\/\([a-z]\.\)*/\1/" -e "s/\.git$//g" -e "s/.*@\(.*\)$/\1/g" | tr ":" "/" | tr -d "\011" | sed -e "s/^/open http:\/\//g")'
+alias glu='git config user.name "Stefan Imhoff"; git config user.email "stefan@imhoff.name";'
+alias upstream-update="git co master; git remote update; git fetch --all; git rebase upstream/master; git co -;"
+alias gpp='PATCHNAME=`git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/"`-`date "+%Y-%m-%d-%H%M.patch"`; git diff --full-index master > ../patches/$PATCHNAME'
+
+# nginx
+alias nginx-up="sudo nginx -c /usr/local/etc/nginx/nginx.conf"
+alias nginx-down="sudo nginx -s stop"
+
+# Bundler
+alias b="bundle"
+alias bi="b install --path vendor"
+alias bu="b update"
+alias be="b exec"
+alias binit="bi && b package && echo 'vendor' >> .gitignore"
+
+# Rails
+alias migrate='rake db:migrate db:rollback && rake db:migrate'
+alias m='migrate'
+alias rk='rake'
+alias s='rspec'
+
+# Vim
+alias ev='vim ~/.vimrc'
+
+# Dotfiles-Ordner
+alias dotfiles="cd $HOME/.dotfiles"
+
+# Pipe my public key to my clipboard
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+
+# Get week number
+alias week='date +%V'
+
+# Stopwatch
+alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, ""); print }'"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
+# Flush Directory Service cache
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+# View HTTP traffic
+alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
+alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
+
+# Canonical hex dump; some systems have this symlinked
+command -v hd > /dev/null || alias hd="hexdump -C"
+
+# OS X has no `md5sum`, so use `md5` as a fallback
+command -v md5sum > /dev/null || alias md5sum="md5"
+
+# OS X has no `sha1sum`, so use `shasum` as a fallback
+command -v sha1sum > /dev/null || alias sha1sum="shasum"
+
+# Trim new lines and copy to clipboard
+alias c="tr -d '\n' | pbcopy"
+
+# Recursively delete `.DS_Store` files
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# ROT13-encode text. Works for decoding, too! ;)
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+
+# Empty the Trash on all mounted volumes and the main HDD
+# Also, clear Apple’s System Logs to improve shell startup speed
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
+
+# Show/hide hidden files in Finder
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+
+# Hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# URL-encode strings
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+# Merge PDF files
+# Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Disable Spotlight
+alias spotoff="sudo mdutil -a -i off"
+
+# Enable Spotlight
+alias spoton="sudo mdutil -a -i on"
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume 7'"
+
+# Kill all the tabs in Chrome to free up memory
+# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"

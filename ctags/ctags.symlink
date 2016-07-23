@@ -1,0 +1,11 @@
+--recurse=yes
+--exclude=.git
+--exclude=db/*
+--exclude=log/*
+--exclude=tmp/*
+--exclude=vendor/*
+--exclude=gems
+--exclude=node_modules/*
+--exclude=public/assets/frontend/*
+--exclude=public/assets/frontend_minified/*
+--exclude=central_sitemap_application/vendor/*

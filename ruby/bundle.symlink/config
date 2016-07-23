@@ -1,0 +1,6 @@
+---
+BUNDLE_BUILD__SKAES-MYSQL: "--with-mysql-lib=/usr/local/mysql/lib --with-mysql-include=/usr/local/mysql/include"
+BUNDLE_BUILD__UUID4R: "--with-opt-include=/usr/local/opt/ossp-uuid/include --with-opt-lib=/usr/local/opt/ossp-uuid/lib"
+BUNDLE_BUILD__LIBV8: "--with-system-v8"
+BUNDLE_BUILD__CHARLOCK_HOLMES: "--with-icu-dir=/usr/local/opt/icu4c"
+BUNDLE_BUILD__EVENTMACHINE: "--with-cppflags=-I/usr/local/opt/openssl/include"

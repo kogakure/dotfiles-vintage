@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Delete all kind of junk files, like Frontpage-Folders,
+# Dreamweaver-Folders, Mac OS X or Windows specific
+# files or Log-Files.
+
+find . -name _borders -exec rm -rf {} \;    # Frontpage
+find . -name _derived -exec rm -rf {} \;    # Frontpage
+find . -name _fpclass -exec rm -rf {} \;    # Frontpage
+find . -name _private -exec rm -rf {} \;    # Frontpage
+find . -name _themes -exec rm -rf {} \;     # Frontpage
+find . -name _vti_cnf -exec rm -rf {} \;    # Frontpage
+find . -name _vti_pvt -exec rm -rf {} \;    # Frontpage
+find . -name _vti_script -exec rm -rf {} \; # Frontpage
+find . -name _vti_txt -exec rm -rf {} \;    # Frontpage
+find . -name _notes -exec rm -rf {} \;      # Dreamweaver
+find . -name .DS_Store -exec rm -rf {} \;   # Mac OSX
+find . -name WS_FTP.LOG -exec rm -rf {} \;  # WS FTP
+find . -name ws_ftp.log -exec rm -rf {} \;  # WS FTP
+find . -name desktop.ini -exec rm -rf {} \; # Windows
+find . -name Thumbs.db -exec rm -rf {} \;   # Windows

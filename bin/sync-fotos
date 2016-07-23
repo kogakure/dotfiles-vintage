@@ -1,0 +1,8 @@
+#!/bin/sh
+rsync -a -v -r \
+  --ignore-existing \
+  --delete \
+  --compress \
+  --exclude '.wdmc' \
+  /Users/kogakure/Pictures/Fotos-Mediathek.photoslibrary/ \
+  /Volumes/Public/Shared\ Pictures/Fotos-Mediathek.photoslibrary/

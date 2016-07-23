@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Convert movies into GIF with a specific time and length
+#
+#         Input     Output   Start Time Duration
+#         |         |        |          |
+#         v         v        v          v
+# gifenc  video.mov anim.gif 12:23      35
+
+start_time=$3
+duration=$4
+
+palette="/tmp/palette.png"
+
+filters="fps=10,scale=480:-1:flags=lanczos"
+
+ffmpeg -v warning -ss $start_time -t $duration -i $1 -vf "$filters,palettegen" -y $palette
+ffmpeg -v warning -ss $start_time -t $duration -i $1 -i $palette -lavfi "$filters [x]; [x][1:v] paletteuse" -y $2

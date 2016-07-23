@@ -1,0 +1,4 @@
+vendor/
+vim/vim.symlink/.netrwbook
+vim/vim.symlink/plugged
+system/config.symlink/htop

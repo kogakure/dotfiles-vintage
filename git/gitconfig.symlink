@@ -1,0 +1,87 @@
+[user]
+  name = Stefan Imhoff
+  email = stefan@imhoff.name
+[init]
+  templatedir = ~/.git-templates
+[commit]
+  template = ~/.gitmessage
+[include]
+  path = ~/.gitconfig.local
+[help]
+  autocorrect = 1
+[core]
+  legacyheaders = false
+  excludesfile = ~/.gitignore
+  editor = vim
+  whitespace = trailing-space,space-before-tab
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  rb = rebase
+  cp = cherry-pick
+  dt = difftool
+  hist = log --color --graph --decorate --abbrev-commit --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)[%an]%Creset' --abbrev-commit --
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  unstage = reset HEAD --
+  merged = "branch --merged"
+  unmerged = "branch --no-merge"
+  ignored = "ls-files --others --directory"
+  assume = update-index --assume-unchanged
+  unassume = update-index --no-assume-unchanged
+  assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+  unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+  assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+[apply]
+  whitespace = fix
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+  ui = 1
+[push]
+  default = upstream
+[i18n]
+  commitencoding = UTF-8
+  logoutputencoding = UTF-8
+[repack]
+  usedeltabaseoffset = true
+[branch]
+  autosetupmerge = true
+[diff]
+  tool = Kaleidoscope
+[difftool]
+  prompt = false
+[difftool "Kaleidoscope"]
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[merge]
+  conflictstyle = diff3
+  tool = Kaleidoscope
+[mergetool]
+  prompt = false
+[mergetool "Kaleidoscope"]
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
+[pager]
+  diff =
+[rebase]
+  autosquash = true
+[rerere]
+  enabled = 1
+[filter "media"]
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
+[fetch]
+  prune = true
+[filter "hawser"]
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[web]
+  browser = open

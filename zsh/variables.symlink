@@ -1,0 +1,60 @@
+###############
+### Exports ###
+###############
+
+export DOTFILES="$HOME/.dotfiles"
+
+export TERM=xterm-256color-italic
+
+# Paths
+PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/sbin:$PATH"
+PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+PATH="$HOME/.dotfiles/bin:$PATH"
+export PATH
+
+# https://github.com/rupa/z
+source "$(brew --prefix)/etc/profile.d/z.sh"
+
+# npm completion
+if npm -v >/dev/null 2>&1; then
+  . <(npm completion)
+fi
+
+# nvm (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# rbenv
+export RBENV_ROOT="$HOME/.rbenv/"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# Node.js
+export NODE_PATH="$(npm root -g)"
+
+# Man
+export MANPATH="/usr/local/man:$MANPATH"
+
+# Git HTTP Proxy with CURL
+export GIT_CURL_VERBOSE="1"
+
+# Required for mysql to compile correctly on snow leopard
+export ARCHFLAGS="-arch x86_64"
+
+# Editors
+export EDITOR="vim"
+export CVSEDITOR="vim"
+export SVN_EDITOR="vim"
+export GIT_EDITOR="vim"
+export VMAIL_VIM="vim"
+
+# Pow
+export POW_DOMAINS='dev,test,localtld'
+
+# Highlight section titles in manual pages
+export LESS_TERMCAP_md="$ORANGE"
+
+unset USERNAME

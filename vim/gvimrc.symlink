@@ -1,0 +1,50 @@
+if has("gui_macvim")
+    macmenu &File.New\ Tab key=<nop>
+    macmenu &File.Save\ As\.\.\. key=<nop>
+    nnoremap <D-left> :vertical resize -5<CR>
+    nnoremap <D-down> :resize +5<CR>
+    nnoremap <D-up> :resize -5<CR>
+    nnoremap <D-right> :vertical resize +5<CR>
+endif
+
+if has("gui_running")
+" Font and size for MacVim
+  set guifont=Roboto\ Mono:h16
+
+  set t_Co=256
+
+  " MacVim - Antialias for fonts
+  set antialias
+
+  " Width of the window
+  set columns=130
+
+  " Colorscheme
+  colorscheme base16-tomorrow-night
+
+  " Height of the window
+  set lines=40
+
+  " Cursor styling in GVim
+  set guicursor=n-v-c:block-Cursor-blinkon0
+  set guicursor+=ve:ver35-Cursor
+  set guicursor+=o:hor50-Cursor
+  set guicursor+=i-ci:ver25-Cursor
+  set guicursor+=r-cr:hor20-Cursor
+  set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+
+  " Hide toolbar
+  set guioptions-=T
+
+  " Hide menu
+  set guioptions-=m
+
+  " Hide right scrollbar
+  " set guioptions-=r
+
+  " Hide left scrollbar
+  set guioptions-=l
+
+  " Hide left scrollbar with multiple buffers
+  set guioptions-=L
+endif

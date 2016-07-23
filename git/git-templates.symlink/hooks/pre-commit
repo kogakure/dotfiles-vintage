@@ -1,0 +1,10 @@
+#!/bin/sh
+
+GIT_DIFF=`git diff --cached | ack '\+.*(logger\.debug|debugger|binding\.pry|console\.log|\[RES\]|\[i18n\]|@TODO|@todo|@FIXME|@fixme)'`
+
+if [ $? -eq 0 ]
+then
+  echo "Didn’t commit because of some stop words. Fix it or run 'git commit --no-verify'"
+  echo $GIT_DIFF
+  exit 1
+fi

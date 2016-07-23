@@ -1,0 +1,94 @@
+#########################
+### Zsh Configuration ###
+#########################
+
+# Path to oh-my-zsh configuration
+ZSH=$HOME/.oh-my-zsh
+
+# Zsh theme
+ZSH_THEME="kogakure"
+
+# Case-sensitive completion
+CASE_SENSITIVE="true"
+
+# Fisable autosetting terminal title
+DISABLE_AUTO_TITLE="true"
+
+# Red dots to be displayed while waiting for completion
+COMPLETION_WAITING_DOTS="true"
+
+# Plugins to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+plugins=(
+  bower
+  brew brew-cask
+  colored-man-pages man
+  colorize
+  docker
+  extract
+  fabric
+  git git-extras gitignore
+  gpg-agent
+  grunt gulp
+  history-substring-search
+  jira
+  node npm nvm
+  pip
+  bundler capistrano gem rails rake rbenv ruby thor zeus
+  rsync
+  sudo
+  tmux tmux-cssh tmuxinator
+  vagrant virtualenv
+  z
+  zsh-syntax-highlighting
+)
+
+# Load exported shell variables
+source $HOME/.variables
+
+# Load oh-my-zsh
+source $ZSH/oh-my-zsh.sh
+
+# Load custom functions and aliases after .oh-my-zsh
+# to prevent plugins overwriting my defaults
+source $HOME/.aliases
+source $HOME/.functions
+
+# Vi-Mode
+bindkey -v
+
+# GRC colorizes nifty unix tools all over the place
+if $(grc &>/dev/null)
+then
+  source `brew --prefix`/etc/grc.bashrc
+fi
+
+# Initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# Switch between light/dark themes
+if [ "$BACKGROUND" = "light" ]; then
+  export THEME="base16-tomorrow"
+  BACKGROUND=""
+else
+  export THEME="base16-tomorrow-night"
+fi
+
+# Base16 Shell
+BASE16_SHELL="$DOTFILES/config/base16-shell/scripts/$THEME.sh"
+source $BASE16_SHELL
+
+# Fish shell like syntax highlighting for zsh
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Load every completion
+for config_file ($DOTFILES/**/completion/*.zsh) source $config_file
+
+# Local overwrites (Top Secret stuff)
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+# Increase ulimit
+ulimit 32768

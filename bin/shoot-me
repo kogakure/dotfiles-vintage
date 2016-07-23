@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+file="~/Downloads/#{Time.now.strftime("%Y-%m-%d-%H%m%S")}.jpg"
+system "/usr/local/bin/imagesnap -q -w 3 #{file}"
+exit 0

@@ -1,0 +1,2 @@
+/*jslint devel: true, white: true, nomen: true, sloppy: false, regexp: true, bitwise: true, newcap: true, maxerr: 500, maxlen: 150, nomen: true, plusplus: false, indent: 4, undef: true */
+/*global xing, Class, jQuery, assertEquals, assertTrue, assertFalse, assertNotEquals, assertMatch, assertException, _, $, describe, beforeEach, it, expect, define*/

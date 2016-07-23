@@ -1,0 +1,26 @@
+#!/bin/bash
+#
+# Delete LaTeX processing files
+
+find ./ -type f -name "*.aux" -exec rm -f {} \;
+find ./ -type f -name "*.glo" -exec rm -f {} \;
+find ./ -type f -name "*.idx" -exec rm -f {} \;
+find ./ -type f -name "*.log" -exec rm -f {} \;
+find ./ -type f -name "*.toc" -exec rm -f {} \;
+find ./ -type f -name "*.ist" -exec rm -f {} \;
+find ./ -type f -name "*.acn" -exec rm -f {} \;
+find ./ -type f -name "*.acr" -exec rm -f {} \;
+find ./ -type f -name "*.alg" -exec rm -f {} \;
+find ./ -type f -name "*.bbl" -exec rm -f {} \;
+find ./ -type f -name "*.blg" -exec rm -f {} \;
+find ./ -type f -name "*.dvi" -exec rm -f {} \;
+find ./ -type f -name "*.glg" -exec rm -f {} \;
+find ./ -type f -name "*.gls" -exec rm -f {} \;
+find ./ -type f -name "*.ilg" -exec rm -f {} \;
+find ./ -type f -name "*.ind" -exec rm -f {} \;
+find ./ -type f -name "*.lof" -exec rm -f {} \;
+find ./ -type f -name "*.lot" -exec rm -f {} \;
+find ./ -type f -name "*.maf" -exec rm -f {} \;
+find ./ -type f -name "*.mtc" -exec rm -f {} \;
+find ./ -type f -name "*.mtc1" -exec rm -f {} \;
+find ./ -type f -name "*.out" -exec rm -f {} \;

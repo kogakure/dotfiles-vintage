@@ -1,0 +1,21 @@
+#!/bin/sh
+rsync -v -r --ignore-existing \
+            --delete \
+            --compress \
+            --exclude 'iPod Games/' \
+            --exclude 'Mobile Applications/' \
+            --exclude 'Previous iTunes Libraries/' \
+            --exclude 'Album Artwork/' \
+            --exclude 'Alfred Album Artwork/' \
+            --exclude 'iTunes Music/Movies/' \
+            --exclude 'iTunes Music/Podcasts/' \
+            --exclude 'iTunes Music/Ringtones/' \
+            --exclude 'iTunes Music/Tones/' \
+            --exclude 'iTunes Music/iTunes U/' \
+            --exclude 'iTunes Music/TV Shows/' \
+            --exclude '.wdmc' \
+            --exclude '*.pdf' \
+            --exclude '*.m4v' \
+            --exclude '*.epub' \
+            /Users/kogakure/Music/iTunes/ \
+            /Volumes/Public/Shared\ Music/iTunes/

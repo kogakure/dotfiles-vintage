@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Create a repo on the Desktop and clone it --bare for export.
+# Usage: git-repo-bare <repo_name>
+
+if [ $# -ne 1 ]; then
+  echo 1>&2 Usage: repo \<repo_name\>
+  exit 127
+fi
+
+cd ~/Desktop/
+mkdir $1.git
+cd $1.git
+git --bare init --shared
+touch GITWEB_EXPORT_OK
+touch git-daemon-export-ok
+touch category
+touch description
+git --bare update-server-info
+mv hooks/post-update.sample hooks/post-update
+chmod a+x hooks/post-update
