@@ -28,4 +28,4 @@ gem install rubocop
 gem install tmuxinator
 
 # Manage working with development enviroment
-gem install xing-scripts
+gem install xing-scripts --source=http://gems.xing.com/
