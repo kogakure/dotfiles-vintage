@@ -60,7 +60,7 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 
 -- Big Monitor as Primary, Notebook as Secondary
 local LAYOUT_DUAL = {
-  {"2Do",           nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"2Do",           nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
   {"Day One",       nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
   {"Evernote",      nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Firefox",       nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
