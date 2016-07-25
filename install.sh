@@ -19,6 +19,7 @@ cp ~/.dotfiles/zsh/oh-my-zsh/themes/kogakure.zsh-theme ~/.oh-my-zsh/custom/theme
 git submodule update --init --recursive
 
 # Linking files
+rm ~/.zshrc # Remove ~/.zshrc created by .oh-my-zsh
 source install/link.sh
 
 # Installing Homebrew packages
