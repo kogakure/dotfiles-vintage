@@ -51,4 +51,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ~/.tmux/plugins/tpm/bin/install_plugins
 
 # Install Vim plugins
-vim +PlugInstall +qall
+vim -u ~/.vimrc.bundles +PlugInstall +qall
