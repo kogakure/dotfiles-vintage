@@ -17,9 +17,6 @@ alias bower="noglob bower"
 alias cask="noglob cask"
 alias deploy="bundle exec rake gen_deploy"
 
-# Deploy Octopress Blog
-alias deploy="bundle exec rake gen_deploy"
-
 # Shortcuts
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
