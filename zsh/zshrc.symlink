@@ -85,7 +85,7 @@ source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 for config_file ($DOTFILES/**/completion/*.zsh) source $config_file
 
 # Local overwrites (Top Secret stuff)
-if [[ -a ~/.localrc ]]
+if [[ -e ~/.localrc ]]
 then
   source ~/.localrc
 fi

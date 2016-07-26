@@ -7,20 +7,16 @@ tic tmux/tmux-256color-italic.terminfo
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-chsh -s /bin/zsh
-
-# Install custom oh-my-zsh theme
-mkdir -p ~/.oh-my-zsh/custom/themes/
-cp ~/.dotfiles/zsh/oh-my-zsh/themes/kogakure.zsh-theme ~/.oh-my-zsh/custom/themes/
-
 # Initializing submodules
 git submodule update --init --recursive
 
 # Linking files
 rm ~/.zshrc # Remove ~/.zshrc created by .oh-my-zsh
 source install/link.sh
+
+# Install custom oh-my-zsh theme
+mkdir -p ~/.oh-my-zsh/custom/themes/
+cp ~/.dotfiles/zsh/kogakure.zsh-theme ~/.oh-my-zsh/custom/themes/
 
 # Installing Homebrew packages
 source install/brew.sh
@@ -52,3 +48,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # Install Vim plugins
 vim -u ~/.vimrc.bundles +PlugInstall +qall
+
+# Activate zsh
+chsh -s /bin/zsh
