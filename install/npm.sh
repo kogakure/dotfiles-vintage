@@ -38,6 +38,10 @@ npm install -g eslint-plugin-node
 npm install -g eslint-plugin-react
 npm install -g eslint-plugin-redux
 
+# Express' application generator
+# ➜ express myapp --hogan -c less
+npm install -g express-generator
+
 # Test your download speed using fast.com
 # ➜ fast
 npm install -g fast-cli
@@ -68,6 +72,9 @@ npm install -g lerna@^2.0.0-beta
 
 # simple, flexible, fun test framework
 npm install -g mocha
+
+# Simple monitor script for use during development of a node.js app.
+npm install -g nodemon
 
 # Check for outdated, incorrect, and unused dependencies.
 # ➜ npm-check -g
