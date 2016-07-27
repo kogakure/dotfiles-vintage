@@ -100,6 +100,9 @@ brew install multimarkdown
 # Open source relational database management system
 brew install mysql
 
+# Ambitious Vim-fork focused on extensibility and agility
+brew install neovim
+
 # Swiss-army knife of markup format conversion
 brew install pandoc
 

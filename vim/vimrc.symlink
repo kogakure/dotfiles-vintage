@@ -166,7 +166,7 @@ set showmode
 set mousehide
 
 " Active mouse in terminal mode
-set mouse=a ttymouse=xterm2
+" set mouse=a ttymouse=xterm2
 
 " Don’t syntax highlight lines longer than 800 characters
 set synmaxcol=800
@@ -198,8 +198,8 @@ set scrolloff=3
 set virtualedit=all
 
 " Remove fixed password for encryption (:X)
-set key=
-set cryptmethod=blowfish
+" set key=
+" set cryptmethod=blowfish
 
 " Better command line completion
 set wildmenu
