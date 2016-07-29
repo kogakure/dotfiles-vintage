@@ -94,6 +94,9 @@ brew install macvim --with-lua
 # High performance, distributed memory object caching system
 brew install memcached
 
+# High-performance, schema-free, document-oriented database
+brew install mongodb
+
 # Turn marked-up plain text into well-formatted documents
 brew install multimarkdown
 

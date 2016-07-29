@@ -64,6 +64,7 @@ brew cask install omnigraffle
 brew cask install opera
 brew cask install origin
 brew cask install p4merge
+brew cask install robomongo
 brew cask install seil
 brew cask install sequel-pro
 brew cask install sitesucker
