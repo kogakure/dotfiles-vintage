@@ -540,6 +540,7 @@ nmap <Leader>vb :VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
 let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#spell#default_langs = ['de_de', 'en_us']
+let g:pandoc#spell#enabled = 0
 
 " ### AutoSave ###
 " ################
