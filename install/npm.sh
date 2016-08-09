@@ -12,6 +12,9 @@ npm install -g babel-eslint
 # Browser package manager
 npm install -g bower
 
+# Live CSS Reload & Browser Syncing
+npm install -g browser-sync
+
 # caniuse for the command line
 # ➜ caniuse border-radius
 npm install -g caniuse-cmd
