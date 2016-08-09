@@ -253,7 +253,7 @@ nnoremap <leader>th :call ToggleSearchHighlighting()<CR>
 set incsearch
 
 " Show invisibles (tabs, line endings etc.)
-set list
+" set list
 
 " Choose symbols to show invisibles
 set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮,space:·
