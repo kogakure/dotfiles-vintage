@@ -52,6 +52,7 @@
   autosetupmerge = true
 [diff]
   tool = Kaleidoscope
+  algorithm = patience
 [difftool]
   prompt = false
 [difftool "Kaleidoscope"]
