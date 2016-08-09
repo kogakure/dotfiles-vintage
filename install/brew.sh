@@ -23,6 +23,9 @@ brew install ack
 # Bourne-Again SHell, a UNIX command interpreter
 brew install bash
 
+# Statistics utility to count lines of code
+brew install cloc
+
 # JavaScript optimizing compiler
 brew install closure-compiler
 
