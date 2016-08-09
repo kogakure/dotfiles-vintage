@@ -66,6 +66,9 @@ npm install -g gifify
 # The streaming build system
 npm install -g gulp
 
+# A fast, simple & powerful blog framework
+npm install -g hexo-cli
+
 # Small JSON file server for REST API mock
 # ➜ touch db.json; json-server --watch db.json
 npm install -g json-server
@@ -95,6 +98,9 @@ npm install -g pageres-cli
 # ➜ prettyjson package.json
 # ➜ curl https://api.github.com/users/rafeca | prettyjson
 npm install -g prettyjson
+
+# A toolkit for rapid advanced front-end development
+npm install -g roots
 
 # Modern CSS linter
 npm install -g stylelint
