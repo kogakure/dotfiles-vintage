@@ -101,7 +101,8 @@ Plug 'tpope/vim-haml',                   { 'for': 'haml' }
 Plug 'tpope/vim-liquid',                 { 'for': 'liquid' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
 Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
-Plug 'digitaltoad/vim-jade',             { 'for': 'jade' }
+Plug 'digitaltoad/vim-pug',              { 'for': 'pug' }
+Plug 'briancollins/vim-jst',             { 'for': 'jst' }
 
 " JavaScript
 Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
