@@ -81,6 +81,9 @@ brew install gsl
 # User-friendly cURL replacement (command-line HTTP client
 brew install httpie
 
+# Configurable static site generator
+brew install hugo
+
 # Tools and libraries to manipulate images in many formats
 brew install imagemagick --with-fontconfig
 

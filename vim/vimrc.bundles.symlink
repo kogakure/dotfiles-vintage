@@ -113,7 +113,6 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'elzr/vim-json',                          { 'for': 'json' }
 
-
 " Ruby & Rails
 Plug 'tpope/vim-rails',          { 'for': ['ruby', 'eruby'] }
 Plug 'vim-ruby/vim-ruby',        { 'for': ['ruby', 'eruby'] }
@@ -126,6 +125,7 @@ Plug 'dsawardekar/wordpress'
 
 " Misc
 Plug 'xolox/vim-lua-ftplugin',   { 'for': 'lua' }
+Plug 'cespare/vim-toml',         { 'for': 'toml' }
 Plug 'evanmiller/nginx-vim-syntax'
 Plug 'benmills/vimux'
 Plug 'skalnik/vim-vroom'
