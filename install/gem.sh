@@ -24,6 +24,9 @@ gem install pygmentize
 # Automatic Ruby code style checking tool. Aims to enforce the community-driven Ruby Style Guide.
 gem install rubocop
 
+# Get a report with seo relevant data for a given URL
+gem install seo_report
+
 # Create and manage complex tmux sessions easily.
 gem install tmuxinator
 
