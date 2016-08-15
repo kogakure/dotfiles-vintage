@@ -136,6 +136,10 @@ brew install redis
 # Library for command-line editing
 brew install readline
 
+# Convert between TOML, YAML and JSON
+# ➜ toml2yaml -i test.toml -o test.yml; json2toml, yaml2toml etc.
+brew install remarshal
+
 # Powerful, clean, object-oriented scripting language
 brew install ruby
 
@@ -149,6 +153,7 @@ brew install sqlite
 brew install ssh-copy-id
 
 # Code-search similar to ack
+# ➜ ag
 brew install the_silver_searcher
 
 # Terminal multiplexer
