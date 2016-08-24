@@ -61,6 +61,7 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 -- Big Monitor as Primary, Notebook as Secondary
 local LAYOUT_DUAL = {
   {"2Do",           nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
+  {"Amazon Music",  nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
   {"Day One",       nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
   {"Evernote",      nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Firefox",       nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
@@ -71,13 +72,14 @@ local LAYOUT_DUAL = {
   {"Safari",        nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Skitch",        nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Sonos",         nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Spotify",       nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"Spotify",       nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
   {"iTerm2",        nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
 }
 
 --  Notebook
 local LAYOUT_NOTEBOOK = {
   {"2Do",           nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
+  {"Amazon Music",  nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Day One",       nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Evernote",      nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Firefox",       nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
@@ -150,6 +152,7 @@ hotkey.bind(KEY_SCM, "down", function() window.focusedWindow():moveOneScreenSout
 hotkey.bind(KEY_SCM, "j",    function() window.focusedWindow():moveOneScreenSouth(); push(0, 0, 1, 1) end)
 
 -- Application shortcuts
+hotkey.bind(KEY_SCAM, "A", function() application.launchOrFocus("Amazon Music") end)
 hotkey.bind(KEY_SCAM, "C", function() application.launchOrFocus("Google Chrome") end)
 hotkey.bind(KEY_SCAM, "D", function() application.launchOrFocus("Affinity Designer") end)
 hotkey.bind(KEY_SCAM, "E", function() application.launchOrFocus("Evernote") end)
