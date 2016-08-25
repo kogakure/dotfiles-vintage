@@ -541,6 +541,7 @@ let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
 let g:pandoc#modules#disabled = ["folding"]
 let g:pandoc#spell#default_langs = ['de_de', 'en_us']
 let g:pandoc#spell#enabled = 0
+let g:pandoc#folding#fold_fenced_codesblocks = 0
 
 " ### AutoSave ###
 " ################
