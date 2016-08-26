@@ -63,8 +63,8 @@ npm install -g gatsby
 # Convert any video file to an optimized animated GIF
 npm install -g gifify
 
-# The streaming build system
-npm install -g gulp
+# Command line interface for gulp
+npm install -g gulp-cli
 
 # Small JSON file server for REST API mock
 # ➜ touch db.json; json-server --watch db.json
