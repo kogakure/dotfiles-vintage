@@ -166,7 +166,9 @@ set showmode
 set mousehide
 
 " Active mouse in terminal mode
-set mouse=a ttymouse=xterm2
+if !has('nvim')
+  set mouse=a ttymouse=xterm2
+endif
 
 " Don’t syntax highlight lines longer than 800 characters
 set synmaxcol=800
@@ -198,8 +200,10 @@ set scrolloff=3
 set virtualedit=all
 
 " Remove fixed password for encryption (:X)
-set key=
-set cryptmethod=blowfish
+if !has('nvim')
+  set key=
+  set cryptmethod=blowfish
+endif
 
 " Better command line completion
 set wildmenu
@@ -552,10 +556,12 @@ let g:auto_save = 0
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 0
 
+
 " ### JSX ###
 " ###########
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
 
 " ### Vim-JavaScript ###
 " ######################
@@ -572,6 +578,7 @@ let g:javascript_conceal_static         = "•"
 let g:javascript_conceal_super          = "Ω"
 let g:javascript_conceal_arrow_function = "⇒"
 
+
 " ### Emmet ###
 " #############
 
@@ -579,10 +586,12 @@ autocmd FileType html,eruby imap <tab> <plug>(emmet-expand-abbr)
 autocmd FileType css,scss,pcss,postcss imap <tab> <plug>(emmet-expand-abbr)
 autocmd FileType javascript imap <tab> <plug>(emmet-expand-abbr)
 
+
 " ### Fugitive ###
 " ################
 
 let g:fugitive_github_domains = ['source.xing.com']
+
 
 " ### XPTemplate ###
 " ##################
@@ -596,11 +605,13 @@ let g:xptemplate_vars = "SParg=''"
 " Name and Email
 let g:xptemplate_vars = "author=Stefan Imhoff&email=stefan@imhoff.name"
 
+
 " ### Vim-JSON ###
 " ################
 
 " Don’t conseal punctuation
 let g:vim_json_syntax_conceal = 0
+
 
 " ### Vim-Move ###
 " ################
@@ -608,11 +619,13 @@ let g:vim_json_syntax_conceal = 0
 " Use CTRL instead of ALT
 let g:move_key_modifier = "S-C"
 
+
 " ### Tablular ###
 " ################
 
 " Automatic Mapping with pipe
 inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
+
 
 " ### Vim-Commentary ###
 " ######################
@@ -620,10 +633,12 @@ inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 autocmd FileType apache set commentstring=#\ %s
 autocmd FileType gspec set commentstring=#\ %s
 
+
 " ### Vim-Speeddating ###
 " #######################
 
 autocmd VimEnter * SpeedDatingFormat %d.%m.%Y
+
 
 " ### Vim-Session ###
 " ###################
@@ -633,25 +648,31 @@ let g:session_autoload = 'no'
 let g:session_autosave_periodic = "5"
 let g:session_default_name = 'default'
 
+
 " ### Numbers ###
 " ###############
 
 " Exclude plugins
 let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl']
 
+
 " ### Dispatch ###
 " ################
 
 noremap <leader>dp :Dispatch
 
+
 " ### Tern ###
 " ############
 
-" Activate mappings (http://usevim.com/files/tern_keyboard.pdf)
-let g:tern_map_keys=1
+if !has("nvim") && has("python3")
+  " Activate mappings (http://usevim.com/files/tern_keyboard.pdf)
+  let g:tern_map_keys=1
 
-" Show hints when stopping typing
-let g:tern_show_argument_hints='on_hold'
+  " Show hints when stopping typing
+  let g:tern_show_argument_hints='on_hold'
+endif
+
 
 " ### Unite ###
 " #############
@@ -687,10 +708,12 @@ function! s:unite_settings()
   imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
 endfunction
 
+
 " ### Ag ###
 " ##########
 
 nnoremap <leader>ag :Ag<space>
+
 
 " ### Gundo ###
 " #############
@@ -698,11 +721,13 @@ nnoremap <leader>ag :Ag<space>
 " Toggle Gundo
 nnoremap <leader>gu :GundoToggle<CR>
 
+
 " ### JavaScript Libraries Syntax ###
 " ###################################
 
 " Use specific libraries
 let g:used_javascript_libs = 'jquery,underscore,backbone,react,flux,requirejs,jasmine,chai'
+
 
 " ### Gist ###
 " ############
@@ -719,48 +744,60 @@ let g:gist_open_browser_after_post = 1
 " Allow password in .gitconfig
 let g:gist_use_password_in_gitconfig = 1
 
+
 " ### NeoComplete ###
 " ###################
 
-" Mapping
-noremap <leader>nc :NeoCompleteToggle<CR>
+if has("lua")
+  " Mapping
+  noremap <leader>nc :NeoCompleteToggle<CR>
 
-" Turn of AutoComplPop.
-let g:acp_enableAtStartup = 0
+  " Open at Start
+  let g:neocomplete#enable_at_startup = 1
 
-" Open at Start
-let g:neocomplete#enable_at_startup = 1
+  " Turn of AutoComplPop.
+  let g:acp_enableAtStartup = 0
 
-" Don’t ignore case, when using a uppercase character
-let g:neocomplete#enable_smart_case = 1
+  " Don’t ignore case, when using a uppercase character
+  let g:neocomplete#enable_smart_case = 1
 
-" Minimal keywort length
-let g:neocomplete#auto_completion_start_length = 3
+  " Minimal keywort length
+  let g:neocomplete#auto_completion_start_length = 3
 
-" Plugin key mappings
-inoremap <expr><C-g>     neocomplete#undo_completion()
+  " Plugin key mappings
+  inoremap <expr><C-g>     neocomplete#undo_completion()
 
-" <CR>: Clode pop-up and save indentation
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  " return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
+  " <CR>: Clode pop-up and save indentation
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    " return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
 
-" <TAB>: Completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <TAB>: Completion
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" <C-h>, <BS>: Close pop-up and delete character
-inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+  " <C-h>, <BS>: Close pop-up and delete character
+  inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplete#close_popup()
+  inoremap <expr><C-e>  neocomplete#cancel_popup()
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+  " Enable heavy omni completion.
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
 endif
+
+
+" ### Deoplete ###
+" ################
+
+if has("nvim") && has("python3")
+  let g:deoplete#enable_at_startup = 1
+endif
+
 
 " ### Syntastic ###
 " #################
@@ -799,10 +836,30 @@ let g:syntastic_ruby_checkers           = ['mri', 'rubocop']
 let g:syntastic_css_checkers            = ['stylelint']
 let g:syntastic_scss_checkers           = ['stylelint']
 
+
+" ### Neomake ###
+" ###############
+
+if has("neovim")
+  " Run NeoMake on read and write operations
+  autocmd! BufReadPost,BufWritePost * Neomake
+
+  " Disable inherited syntastic
+  let g:syntastic_mode_map = {
+        \ "mode": "passive",
+        \ "active_filetypes": [],
+        \ "passive_filetypes": [] }
+
+  let g:neomake_serialize = 1
+  let g:neomake_serialize_abort_on_error = 1
+endif
+
+
 " ### Splice ###
 " ##############
 
 let g:splice_prefix = "<leader>,,"
+
 
 " ### Gitgutter ###
 " #################

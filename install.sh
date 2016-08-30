@@ -43,5 +43,8 @@ source install/tmux-plugins.sh
 # Install Vim plugins
 source install/vim-plugins.sh
 
+# Symlink Neovim
+source install/neovim.sh
+
 # Activate zsh
 chsh -s /bin/zsh
