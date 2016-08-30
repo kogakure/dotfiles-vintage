@@ -174,6 +174,9 @@ brew install wget
 # Tracks most-used directories to make cd smarter
 brew install z
 
+# High-performance, asynchronous messaging library
+brew install zeromq32
+
 # UNIX shell (command interpreter)
 brew install zsh
 

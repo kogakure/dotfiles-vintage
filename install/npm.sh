@@ -96,6 +96,9 @@ npm install -g pageres-cli
 # ➜ curl https://api.github.com/users/rafeca | prettyjson
 npm install -g prettyjson
 
+# CLI for postcss
+npm install -g postcss-cli
+
 # Modern CSS linter
 npm install -g stylelint
 
