@@ -109,6 +109,9 @@ brew install multimarkdown
 # Open source relational database management system
 brew install mysql
 
+# ISO-C API and CLI for generating UUIDs
+brew install ossp-uuid
+
 # Swiss-army knife of markup format conversion
 brew install pandoc
 
