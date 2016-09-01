@@ -2,3 +2,4 @@ vendor/
 vim/vim.symlink/.netrwbook
 vim/vim.symlink/plugged
 vim/vim.symlink/init.vim
+bin/sync-server-*
