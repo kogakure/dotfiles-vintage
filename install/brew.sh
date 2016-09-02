@@ -115,6 +115,9 @@ brew install ossp-uuid
 # Swiss-army knife of markup format conversion
 brew install pandoc
 
+# Framework for layout and rendering of i18n text
+brew install pango
+
 # Interpreted, interactive, object-oriented programming language
 brew install python
 
@@ -178,7 +181,7 @@ brew install wget
 brew install z
 
 # High-performance, asynchronous messaging library
-brew install zeromq32
+brew install zeromq
 
 # UNIX shell (command interpreter)
 brew install zsh
