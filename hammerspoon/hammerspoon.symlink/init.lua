@@ -61,7 +61,7 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 -- Big Monitor as Primary, Notebook as Secondary
 local LAYOUT_DUAL = {
   {"2Do",           nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
-  {"Amazon Music",  nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
+  {"Amazon Music",  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Day One",       nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
   {"Evernote",      nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Firefox",       nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
@@ -72,7 +72,7 @@ local LAYOUT_DUAL = {
   {"Safari",        nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Skitch",        nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Sonos",         nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Spotify",       nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
+  {"Spotify",       nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"iTerm2",        nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
 }
 
