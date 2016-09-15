@@ -19,6 +19,10 @@ npm install -g browser-sync
 # ➜ caniuse border-radius
 npm install -g caniuse-cmd
 
+# CSSO (CSS Optimizer) is a CSS minifier with structural optimisations
+# ➜ csso in.css out.css
+npm install -g csso
+
 # runs Node.js programs through Chromium DevTools
 # ➜ devtool src/app.js
 npm install -g devtool
