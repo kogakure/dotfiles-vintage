@@ -63,7 +63,7 @@ local LAYOUT_DUAL = {
   {"2Do",           nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
   {"Amazon Music",  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Day One",       nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
-  {"Evernote",      nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"Evernote",      nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Firefox",       nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Chrome", nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"HipChat",       nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
