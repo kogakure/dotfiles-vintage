@@ -58,6 +58,7 @@ endif
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'Konfekt/FastFold'
 
 " ### Commands/Shell ###
 " ######################
