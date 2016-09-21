@@ -9,7 +9,6 @@ export TERM=xterm-256color-italic
 # Paths
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
-PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 export PATH
 
