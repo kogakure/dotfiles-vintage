@@ -74,6 +74,9 @@ else
   export THEME="base16-tomorrow-night"
 fi
 
+# Fix 'macos sierra: [warn]: kq_init: detected broken kqueue; not using.'
+export EVENT_NOKQUEUE=1
+
 # Base16 Shell
 BASE16_SHELL="$DOTFILES/config/base16-shell/scripts/$THEME.sh"
 source $BASE16_SHELL
