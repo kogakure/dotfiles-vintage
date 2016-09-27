@@ -33,7 +33,7 @@ set-window-option -g status-left " #S "
 set-window-option -g status-left-fg black
 set-window-option -g status-left-bg white
 
-set-window-option -g status-right " #{battery_icon}#{battery_percentage} #{online_status} %d.%m.%Y %H:%M "
+set-window-option -g status-right " #{battery_icon} #{battery_percentage} #{online_status} %d.%m.%Y %H:%M "
 set-window-option -g status-right-fg black
 set-window-option -g status-right-bg white
 
@@ -76,7 +76,7 @@ bind p run "tmux paste-buffer"
 
 set -g @shell_mode 'vi'
 
-# List of plugins (prefix + I to install)
+# List of plugins (prefix + I to install, prefix + U to update)
 set -g @plugin 'jbnicolai/tmux-fpp'
 set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
 set -g @plugin 'tmux-plugins/tmux-battery'
