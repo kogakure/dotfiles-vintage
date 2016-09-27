@@ -4,6 +4,9 @@
 tic zsh/xterm-256color-italic.terminfo
 tic tmux/tmux-256color-italic.terminfo
 
+# Install Xcode Developer Tools
+xcode-select --install
+
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
