@@ -106,6 +106,9 @@ npm install -g postcss-cli
 # Modern CSS linter
 npm install -g stylelint
 
+# JavaScript parser, mangler/compressor and beautifier toolkit
+npm install -g uglify-js
+
 # Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jade, coffee, css, less, ... and your custom stuff.
 npm install -g webpack
 
