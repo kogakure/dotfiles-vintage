@@ -114,3 +114,6 @@ npm install -g webpack
 
 # Serves a webpack app. Updates the browser on changes.
 npm install -g webpack-dev-server
+
+# Fast, reliable, and secure dependency management.
+npm install -g yarn
