@@ -146,6 +146,9 @@ brew install readline
 # ➜ toml2yaml -i test.toml -o test.yml; json2toml, yaml2toml etc.
 brew install remarshal
 
+# Utility that provides fast incremental file transfer
+brew install rsync
+
 # Powerful, clean, object-oriented scripting language
 brew install ruby
 
