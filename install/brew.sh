@@ -97,6 +97,9 @@ brew install lua
 # GUI for vim, made for OS X
 brew install macvim --with-lua
 
+# Mac App Store command-line interface
+brew install mas
+
 # High performance, distributed memory object caching system
 brew install memcached
 
