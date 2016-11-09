@@ -80,6 +80,12 @@ npm install -g lerna@^2.0.0-beta
 # simple, flexible, fun test framework
 npm install -g mocha
 
+# Wrap web apps natively
+npm install -g nativefier
+
+# Tool to create icns files for OSX
+npm install -g node-icns
+
 # Simple monitor script for use during development of a node.js app.
 npm install -g nodemon
 
