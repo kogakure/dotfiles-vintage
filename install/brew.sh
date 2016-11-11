@@ -38,6 +38,9 @@ brew install coreutils
 # Get a file from an HTTP, HTTPS or FTP server
 brew install curl
 
+# Load/unload environment variables based on $PWD
+brew install direnv
+
 # Pack, ship and run any application as a lightweight container
 brew install docker
 
