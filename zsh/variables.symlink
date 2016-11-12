@@ -31,6 +31,9 @@ export NVM_DIR="$HOME/.nvm"
 export RBENV_ROOT="$HOME/.rbenv/"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # Node.js
 export NODE_PATH="$(npm root -g)"
 
