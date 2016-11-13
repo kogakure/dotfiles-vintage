@@ -167,6 +167,12 @@ brew install sqlite
 # Add a public key to a remote machine's authorized_keys file
 brew install ssh-copy-id
 
+# Open source continuous file synchronization application
+brew install syncthing
+
+# File watcher intended for use with Syncthing
+brew install syncthing-inotify
+
 # Code-search similar to ack
 # ➜ ag
 brew install the_silver_searcher
