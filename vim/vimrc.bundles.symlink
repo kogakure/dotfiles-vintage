@@ -98,7 +98,7 @@ Plug 'tpope/vim-abolish'
 
 " ### Syntax, Indentation, Helper for Syntax ###
 " ##############################################
-Plug 'edsono/vim-matchit'
+Plug 'tmhedberg/matchit'
 
 " Stylesheets
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
