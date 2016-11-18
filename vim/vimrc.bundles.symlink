@@ -121,6 +121,7 @@ Plug 'othree/es.next.syntax.vim',              { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'elzr/vim-json',                          { 'for': 'json' }
+Plug 'posva/vim-vue'
 
 " Ruby & Rails
 Plug 'tpope/vim-rails',          { 'for': ['ruby', 'eruby'] }
