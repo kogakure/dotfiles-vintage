@@ -23,6 +23,9 @@ brew install ack
 # Bourne-Again SHell, a UNIX command interpreter
 brew install bash
 
+# Remove large files or passwords from Git history like git-filter-branch
+brew install bfg
+
 # Statistics utility to count lines of code
 brew install cloc
 
@@ -74,6 +77,9 @@ brew install git
 
 # Small git utilities
 brew install git-extras
+
+# Git extension for versioning large files
+brew install git-lfs
 
 # Version Control Visualization Tool
 brew install gource
