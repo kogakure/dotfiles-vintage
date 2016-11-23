@@ -96,9 +96,9 @@ alias s='rspec'
 # Vim
 alias ev='vim ~/.vimrc'
 
-if type nvim > /dev/null 2>&1; then
-  alias vim='nvim'
-fi
+# if type nvim > /dev/null 2>&1; then
+#   alias vim='nvim'
+# fi
 
 # Dotfiles-Ordner
 alias dotfiles="cd $HOME/.dotfiles"
