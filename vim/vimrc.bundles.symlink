@@ -49,12 +49,8 @@ Plug '907th/vim-auto-save'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-if !has('nvim')
-  Plug 'Shougo/neocomplete'
-endif
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
+Plug 'Shougo/neocomplete'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " nvim only
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
@@ -91,9 +87,7 @@ Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'craigemery/vim-autotag'
-if !has('nvim')
-  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-endif
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'tpope/vim-abolish'
 
 " ### Syntax, Indentation, Helper for Syntax ###
