@@ -1,0 +1,8 @@
+#!/bin/sh
+rsync -a -v -r \
+  --ignore-existing \
+  --delete \
+  --compress \
+  --exclude '.wdmc' \
+  /Users/kogakure/eBooks/ \
+  /Volumes/Public/eBooks/
