@@ -4,7 +4,11 @@
 
 " Default shell
 set shell=/bin/zsh
+
+" Encoding to UTF-8
 scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
 
 " Load Plugins
 source $HOME/.vimrc.bundles
@@ -36,10 +40,6 @@ let mapleader=","
 
 " <loacalleader> to `+`
 let maplocalleader="+"
-
-" Encoding to UTF-8
-set encoding=utf-8
-set fileencoding=utf-8
 
 " Switch of modelines (is a risk for security)
 set modelines=0
@@ -318,18 +318,18 @@ set splitright
 " Spell checker language to German
 " To clean the custom files :runtime spell/cleanadd.vim
 set spelllang=de_de,en_us
-set spellfile+=~/.vim/spell/de.utf-8.add " (1)zg, (1)zw
-set spellfile+=~/.vim/spell/en.utf-8.add " 2zg, 2zw
+set spellfile+="~/.vim/spell/de.utf-8.add" " (1)zg, (1)zw
+set spellfile+="~/.vim/spell/en.utf-8.add" " 2zg, 2zw
 
 " Custom Dictionaries (<C-x> <C-k>)
 " http://ftp.vim.org/vim/runtime/spell/
-set dictionary+=~/.vim/dictionary/de_user.txt
-set dictionary+=~/.vim/dictionary/de_neu.txt
-set dictionary+=~/.vim/dictionary/en_us.txt
+set dictionary+="~/.vim/dictionary/de_user.txt"
+set dictionary+="~/.vim/dictionary/de_neu.txt"
+set dictionary+="~/.vim/dictionary/en_us.txt"
 
 " Custom Thesauri (Synonyms) (<C-x> <C-t>)
-set thesaurus+=~/.vim/thesaurus/de_user.txt
-set thesaurus+=~/.vim/thesaurus/de_openthesaurus.txt
+set thesaurus+="~/.vim/thesaurus/de_user.txt"
+set thesaurus+="~/.vim/thesaurus/de_openthesaurus.txt"
 
 set complete+=kspell
 
