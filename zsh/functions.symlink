@@ -17,6 +17,26 @@ function theme () {
   source $BASE16_SHELL
 }
 
+# Get to the top of a git tree
+function cdp () {
+  TEMP_PWD=`pwd`
+  while ! [ -d .git ]; do
+    cd ..
+  done
+  OLDPWD=$TEMP_PWD
+}
+
+# Check out a Pull request from github
+function pr() {
+  id=$1
+  if [ -z $id ]; then
+      echo "Need Pull request number as argument"
+      return 1
+  fi
+  git fetch origin pull/${id}/head:pr_${id}
+  git checkout pr_${id}
+}
+
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm,
 # and their installed packages
 function update () {
