@@ -34,7 +34,9 @@ brew cask install gemini
 brew cask install github-desktop
 brew cask install gitxinstall
 brew cask install google-chrome
+brew cask install google-chrome-beta
 brew cask install google-chrome-canary
+brew cask install google-chrome-dev
 brew cask install google-drive
 brew cask install google-earth
 brew cask install google-earth-web-plugin
@@ -54,14 +56,16 @@ brew cask install kaleidoscope
 brew cask install lastfm
 brew cask install livereload
 brew cask install logitech-control-center
+brew cask install mactex
 brew cask install macvim
 brew cask install makemkv
 brew cask install marked
-brew cask install mactex
 brew cask install mousepose
 brew cask install mysqlworkbench
-brew cask install omnigraffle
+brew cask install omnigraffle6
 brew cask install opera
+brew cask install opera-beta
+brew cask install opera-developer
 brew cask install origin
 brew cask install p4merge
 brew cask install robomongo
@@ -90,5 +94,6 @@ brew cask install vlc
 brew cask install vlc-webplugin
 brew cask install wacom-bamboo-tablet
 brew cask install wd-my-cloud
+brew cask install webkit-nightly
 brew cask install whatroute
 brew cask install wordpresscom
