@@ -522,12 +522,30 @@ nnoremap <leader>x $x
 " ### Plugins ###
 " ###############
 
+" ### FZF ###
+" ###########
+
+nnoremap <leader>fz :FZF<CR>
+nnoremap <C-t> :FZF<CR>
+
+
+" ### Ctrl-p ###
+" ##############
+
+nnoremap <leader>mru :CtrlPMRU<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>cmd :CtrlPCmdline<CR>
+nnoremap <leader>yr :CtrlPYankring<CR>
+nnoremap <leader>cc :CtrlPClearCache<CR>
+
+
 " ### Vimux ###
 " #############
 
 let g:VimuxHeight = "30"
 let g:VimuxOrientation = 'v'
 let g:VimuxUseNearestPane = 0
+
 
 " Mappings
 nmap <leader>vp :VimuxPromptCommand<cr>
@@ -536,7 +554,7 @@ nmap <leader>vl :VimuxRunLastCommand<cr>
 nmap <leader>vi :VimuxInspectRunner<CR>
 nmap <leader>vc :VimuxCloseRunner<cr>
 nmap <leader>vx :VimuxInterruptRunner<cr>
-nmap <Leader>vb :VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
+nmap <leader>vrb :VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
 
 
 " ### Pandoc ###
@@ -672,41 +690,6 @@ if !has("nvim") && has("python3")
   " Show hints when stopping typing
   let g:tern_show_argument_hints='on_hold'
 endif
-
-
-" ### Unite ###
-" #############
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#profile('default', 'context.smartcase', 1)
-call unite#custom#profile('default', 'context.ignorecase', 1)
-
-call unite#custom#source('files_ag, file_rec, file_rec/async, file_rec/git', 'matchers', ['converter_relative_word', 'matcher_fuzzy'])
-call unite#custom#source('files_ag', 'ignore_pattern', 'node_modules')
-
-let g:unite_enable_start_insert=1
-let g:unite_source_history_yank_enable = 1
-let g:unite_prompt='💬 ' "»
-
-nnoremap <C-p> :Unite -buffer-name=search-for-fuzzy-file -start-insert -no-split files_ag<CR>
-nnoremap <leader>ut :Unite -buffer-name=search-for-fuzzy-file -start-insert -no-split files_ag<CR>
-nnoremap <leader>uf :Unite -no-split -start-insert -buffer-name=files file<CR>
-nnoremap <leader>mru :Unite -no-split -start-insert -buffer-name=mru file_mru<CR>
-nnoremap <leader>ur :Unite -no-split -start-insert -buffer-name=mru file_mru<CR>
-nnoremap <leader>uo :Unite -no-split -start-insert -buffer-name=outline outline<CR>
-nnoremap <leader>be :Unite -no-split -start-insert -buffer-name=buffer buffer<CR>
-nnoremap <leader>ub :Unite -no-split -start-insert -buffer-name=buffer buffer<CR>
-nnoremap <leader>uh :Unite -no-split -start-insert history/yank<CR>
-nnoremap <leader>ut :Unite -no-split -buffer-name=search-for-tag -start-insert tag<CR>
-
-" Custom mappings for the unite buffer
-autocmd FileType unite call s:unite_settings()
-function! s:unite_settings()
-  " Enable navigation with control-j and control-k in insert mode
-  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
-endfunction
 
 
 " ### Ag ###

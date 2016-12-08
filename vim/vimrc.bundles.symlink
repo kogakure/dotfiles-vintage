@@ -12,10 +12,13 @@ call plug#begin('~/.vim/plugged')
 
 " ### Text editing ###
 " ####################
+Plug 'PeterRincker/vim-argumentative'
 Plug 'jiangmiao/auto-pairs'
 Plug 'kogakure/tabular'
 Plug 'kogakure/xptemplate'
 Plug 'mattn/emmet-vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'skwp/vim-html-escape', { 'on': ['HtmlEscape', 'HtmlUnEscape'] }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-commentary'
@@ -24,37 +27,34 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'skwp/vim-html-escape', { 'on': ['HtmlEscape', 'HtmlUnEscape'] }
-Plug 'PeterRincker/vim-argumentative'
 
 " ### Git ###
 " ###########
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-git', { 'for': ['git', 'gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail'] }
-Plug 'airblade/vim-gitgutter'
 
 " ### Colors ###
 " ##############
-Plug 'chriskempson/base16-vim'
 Plug 'ap/vim-css-color'
+Plug 'chriskempson/base16-vim'
 
 " ### Sessions ###
 " ################
-Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveSession', 'DelteSession', 'CloseSession'] }
 Plug '907th/vim-auto-save'
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveSession', 'DelteSession', 'CloseSession'] }
 
 " ### GUI improvements ###
 " ########################
+Plug '1995eaton/vim-better-javascript-completion'
+Plug 'Konfekt/FastFold'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " nvim only
+Plug 'Shougo/neocomplete'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'Shougo/neocomplete'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " nvim only
-Plug '1995eaton/vim-better-javascript-completion'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'Konfekt/FastFold'
 
 " ### Commands/Shell ###
 " ######################
@@ -69,24 +69,21 @@ Plug 'scrooloose/syntastic'
 
 " ### Files ###
 " #############
-Plug 'Shougo/neomru.vim'
-Plug 'Shougo/neoyank.vim'
-Plug 'Shougo/unite-outline'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'bogado/file-line'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'sgur/ctrlp-extensions.vim'
 Plug 'tpope/vim-vinegar'
-Plug 'tsukkee/unite-tag'
-Plug 'Slava/vim-unite-files-ag'
 
 " ### Search ###
 " ##############
 Plug 'Lokaltog/vim-easymotion'
+Plug 'craigemery/vim-autotag'
 Plug 'henrik/vim-indexed-search'
+Plug 'nelstrom/vim-visual-star-search'
 Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'craigemery/vim-autotag'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'tpope/vim-abolish'
 
@@ -99,22 +96,22 @@ Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'wavded/vim-stylus',         { 'for': 'stylus' }
 
 " Markup Languages
+Plug 'briancollins/vim-jst',             { 'for': 'jst' }
+Plug 'digitaltoad/vim-pug',              { 'for': 'pug' }
+Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
 Plug 'othree/html5.vim',                 { 'for': ['html', 'eruby'] }
 Plug 'tpope/vim-haml',                   { 'for': 'haml' }
 Plug 'tpope/vim-liquid',                 { 'for': 'liquid' }
-Plug 'mustache/vim-mustache-handlebars', { 'for': ['html.handlebars', 'html.mustache'] }
 Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
-Plug 'digitaltoad/vim-pug',              { 'for': 'pug' }
-Plug 'briancollins/vim-jst',             { 'for': 'jst' }
 
 " JavaScript
-Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
+Plug 'elzr/vim-json',                          { 'for': 'json' }
+Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'mxw/vim-jsx',                            { 'for': 'javascript' }
-Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'othree/es.next.syntax.vim',              { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
-Plug 'elzr/vim-json',                          { 'for': 'json' }
+Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
 Plug 'posva/vim-vue'
 
 " Ruby & Rails
@@ -123,21 +120,21 @@ Plug 'vim-ruby/vim-ruby',        { 'for': ['ruby', 'eruby'] }
 
 " PHP
 Plug 'StanAngeloff/php.vim'
-Plug 'vim-scripts/PHP-correct-Indenting'
-Plug 'shawncplus/phpcomplete.vim'
 Plug 'dsawardekar/wordpress'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'vim-scripts/PHP-correct-Indenting'
 
 " Misc
-Plug 'fatih/vim-go'
-Plug 'xolox/vim-lua-ftplugin',   { 'for': 'lua' }
-Plug 'cespare/vim-toml',         { 'for': 'toml' }
-Plug 'evanmiller/nginx-vim-syntax'
 Plug 'benmills/vimux'
+Plug 'cespare/vim-toml',         { 'for': 'toml' }
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'fatih/vim-go'
+Plug 'galenframework/galen.vim'
 Plug 'skalnik/vim-vroom'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'galenframework/galen.vim'
+Plug 'xolox/vim-lua-ftplugin',   { 'for': 'lua' }
 
 " Text Objects
 Plug 'glts/vim-textobj-comment'
@@ -145,8 +142,8 @@ Plug 'jceb/vim-textobj-uri'
 Plug 'kana/vim-textobj-datetime'
 Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
-Plug 'whatyouhide/vim-textobj-xmlattr'
 Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'whatyouhide/vim-textobj-xmlattr'
 
 
 " Add plugins to &runtimepath

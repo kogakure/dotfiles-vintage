@@ -42,6 +42,9 @@ plugins=(
   zsh-syntax-highlighting
 )
 
+### Variable, Aliases, Functions ###
+####################################
+
 # Load exported shell variables
 source $HOME/.variables
 
@@ -52,6 +55,9 @@ source $ZSH/oh-my-zsh.sh
 # to prevent plugins overwriting my defaults
 source $HOME/.aliases
 source $HOME/.functions
+
+### Setup ###
+#############
 
 # Vi-Mode
 bindkey -v
@@ -66,17 +72,6 @@ fi
 autoload -U compinit
 compinit
 
-# Switch between light/dark themes
-if [ "$BACKGROUND" = "light" ]; then
-  export THEME="base16-tomorrow"
-  BACKGROUND=""
-else
-  export THEME="base16-tomorrow-night"
-fi
-
-# Fix 'macos sierra: [warn]: kq_init: detected broken kqueue; not using.'
-export EVENT_NOKQUEUE=1
-
 # Base16 Shell
 BASE16_SHELL="$DOTFILES/config/base16-shell/scripts/$THEME.sh"
 source $BASE16_SHELL
@@ -86,6 +81,26 @@ source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 
 # Load every completion
 for config_file ($DOTFILES/**/completion/*.zsh) source $config_file
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# Tmuxinator
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+# npm completion
+if npm -v >/dev/null 2>&1; then
+  . <(npm completion)
+fi
+
+# https://github.com/rupa/z
+source "$(brew --prefix)/etc/profile.d/z.sh"
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Local overwrites (Top Secret stuff)
 if [[ -e ~/.localrc ]]

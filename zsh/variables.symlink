@@ -10,29 +10,23 @@ export TERM=xterm-256color-italic
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
-export PATH
 
-# https://github.com/rupa/z
-source "$(brew --prefix)/etc/profile.d/z.sh"
-
-# npm completion
-if npm -v >/dev/null 2>&1; then
-  . <(npm completion)
+# Switch between light/dark themes
+if [ "$BACKGROUND" = "light" ]; then
+  export THEME="base16-tomorrow"
+  BACKGROUND=""
+else
+  export THEME="base16-tomorrow-night"
 fi
 
 # nvm (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-# Tmuxinator
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv/"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-# direnv
-eval "$(direnv hook zsh)"
+# nvm (Node Version Manager)
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Node.js
 export NODE_PATH="$(npm root -g)"
@@ -46,6 +40,9 @@ export GIT_CURL_VERBOSE="1"
 # Required for mysql to compile correctly on snow leopard
 export ARCHFLAGS="-arch x86_64"
 
+# Fix 'macos sierra: [warn]: kq_init: detected broken kqueue; not using.'
+export EVENT_NOKQUEUE=1
+
 # Editors
 export EDITOR="vim"
 export CVSEDITOR="vim"
@@ -58,5 +55,7 @@ export POW_DOMAINS='dev,test,localtld'
 
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
+
+export PATH
 
 unset USERNAME
