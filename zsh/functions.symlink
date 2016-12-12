@@ -319,14 +319,6 @@ fcoc() {
   git checkout $(echo "$commit" | sed "s/ .*//")
 }
 
-# fcoc - checkout git commit
-fcoc() {
-  local commits commit
-  commits=$(git log --pretty=oneline --abbrev-commit --reverse) &&
-  commit=$(echo "$commits" | fzf --tac +s +m -e) &&
-  git checkout $(echo "$commit" | sed "s/ .*//")
-}
-
 # fshow - git commit browser
 fshow() {
   git log --graph --color=always \
