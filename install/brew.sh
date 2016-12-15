@@ -26,6 +26,9 @@ brew install bash
 # Remove large files or passwords from Git history like git-filter-branch
 brew install bfg
 
+# Vector graphics library with cross-device output support
+brew install cairo
+
 # Statistics utility to count lines of code
 brew install cloc
 
@@ -72,6 +75,9 @@ brew install freetype
 # GNU compiler collection
 brew install gcc
 
+# GIF library using patented LZW algorithm
+brew install giflib
+
 # Distributed revision control system
 brew install git
 
@@ -101,6 +107,12 @@ brew install imagemagick --with-fontconfig
 
 # Tool to capture still images from an iSight or other video source
 brew install imagesnap
+
+# Image manipulation library
+brew install jpeg
+
+# Library for manipulating PNG images
+brew install libpng
 
 # Powerful, lightweight programming language
 # ➜ Hammerspoon
@@ -132,6 +144,9 @@ brew install pandoc
 
 # Framework for layout and rendering of i18n text
 brew install pango
+
+# Manage compile and link flags for libraries
+brew install pkg-config
 
 # Interpreted, interactive, object-oriented programming language
 brew install python

@@ -19,6 +19,9 @@ npm install -g browser-sync
 # ➜ caniuse border-radius
 npm install -g caniuse-cmd
 
+# Canvas graphics API backed by Cairo
+npm install -g canvas
+
 # CSSO (CSS Optimizer) is a CSS minifier with structural optimisations
 # ➜ csso in.css out.css
 npm install -g csso
