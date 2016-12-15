@@ -67,6 +67,9 @@ npm install -g gatsby
 # Convert any video file to an optimized animated GIF
 npm install -g gifify
 
+# CLI to generate books and documentation using gitbook
+npm install -g gitbook-cli
+
 # Command line interface for gulp
 npm install -g gulp-cli
 
