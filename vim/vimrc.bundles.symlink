@@ -46,10 +46,15 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveS
 
 " ### GUI improvements ###
 " ########################
+if !has('nvim')
+  Plug 'Shougo/neocomplete'
+endif
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'Konfekt/FastFold'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " nvim only
-Plug 'Shougo/neocomplete'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -84,7 +89,9 @@ Plug 'henrik/vim-indexed-search'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+if !has('nvim')
+  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+endif
 Plug 'tpope/vim-abolish'
 
 " ### Syntax, Indentation, Helper for Syntax ###
@@ -105,13 +112,13 @@ Plug 'tpope/vim-liquid',                 { 'for': 'liquid' }
 Plug 'tpope/vim-markdown',               { 'for': 'markdown' }
 
 " JavaScript
-Plug 'elzr/vim-json',                          { 'for': 'json' }
-Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
+Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
 Plug 'mxw/vim-jsx',                            { 'for': 'javascript' }
+Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
 Plug 'othree/es.next.syntax.vim',              { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
-Plug 'pangloss/vim-javascript',                { 'for': 'javascript' }
+Plug 'elzr/vim-json',                          { 'for': 'json' }
+Plug 'kchmck/vim-coffee-script',               { 'for': 'coffee' }
 Plug 'posva/vim-vue'
 
 " Ruby & Rails
