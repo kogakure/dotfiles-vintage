@@ -813,12 +813,14 @@ let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 let g:airline#extensions#tmuxline#enabled = 1
 "
 " Syntax Checker (:SyntasticInfo on a file)
-let g:syntastic_javascript_checkers     = ['eslint']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-let g:syntastic_javascript_eslint_exe   = '$(npm bin)/eslint'
-let g:syntastic_ruby_checkers           = ['mri']
 let g:syntastic_css_checkers            = ['stylelint']
+let g:syntastic_css_eslint_exe          = '[ -f $(npm bin)/stylelint ] && $(npm bin)/stylelint || stylelint'
+let g:syntastic_javascript_checkers     = ['eslint']
+let g:syntastic_javascript_eslint_exe   = '[ -f $(npm bin)/eslint ] && $(npm bin)/eslint || eslint'
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+let g:syntastic_ruby_checkers           = ['mri']
 let g:syntastic_scss_checkers           = ['stylelint']
+let g:syntastic_scss_eslint_exe         = '[ -f $(npm bin)/stylelint ] && $(npm bin)/stylelint || stylelint'
 
 
 " ### Neomake ###
