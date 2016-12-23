@@ -17,6 +17,7 @@ brew cask install alfred
 brew cask install bartender
 brew cask install blender
 brew cask install brave
+brew cask install calibre
 brew cask install color-oracle
 brew cask install daisydisk
 brew cask install dash
