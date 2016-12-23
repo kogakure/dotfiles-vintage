@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# Download a website including all it’s contents
+# Usage: suck <url>
+
+if [ $# -lt 1 ]; then
+  echo 1>&2 Usage: suck \<url\> \(parameters\)
+  exit 127
+fi
+
+wget -r -np -nc -k -c $*
