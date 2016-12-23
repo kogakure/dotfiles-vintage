@@ -1,0 +1,17 @@
+#!/bin/bash
+#
+# Download a url and convert it do Markdown
+# Usage: url2md <url>
+
+if [ $# -lt 1 ]; then
+  echo 1>&2 Usage: url2md \<url\> \(parameters\)
+  exit 127
+fi
+
+SLUGIFIED="$(echo -n "$*" | sed -e 's/[https?]*:\/\///g' | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)"
+pandoc --standalone \
+       --smart \
+       --atx-headers \
+       -f html \
+       -t markdown-bracketed_spans-implicit_header_references-header_attributes-auto_identifiers-yaml_metadata_block-pandoc_title_block \
+       -o $(echo $SLUGIFIED).md $*
