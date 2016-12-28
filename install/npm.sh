@@ -1,5 +1,8 @@
  #!/bin/sh
 
+# Runs an accessibility audit against a URL
+npm install -g a11y
+
 # Turn ES6 code into readable vanilla ES5 with source maps
 npm install -g babel
 
@@ -83,6 +86,9 @@ npm install -g json-server
 # Tool for managing JavaScript projects with multiple packages (BETA)
 npm install -g lerna@^2.0.0-beta
 
+# Lighthouse analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices.
+npm install -g lighthouse
+
 # simple, flexible, fun test framework
 npm install -g mocha
 
@@ -117,6 +123,9 @@ npm install -g postcss-cli
 
 # Modern CSS linter
 npm install -g stylelint
+
+# Analyze and debug space usage through source maps
+npm install -g source-map-explorer
 
 # JavaScript parser, mangler/compressor and beautifier toolkit
 npm install -g uglify-js

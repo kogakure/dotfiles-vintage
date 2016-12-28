@@ -497,7 +497,7 @@ inoremap <C-O> <C-X><C-O>
 nnoremap <leader>f gg=G
 
 " Open for Markdown preview in Marked
-nnoremap <leader>m :silent !open -a Marked\ 2.app '%:p'<CR>
+nnoremap <leader>m :silent !open -a iA\ Writer.app '%:p'<CR>
 
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
