@@ -84,7 +84,6 @@ Plug 'tpope/vim-vinegar'
 " ### Search ###
 " ##############
 Plug 'Lokaltog/vim-easymotion'
-Plug 'craigemery/vim-autotag'
 Plug 'henrik/vim-indexed-search'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rking/ag.vim'
