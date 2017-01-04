@@ -69,6 +69,7 @@ brew cask install opera-beta
 brew cask install opera-developer
 brew cask install origin
 brew cask install p4merge
+brew cask install qlvideo
 brew cask install robomongo
 brew cask install seil
 brew cask install sequel-pro
