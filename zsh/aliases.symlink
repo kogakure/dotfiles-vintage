@@ -22,7 +22,7 @@ alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 
-# Verzeichnisse
+# Folders
 alias ll='ls -lisa'
 alias la='ls -la'
 alias ls-l='ls -l'
@@ -100,7 +100,7 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
-# Dotfiles-Ordner
+# Dotfiles folder
 alias dotfiles="cd $HOME/.dotfiles"
 
 # Pipe my public key to my clipboard
