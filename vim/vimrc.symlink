@@ -5,6 +5,9 @@
 " Default shell
 set shell=/bin/zsh
 
+" Search for all files in all subfolders
+set path+=**
+
 " Encoding to UTF-8
 scriptencoding utf-8
 set encoding=utf-8
@@ -22,6 +25,14 @@ syntax on
 let base16colorspace=256 " Access colors present in 256 colorspace
 execute "colorscheme ".$THEME
 
+" Netrw tweaks
+let g:netrw_banner=0    " disable banner
+let g:netrw_altv=1      " open splits to the right
+let g:netrw_liststyle=3 " tree view
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+
 " Custom Colors
 highlight Conceal cterm=NONE ctermbg=NONE ctermfg=darkred
 highlight SpellBad cterm=underline ctermfg=white ctermbg=red
@@ -30,6 +41,8 @@ highlight SpellLocal cterm=underline
 highlight SpellRare cterm=underline
 highlight Comment cterm=italic
 
+" Create ctags
+command! MakeTags !ctags -R .
 
 " ################
 " ### Settings ###
@@ -192,6 +205,9 @@ nnoremap gy `[v`]y
 
 " Reload all open buffers
 nnoremap <leader>ra :tabdo exec "windo e!"
+
+" Create ctags
+nnoremap <leader>c :silent! !ctags<cr>:redraw!<cr>
 
 " Keep 3 lines context above and below
 set scrolloff=3
@@ -526,7 +542,7 @@ nnoremap <leader>x $x
 " ###########
 
 nnoremap <leader>fz :FZF<CR>
-nnoremap <C-t> :FZF<CR>
+nnoremap <C-s> :FZF<CR>
 
 
 " ### Ctrl-p ###
