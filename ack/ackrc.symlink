@@ -20,11 +20,12 @@
 
 # Add file types
 --type-set=css=.css,.less,.scss,.styl
---type-set=styl=.styl
---type-set=less=.less
 --type-set=html=.html,.mustache,.handlebars,.tmpl
 --type-set=json=.json
+--type-set=less=.less
 --type-set=md=.markdown,.md
+--type-set=sass=.sass,.scss
+--type-set=styl=.styl
+--type-set=style=.scss,.sass,.styl,.less,.css
 --type-set=svg=.svg
 --type-set=ts=.ts
---type-set=style=.scss,.sass,.styl,.less,.css
