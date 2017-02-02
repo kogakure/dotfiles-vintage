@@ -59,6 +59,9 @@ npm install -g express-generator
 # ➜ fast
 npm install -g fast-cli
 
+# Command-Line Interface for Firebase
+npm install -g firebase-tools
+
 # Library for streamlining application deployment or systems administration tasks
 # ➜ fly
 npm install -g flightplan

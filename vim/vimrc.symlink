@@ -42,7 +42,7 @@ highlight SpellRare cterm=underline
 highlight Comment cterm=italic
 
 " Create ctags
-command! MakeTags !ctags -R .
+command! MakeTags !ctags .
 
 " ################
 " ### Settings ###
