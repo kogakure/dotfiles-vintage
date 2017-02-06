@@ -1,6 +1,6 @@
 [user]
   name = Stefan Imhoff
-  email = stefan@imhoff.name
+  useConfigOnly = true
 [init]
   templatedir = ~/.git-templates
 [commit]

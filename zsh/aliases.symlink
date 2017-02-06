@@ -72,7 +72,8 @@ alias gru='git remote update'
 alias gsl='git submodule foreach git pull'
 alias gsu='git submodule update'
 alias gho='$(git remote -v | grep github | sed -e "s/.*git\:\/\/\([a-z]\.\)*/\1/" -e "s/\.git$//g" -e "s/.*@\(.*\)$/\1/g" | tr ":" "/" | tr -d "\011" | sed -e "s/^/open http:\/\//g")'
-alias glu='git config user.name "Stefan Imhoff"; git config user.email "stefan@imhoff.name";'
+alias glu='git config user.email "stefan@imhoff.name";'
+alias glx='git config user.email "stefan.imhoff@xing.com";'
 alias upstream-update="git co master; git remote update; git fetch --all; git rebase upstream/master; git co -;"
 alias gpp='PATCHNAME=`git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/"`-`date "+%Y-%m-%d-%H%M.patch"`; git diff --full-index master > ../patches/$PATCHNAME'
 
