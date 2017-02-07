@@ -18,4 +18,4 @@ rsync -v -r --ignore-existing \
             --exclude '*.m4v' \
             --exclude '*.epub' \
             /Users/kogakure/Music/iTunes/ \
-            /Volumes/Public/Shared\ Music/iTunes/
+            /Volumes/Public/Musik/iTunes/
