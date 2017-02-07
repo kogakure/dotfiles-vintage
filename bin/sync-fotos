@@ -5,4 +5,4 @@ rsync -a -v -r \
   --compress \
   --exclude '.wdmc' \
   /Users/kogakure/Pictures/Fotos-Mediathek.photoslibrary/ \
-  /Volumes/Public/Bilder/Fotos-Mediathek.photoslibrary/
+  root@nas.local:/shares/Public/Bilder/Fotos-Mediathek.photoslibrary/
