@@ -486,7 +486,7 @@ inoremap <A-Tab> <C-N>
 inoremap <A-S-Tab> <C-P>
 
 " Complete all buffers
-set complete=.,w,b,u,t
+set complete=.,w,b,u,t,i,kspell
 set completeopt=longest,menuone,preview
 
 " Delete all buffers
