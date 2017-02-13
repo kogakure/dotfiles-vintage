@@ -67,7 +67,7 @@ local LAYOUT_DUAL = {
   {"Firefox",               nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Chrome",         nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Hangouts",       nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
-  {"HipChat",               nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"HipChat",               nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Kalender",              nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Mail",                  nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Safari",                nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
