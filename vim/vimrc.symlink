@@ -665,6 +665,7 @@ inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
 autocmd FileType apache set commentstring=#\ %s
 autocmd FileType gspec set commentstring=#\ %s
+autocmd FileType eruby set commentstring=<!--%s-->
 
 
 " ### Vim-Speeddating ###
