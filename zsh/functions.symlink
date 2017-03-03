@@ -48,7 +48,7 @@ function update () {
     npm update npm -g
     npm update -g
     gem update --system
-    gem update
+    # gem update
 }
 
 # Incremental Search
