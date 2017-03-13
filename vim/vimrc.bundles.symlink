@@ -55,7 +55,6 @@ endif
 
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'Konfekt/FastFold'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-pandoc/vim-pandoc'

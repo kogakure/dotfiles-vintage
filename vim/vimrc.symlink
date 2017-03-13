@@ -97,6 +97,7 @@ set nowrap
 
 " Line numbering
 set number
+set relativenumber
 
 " Mark lines longer than 81 characters
 highlight ColorColumn ctermbg=Magenta
