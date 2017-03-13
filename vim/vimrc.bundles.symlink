@@ -150,6 +150,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'whatyouhide/vim-textobj-xmlattr'
 
+" Get rid of bad habits
+Plug 'takac/vim-hardtime'
 
 " Add plugins to &runtimepath
 call plug#end()

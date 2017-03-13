@@ -540,6 +540,10 @@ nnoremap <leader>x $x
 
 " ### FZF ###
 " ###########
+let g:hardtime_default_on = 1
+
+" ### FZF ###
+" ###########
 
 nnoremap <leader>fz :FZF<CR>
 nnoremap <C-s> :FZF<CR>
