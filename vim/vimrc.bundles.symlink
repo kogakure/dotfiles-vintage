@@ -46,12 +46,8 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveS
 
 " ### GUI improvements ###
 " ########################
-if !has('nvim')
-  Plug 'Shougo/neocomplete'
-endif
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
+" Plug 'Shougo/neocomplete' " vim
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " nvim
 
 Plug '1995eaton/vim-better-javascript-completion'
 Plug 'Konfekt/FastFold'
@@ -87,9 +83,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-if !has('nvim')
-  Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-endif
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " nvim
 Plug 'tpope/vim-abolish'
 
 " ### Syntax, Indentation, Helper for Syntax ###
