@@ -83,7 +83,7 @@ Plug 'henrik/vim-indexed-search'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " nvim
+" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " nvim
 Plug 'tpope/vim-abolish'
 
 " ### Syntax, Indentation, Helper for Syntax ###

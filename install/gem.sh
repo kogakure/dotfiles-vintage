@@ -30,5 +30,8 @@ gem install seo_report
 # Create and manage complex tmux sessions easily.
 gem install tmuxinator
 
+# Create test user
+gem install xing-users --source=http://gems.xing.com/
+
 # Manage working with development enviroment
 gem install xing-scripts --source=http://gems.xing.com/
