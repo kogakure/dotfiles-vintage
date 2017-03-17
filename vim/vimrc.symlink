@@ -705,13 +705,13 @@ noremap <leader>dp :Dispatch
 " ### Tern ###
 " ############
 
-if !has("nvim") && has("python3")
-  " Activate mappings (http://usevim.com/files/tern_keyboard.pdf)
-  let g:tern_map_keys=1
+" if !has("nvim") && has("python3")
+"   " Activate mappings (http://usevim.com/files/tern_keyboard.pdf)
+"   let g:tern_map_keys=1
 
-  " Show hints when stopping typing
-  let g:tern_show_argument_hints='on_hold'
-endif
+"   " Show hints when stopping typing
+"   let g:tern_show_argument_hints='on_hold'
+" endif
 
 
 " ### Ag ###

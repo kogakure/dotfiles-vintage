@@ -98,6 +98,9 @@ npm install -g mocha
 # Wrap web apps natively
 npm install -g nativefier
 
+# The Netlify CLI tools lets you create, deploy, and delete new sites straight from your terminal.
+npm install -g netlify-cli
+
 # Tool to create icns files for OSX
 npm install -g node-icns
 
