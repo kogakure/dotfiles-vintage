@@ -101,6 +101,9 @@ if type nvim > /dev/null 2>&1; then
   alias vim='nvim'
 fi
 
+# iA Writer
+alias ia='open $1 -a /Applications/iA\ Writer.app'
+
 # Dotfiles folder
 alias dotfiles="cd $HOME/.dotfiles"
 
