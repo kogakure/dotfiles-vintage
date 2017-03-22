@@ -56,6 +56,10 @@ export POW_DOMAINS='dev,test,localtld'
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
+# Go
+export GOPATH="$HOME/Code/go"
+export PATH=$PATH:$(go env GOPATH)/bin
+
 export PATH
 
 unset USERNAME
