@@ -3,9 +3,6 @@
 # Runs an accessibility audit against a URL
 npm install -g a11y
 
-# Turn ES6 code into readable vanilla ES5 with source maps
-npm install -g babel
-
 # Babel command line.
 npm install -g babel-cli
 
