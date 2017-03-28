@@ -46,7 +46,6 @@ Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveS
 
 " ### GUI improvements ###
 " ########################
-" Plug 'Shougo/neocomplete' " vim
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " nvim
 
 Plug '1995eaton/vim-better-javascript-completion'

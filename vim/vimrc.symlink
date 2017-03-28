@@ -750,52 +750,6 @@ let g:gist_open_browser_after_post = 1
 let g:gist_use_password_in_gitconfig = 1
 
 
-" ### NeoComplete ###
-" ###################
-
-if has("lua")
-  " Mapping
-  noremap <leader>nc :NeoCompleteToggle<CR>
-
-  " Open at Start
-  let g:neocomplete#enable_at_startup = 1
-
-  " Turn of AutoComplPop.
-  let g:acp_enableAtStartup = 0
-
-  " Don’t ignore case, when using a uppercase character
-  let g:neocomplete#enable_smart_case = 1
-
-  " Minimal keywort length
-  let g:neocomplete#auto_completion_start_length = 3
-
-  " Plugin key mappings
-  inoremap <expr><C-g>     neocomplete#undo_completion()
-
-  " <CR>: Clode pop-up and save indentation
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return neocomplete#close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    " return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-  endfunction
-
-  " <TAB>: Completion
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-  " <C-h>, <BS>: Close pop-up and delete character
-  inoremap <expr><C-h>  neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS>   neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><C-y>  neocomplete#close_popup()
-  inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-  " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
-endif
-
-
 " ### Deoplete ###
 " ################
 
