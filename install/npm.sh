@@ -126,6 +126,7 @@ npm install -g postcss-cli
 
 # Modern CSS linter
 npm install -g stylelint
+npm install -g stylelint-config-standard
 
 # Analyze and debug space usage through source maps
 npm install -g source-map-explorer
