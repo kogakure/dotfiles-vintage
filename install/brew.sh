@@ -53,6 +53,9 @@ brew install docker
 # Create Docker hosts locally and on cloud providers
 brew install docker-machine
 
+# Maintain consistent coding style between multiple editors
+brew install editorconfig
+
 # Distributed search & analytics engine
 brew install elasticsearch
 

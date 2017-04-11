@@ -74,6 +74,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'sgur/ctrlp-extensions.vim'
 Plug 'tpope/vim-vinegar'
+Plug 'editorconfig/editorconfig-vim'
 
 " ### Search ###
 " ##############
