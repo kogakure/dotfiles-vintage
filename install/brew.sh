@@ -188,6 +188,9 @@ brew install ruby
 # Install various Ruby versions and implementations
 brew install ruby-build
 
+# Convert filenames and directories to a web friendly format
+brew install slugify
+
 # Command-line interface for SQLite
 brew install sqlite
 
