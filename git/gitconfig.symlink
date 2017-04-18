@@ -3,8 +3,6 @@
   useConfigOnly = true
 [init]
   templatedir = ~/.git-templates
-[commit]
-  template = ~/.gitmessage
 [include]
   path = ~/.gitconfig.local
 [help]
