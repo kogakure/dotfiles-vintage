@@ -8,7 +8,8 @@ if has("gui_macvim")
 endif
 
 if has("gui_running")
-" Font and size for MacVim
+  " Font and size for MacVim
+  set macligatures
   set guifont=Fira\ Code:h18
 
   set t_Co=256
