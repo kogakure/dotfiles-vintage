@@ -2,21 +2,6 @@
 ### Functions ###
 #################
 
-# Set the background colors
-function light() {
-  BACKGROUND="light" && reload
-}
-
-function dark() {
-  reload
-}
-
-function theme () {
-  export THEME="$1"
-  BASE16_SHELL="$DOTFILES/config/base16-shell/scripts/$THEME.sh"
-  source $BASE16_SHELL
-}
-
 # Get to the top of a git tree
 function cdp () {
   TEMP_PWD=`pwd`

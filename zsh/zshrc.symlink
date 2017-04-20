@@ -21,6 +21,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   bower
   brew brew-cask
+  base16-shell
   colored-man-pages man
   colorize
   docker

@@ -9,7 +9,7 @@ endif
 
 if has("gui_running")
 " Font and size for MacVim
-  set guifont=Roboto\ Mono:h16
+  set guifont=Fira\ Code:h18
 
   set t_Co=256
 
