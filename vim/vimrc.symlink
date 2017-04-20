@@ -22,8 +22,12 @@ filetype plugin indent on
 syntax on
 
 " Colorscheme
-let base16colorspace=256 " Access colors present in 256 colorspace
-execute "colorscheme ".$THEME
+" let base16colorspace=256 " Access colors present in 256 colorspace
+" execute "colorscheme ".$THEME
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 " Netrw tweaks
 let g:netrw_banner=0    " disable banner
