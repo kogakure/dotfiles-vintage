@@ -22,6 +22,9 @@
   dt = difftool
   hist = log --color --graph --decorate --abbrev-commit --date=short --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(blue)[%an]%Creset' --abbrev-commit --
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  prune = fetch --prune
+  undo = reset --soft HEAD^
+  stash-all = stash save --include-untracked
   upstream-status = !git remote update >/dev/null && git --no-pager log upstream/production..upstream/master --pretty=oneline >&2 | pbcopy
   unstage = "reset HEAD --"
   merged = "branch --merged"
@@ -42,6 +45,11 @@
   ui = 1
 [push]
   default = upstream
+  followTags = true
+[status]
+  showUntrackedFiles = all
+[transfer]
+  fsckobjects = true
 [i18n]
   commitencoding = UTF-8
   logoutputencoding = UTF-8
@@ -50,12 +58,15 @@
 [branch]
   autosetupmerge = true
 [diff]
-  tool = Kaleidoscope
+  tool = icdiff
   algorithm = patience
 [difftool]
   prompt = false
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool "icdiff"]
+  prompt = false
+  cmd = icdiff --line-numbers $LOCAL $REMOTE
 [difftool "p4merge"]
   external = p4merge
 [merge]
