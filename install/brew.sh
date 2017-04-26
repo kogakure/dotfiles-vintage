@@ -222,6 +222,9 @@ brew install vim --with-lua
 # Internet file retriever
 brew install wget
 
+# JavaScript package manager
+brew install yarn
+
 # Tracks most-used directories to make cd smarter
 brew install z
 
