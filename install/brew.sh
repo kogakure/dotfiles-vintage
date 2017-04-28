@@ -225,6 +225,9 @@ brew install wget
 # JavaScript package manager
 brew install yarn
 
+# Download YouTube videos from the command-line
+brew install youtube-dl
+
 # Tracks most-used directories to make cd smarter
 brew install z
 
