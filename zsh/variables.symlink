@@ -50,6 +50,9 @@ export SVN_EDITOR="vim"
 export GIT_EDITOR="vim"
 export VMAIL_VIM="vim"
 
+# Python
+export PYTHONPATH="/Library/Python/2.7/site-packages"
+
 # Pow
 export POW_DOMAINS='dev,test,localtld'
 
