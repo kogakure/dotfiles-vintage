@@ -116,6 +116,9 @@ yarn global add npm-check-updates
 # ➜ pageres [ todomvc.com 1200x1000 ] [ yeoman.io 800x600 1200x1000 ] --crop
 yarn global add pageres-cli
 
+# Single-Command Node.js Compiler
+yarn global add pkg
+
 # Package for formatting JSON data in a coloured YAML-style, perfect for CLI output
 # ➜ prettyjson package.json
 # ➜ curl https://api.github.com/users/rafeca | prettyjson
