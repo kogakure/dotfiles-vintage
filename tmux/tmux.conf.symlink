@@ -69,8 +69,8 @@ unbind [
 bind Escape copy-mode
 
 # Setup 'v' to begin selection as in Vim, 'y' or 'Enter' to yank
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy Enter copy-selection
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi Enter send-keys -X copy-selection
 
 bind p run "tmux paste-buffer"
 
