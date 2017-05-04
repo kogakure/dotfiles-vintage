@@ -25,7 +25,7 @@
   prune = fetch --prune
   undo = reset --soft HEAD^
   stash-all = stash save --include-untracked
-  upstream-status = !git remote update >/dev/null && git --no-pager log upstream/production..upstream/master --pretty=oneline >&2 | pbcopy
+  app-status = !git remote update >/dev/null && git --no-pager log origin/production..origin/master --pretty=oneline >&2 | pbcopy
   unstage = "reset HEAD --"
   merged = "branch --merged"
   unmerged = "branch --no-merge"
@@ -58,7 +58,7 @@
 [branch]
   autosetupmerge = true
 [diff]
-  tool = icdiff
+  tool = Kaleidoscope
   algorithm = patience
 [difftool]
   prompt = false
