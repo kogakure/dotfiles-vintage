@@ -219,6 +219,9 @@ brew install urlview
 # Vi "workalike" with many additional features
 brew install vim --with-lua
 
+# Watch files and take action when they change
+brew install watchman
+
 # Internet file retriever
 brew install wget
 
