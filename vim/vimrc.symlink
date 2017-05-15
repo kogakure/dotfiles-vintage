@@ -183,6 +183,8 @@ set mousehide
 " Active mouse in terminal mode
 if !has('nvim')
   set mouse=a ttymouse=xterm2
+else
+  set mouse=a
 endif
 
 " Don’t syntax highlight lines longer than 800 characters
