@@ -90,6 +90,9 @@ brew install git-extras
 # Git extension for versioning large files
 brew install git-lfs
 
+# Simple and efficient way to access statistics in git.
+brew install git-quick-stats
+
 # The Go programming language
 brew install go
 
