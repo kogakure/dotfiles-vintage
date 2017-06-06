@@ -68,7 +68,6 @@ Plug 'scrooloose/syntastic'
 
 " ### Files ###
 " #############
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'bogado/file-line'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -83,7 +82,6 @@ Plug 'henrik/vim-indexed-search'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'rking/ag.vim'
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-" Plug 'ternjs/tern_for_vim', { 'do': 'npm install' } " nvim
 Plug 'tpope/vim-abolish'
 
 " ### Syntax, Indentation, Helper for Syntax ###

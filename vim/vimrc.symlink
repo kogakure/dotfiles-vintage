@@ -511,9 +511,6 @@ nnoremap <silent> <leader>da :exec "1," . bufnr('$') . "bd"<CR>
 " Toogle `set list`
 nnoremap <leader>l :set list!<CR>
 
-" Strip Whitespace manually
-nnoremap <silent> <leader>sw :StripWhitespace<CR>
-
 " Add dashes to words
 set iskeyword+=-
 
@@ -552,6 +549,11 @@ nnoremap <leader>x $x
 " ###############
 " ### Plugins ###
 " ###############
+
+" ### Better Whitespace ###
+" #########################
+
+let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 'help', 'pandoc', 'markdown']
 
 " ### EditorConfig ###
 " ####################
@@ -1085,9 +1087,6 @@ augroup line_return
         \   exe "normal! g`\"" |
         \ endif
 augroup END
-
-" Strip whitespace when saving a file
-autocmd BufWritePre * StripWhitespace
 
 " ### File type specific ###
 " ##########################
