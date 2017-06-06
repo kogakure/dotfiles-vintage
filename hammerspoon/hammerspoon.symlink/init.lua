@@ -70,7 +70,7 @@ local LAYOUT_DUAL = {
   {"HipChat",               nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Kalender",              nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Mail",                  nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
-  {"Safari",                nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"Safari",                nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Sonos",                 nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Spotify",               nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Wire",                  nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
