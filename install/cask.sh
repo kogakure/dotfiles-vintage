@@ -44,7 +44,6 @@ brew cask install google-earth-web-plugin
 brew cask install google-hangouts
 brew cask install google-japanese-ime
 brew cask install google-photos-backup
-brew cask install gpgtools
 brew cask install growlnotify
 brew cask install hammerspoon
 brew cask install handbrake
