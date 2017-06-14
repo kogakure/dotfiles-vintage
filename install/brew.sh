@@ -139,6 +139,9 @@ brew install mongodb
 # Turn marked-up plain text into well-formatted documents
 brew install multimarkdown
 
+# NeoVim
+brew install neovim/neovim/neovim
+
 # Open source relational database management system
 brew install mysql
 
