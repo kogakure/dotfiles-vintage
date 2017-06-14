@@ -92,6 +92,7 @@ brew cask install torbrowser
 brew cask install transmit
 brew cask install unrarx
 brew cask install virtualbox
+brew cask install visual-studio-code
 brew cask install vlc
 brew cask install vlc-webplugin
 brew cask install wacom-bamboo-tablet
