@@ -12,6 +12,9 @@ gem install foreman
 # git command to fetch and rebase all branches
 gem install git-up
 
+# Friendly wrapper around launchctl
+gem install lunchy
+
 # Style checker/lint tool for markdown files
 gem install mdl
 
