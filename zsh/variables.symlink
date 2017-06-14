@@ -19,6 +19,9 @@ else
   export THEME="base16-tomorrow-night"
 fi
 
+# zsh Highlighters
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+
 # nvm (Node Version Manager)
 export NVM_DIR="$HOME/.nvm"
 
