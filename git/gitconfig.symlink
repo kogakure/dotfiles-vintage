@@ -92,6 +92,7 @@
   enabled = 1
 [fetch]
   prune = true
+  fsckobjects = false
 [filter "lfs"]
   required = true
   smudge = git-lfs smudge -- %f
