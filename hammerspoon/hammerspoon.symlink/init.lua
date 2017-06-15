@@ -74,6 +74,7 @@ local LAYOUT_DUAL = {
   {"Sonos",                 nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Spotify",               nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Wire",                  nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
+  {"WhatsApp",              nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
   {"iA Writer",             nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"iTerm2",                nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
 }
@@ -94,6 +95,7 @@ local LAYOUT_NOTEBOOK = {
   {"Sonos",                 nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Spotify",               nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Wire",                  nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
+  {"WhatsApp",              nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"iA Writer",             nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"iTerm2",                nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
 }
