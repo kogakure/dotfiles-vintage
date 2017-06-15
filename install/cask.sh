@@ -57,7 +57,6 @@ brew cask install kaleidoscope
 brew cask install lastfm
 brew cask install livereload
 brew cask install logitech-control-center
-brew cask install mactex
 brew cask install macvim
 brew cask install makemkv
 brew cask install marked
