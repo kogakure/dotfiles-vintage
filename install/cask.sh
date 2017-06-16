@@ -37,7 +37,7 @@ brew cask install fitbit-connect
 brew cask install flip4mac
 brew cask install fontexplorer-x-pro
 brew cask install fontforge
-# brew cask install gemini # Using version 1.5 from AppStore
+brew cask install gemini
 brew cask install gitbook-editor
 brew cask install github-desktop
 brew cask install google-chrome
