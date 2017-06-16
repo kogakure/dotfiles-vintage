@@ -119,6 +119,9 @@ yarn global add pageres-cli
 # Single-Command Node.js Compiler
 yarn global add pkg
 
+# Start building a Preact Progressive Web App in seconds.
+yarn global add preact-cli
+
 # Package for formatting JSON data in a coloured YAML-style, perfect for CLI output
 # ➜ prettyjson package.json
 # ➜ curl https://api.github.com/users/rafeca | prettyjson
