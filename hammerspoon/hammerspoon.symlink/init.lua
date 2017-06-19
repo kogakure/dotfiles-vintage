@@ -60,16 +60,16 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 
 -- Big Monitor as Primary, Notebook as Secondary
 local LAYOUT_DUAL = {
-  {"2Do",                   nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
+  {"2Do",                   nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Day One",               nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Evernote",              nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Firefox",               nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Chrome",         nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Hangouts",       nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
-  {"HipChat",               nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
-  {"Kalender",              nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
-  {"Mail",                  nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
+  {"HipChat",               nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
+  {"Kalender",              nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
+  {"Mail",                  nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
   {"Safari",                nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Sonos",                 nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Spotify",               nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
