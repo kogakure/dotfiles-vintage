@@ -77,6 +77,10 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sx :CloseSession<CR>
 
+" Navigation of buffers
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprev<CR>
+
 " Backups
 set undodir=$HOME/.vim/tmp/undo//
 set backupdir=$HOME/.vim/tmp/backup//
