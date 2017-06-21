@@ -4,13 +4,7 @@ These are my Dotfiles, a collection of [Vim](http://www.vim.org/), [tmux](https:
 
 ## Initial Setup and Installation
 
-If on Mac OS X, you will need to install the XCode CLI tools before continuing. To do so, open a terminal and type:
-
-```bash
-xcode-select --install
-```
-
-Then, clone the dotfiles repository to your computer. This can be placed anywhere, and symbolic links will be created to reference it from your home directory.
+Clone the dotfiles repository to your computer. Symbolic links will be created to reference it from your home directory.
 
 ```bash
 git clone git@github.com:kogakure/dotfiles.git ~/.dotfiles

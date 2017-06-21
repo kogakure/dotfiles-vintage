@@ -1,6 +1,6 @@
 # http://editorconfig.org
 
-# Root-Datei
+# Root file
 root = true
 
 # Unix-style newlines with a newline ending every file
