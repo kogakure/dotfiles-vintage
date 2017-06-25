@@ -51,7 +51,6 @@ brew cask install google-hangouts
 brew cask install google-japanese-ime
 brew cask install google-photos-backup
 brew cask install gpgtools
-# brew cask install growlnotify
 brew cask install hammerspoon
 brew cask install handbrake
 brew cask install hipchat
@@ -64,7 +63,6 @@ brew cask install kindle
 brew cask install lastfm
 brew cask install livereload
 brew cask install macvim
-# brew cask install makemkv
 brew cask install marked
 brew cask install mousepose
 brew cask install mysqlworkbench
