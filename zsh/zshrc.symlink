@@ -39,6 +39,7 @@ plugins=(
   sudo
   tmux tmux-cssh tmuxinator
   vagrant virtualenv
+  yarn
   z
   zsh-syntax-highlighting
 )
