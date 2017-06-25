@@ -4,10 +4,8 @@
 ### Taps ###
 ############
 
-brew tap homebrew/versions
+brew tap homebrew/core
 brew tap homebrew/bundle
-brew tap homebrew/completions
-brew tap homebrew/dupes
 brew tap homebrew/services
 
 # Install Java as dependency
