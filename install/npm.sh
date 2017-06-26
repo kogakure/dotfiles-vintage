@@ -9,6 +9,9 @@ yarn global add babel-cli
 # Custom parser for ESLint
 yarn global add babel-eslint
 
+# BackstopJS: Catch CSS curveballs.
+yarn global add backstopjs
+
 # Browser package manager
 yarn global add bower
 

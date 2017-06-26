@@ -29,6 +29,9 @@ brew install bfg
 # Vector graphics library with cross-device output support
 brew install cairo
 
+# Navigation scripting and testing tool for PhantomJS
+brew install casperjs
+
 # Statistics utility to count lines of code
 brew install cloc
 

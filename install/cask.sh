@@ -93,6 +93,7 @@ brew cask install the-unarchiver
 brew cask install things
 brew cask install torbrowser
 brew cask install transmit
+brew cask install tunnelblick
 brew cask install unrarx
 brew cask install virtualbox
 brew cask install visual-studio-code
