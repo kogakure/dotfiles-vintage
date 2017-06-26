@@ -15,7 +15,7 @@ brew cask install xquartz
 #############
 
 # brew cask install 1password # Install from Store for TouchID
-brew cask install adobe-design-web-premium-cs6-de
+brew cask install adobe-cs6-design-web-premium
 brew cask install alfred
 brew cask install bartender
 brew cask install blender
@@ -33,7 +33,6 @@ brew cask install evernote
 brew cask install firefox
 brew cask install firefoxdeveloperedition
 brew cask install firefoxnightly
-brew cask install fitbit-connect
 brew cask install flip4mac
 brew cask install fontexplorer-x-pro
 brew cask install fontforge

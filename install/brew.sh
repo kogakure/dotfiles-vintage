@@ -122,9 +122,6 @@ brew install libpng
 # ➜ Hammerspoon
 brew install lua
 
-# GUI for vim, made for OS X
-brew install macvim --with-lua
-
 # Mac App Store command-line interface
 brew install mas
 
