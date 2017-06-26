@@ -77,7 +77,6 @@ brew cask install robo-3t
 brew cask install sequel-pro
 brew cask install sitesucker
 brew cask install skyfonts # Run installer later
-brew cask install skype
 brew cask install spotify
 brew cask install spotify-notifications
 brew cask install sqlitebrowser
@@ -85,7 +84,6 @@ brew cask install steam
 brew cask install stellarium
 brew cask install textmate
 brew cask install the-unarchiver
-brew cask install things
 brew cask install torbrowser
 brew cask install transmit
 brew cask install tunnelblick
