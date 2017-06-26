@@ -48,7 +48,6 @@ brew cask install google-earth-web-plugin
 brew cask install google-hangouts
 brew cask install google-japanese-ime
 brew cask install google-photos-backup
-brew cask install gpgtools
 brew cask install hammerspoon
 brew cask install handbrake
 brew cask install hipchat
@@ -89,6 +88,7 @@ brew cask install the-unarchiver
 brew cask install things
 brew cask install torbrowser
 brew cask install transmit
+brew cask install tunnelblick
 brew cask install unrarx
 brew cask install virtualbox
 brew cask install visual-studio-code
