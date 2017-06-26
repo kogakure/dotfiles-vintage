@@ -5,4 +5,4 @@ rsync -a -v -r \
   --compress \
   --exclude '.wdmc' \
   /Users/kogakure/eBooks/ \
-  root@nas.local:/shares/kogakure/Dropbox/Dokumente/eBooks/
+  root@nas.local:"/shares/kogakure/Dropbox/Dokumente/eBooks/"
