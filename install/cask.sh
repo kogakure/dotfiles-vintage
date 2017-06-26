@@ -15,7 +15,7 @@ brew cask install xquartz
 #############
 
 # brew cask install 1password # Install from Store for TouchID
-brew cask install adobe-design-web-premium-cs6-de
+brew cask install adobe-cs6-design-web-premium
 brew cask install alfred
 brew cask install bartender
 brew cask install blender
@@ -33,7 +33,6 @@ brew cask install evernote
 brew cask install firefox
 brew cask install firefoxdeveloperedition
 brew cask install firefoxnightly
-brew cask install fitbit-connect
 brew cask install flip4mac
 brew cask install fontexplorer-x-pro
 brew cask install fontforge
@@ -50,7 +49,6 @@ brew cask install google-earth-web-plugin
 brew cask install google-hangouts
 brew cask install google-japanese-ime
 brew cask install google-photos-backup
-# brew cask install growlnotify
 brew cask install hammerspoon
 brew cask install handbrake
 brew cask install hipchat
@@ -63,7 +61,6 @@ brew cask install kindle
 brew cask install lastfm
 brew cask install livereload
 brew cask install macvim
-# brew cask install makemkv
 brew cask install marked
 brew cask install mousepose
 brew cask install mysqlworkbench
