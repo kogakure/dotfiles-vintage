@@ -15,7 +15,6 @@ brew cask install xquartz
 #############
 
 # brew cask install 1password # Install from Store for TouchID
-brew cask install adobe-cs6-design-web-premium
 brew cask install alfred
 brew cask install bartender
 brew cask install blender
@@ -75,7 +74,7 @@ brew cask install p4merge
 brew cask install postman
 brew cask install qlvideo
 brew cask install riot
-brew cask install robomongo
+brew cask install robo-3t
 brew cask install sequel-pro
 brew cask install sitesucker
 brew cask install skyfonts # Run installer later
