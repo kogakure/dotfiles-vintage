@@ -1,8 +1,9 @@
 #!/bin/sh
 
 # Italic terminal
-tic zsh/xterm-256color-italic.terminfo
-tic tmux/tmux-256color-italic.terminfo
+tic -o ~/.terminfo terminfo/tmux.terminfo
+tic -o ~/.terminfo terminfo/tmux-256color.terminfo
+tic -o ~/.terminfo terminfo/xterm-256color.terminfo
 
 # Install Xcode Developer Tools
 xcode-select --install

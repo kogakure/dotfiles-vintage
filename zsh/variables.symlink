@@ -4,8 +4,6 @@
 
 export DOTFILES="$HOME/.dotfiles"
 
-export TERM=xterm-256color-italic
-
 # Paths
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
