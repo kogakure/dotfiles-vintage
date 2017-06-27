@@ -140,6 +140,9 @@ yarn global add stylelint-config-standard
 # Analyze and debug space usage through source maps
 yarn global add source-map-explorer
 
+# Node.js module and command-line tool for exporting SVG to PNG and JPEG.
+yarn global add svgexport
+
 # CLI tool for downloading your precious Tumblr likes.
 yarn global add tumblr-lks-downldr-cli
 

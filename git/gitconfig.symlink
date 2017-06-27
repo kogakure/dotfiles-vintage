@@ -84,6 +84,10 @@
 [mergetool "p4merge"]
   cmd = "p4merge $BASE $LOCAL $REMOTE $MERGED"
   trustExitCode = true
+[mergetool "code"]
+  cmd = "code $MERGED"
+  keepBackup = false
+  trustexitcode = true
 [pager]
   diff =
 [rebase]
