@@ -6,6 +6,7 @@
 
 brew tap caskroom/cask
 brew tap caskroom/versions
+brew tap caskroom/drivers
 
 # XQuartz needs to be installed first
 brew cask install xquartz
