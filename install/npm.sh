@@ -22,6 +22,9 @@ yarn global add browser-sync
 # ➜ caniuse border-radius
 yarn global add caniuse-cmd
 
+# Git commit, but play nice with conventions.
+yarn global add commitizen
+
 # Canvas graphics API backed by Cairo
 yarn global add canvas
 
