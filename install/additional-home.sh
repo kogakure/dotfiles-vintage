@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./additional.sh
+./install/additional.sh
 
 # Install ~/.gemrc
 cp ~/Dropbox/Software/Dotfiles/gemrc-home ~/.gemrc
