@@ -12,6 +12,9 @@ gem install foreman
 # git command to fetch and rebase all branches
 gem install git-up
 
+# lolcommits takes a snapshot with your webcam every time you git commit code
+gem install lolcommits
+
 # Friendly wrapper around launchctl
 gem install lunchy
 
