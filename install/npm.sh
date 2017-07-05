@@ -146,6 +146,9 @@ yarn global add source-map-explorer
 # Node.js module and command-line tool for exporting SVG to PNG and JPEG.
 yarn global add svgexport
 
+# Nodejs-based tool for optimizing SVG vector graphics files
+yarn global add svgo
+
 # CLI tool for downloading your precious Tumblr likes.
 yarn global add tumblr-lks-downldr-cli
 
