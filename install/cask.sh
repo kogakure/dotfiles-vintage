@@ -17,6 +17,7 @@ brew cask install xquartz
 
 # brew cask install 1password # Install from Store for TouchID
 brew cask install alfred
+brew cask install appzapper
 brew cask install bartender
 brew cask install blender
 brew cask install brave
