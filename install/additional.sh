@@ -10,13 +10,16 @@ cp ~/Dropbox/Software/Dotfiles/gitconfig.local ~/.gitconfig.local
 cp ~/Dropbox/Software/LaunchAgents/* ~/Library/LaunchAgents/
 
 # Install Dashboard Widgets
-sudo cp ~/Dropbox/Software/Dashboard\ Widgets/* /Library/Widgets
+sudo cp -R ~/Dropbox/Software/Dashboard\ Widgets/* /Library/Widgets/
 
 # Install QuickLook Plugins
 sudo cp ~/Dropbox/Software/QuickLook-Plugins/* /Library/QuickLook/
 
 # Install Spotlight Plugins
 sudo cp ~/Dropbox/Software/Spotlight-Plugins/* /Library/Spotlight/
+
+# Install Quicktime Plugins
+sudo cp ~/Dropbox/Software/QuickTime-Plugins/* /Library/QuickTime/
 
 # Prepare additional Software for installation
 mkdir ~/Downloads/install/
