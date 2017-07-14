@@ -118,6 +118,9 @@ yarn global add npm-check
 # ➜ ncu
 yarn global add npm-check-updates
 
+# Executes <command> either from a local node_modules/.bin, or from a central cache, installing any packages needed in order for <command> to run.
+yarn global add npx
+
 # Capture website screenshots
 # ➜ pageres [ todomvc.com 1200x1000 ] [ yeoman.io 800x600 1200x1000 ] --crop
 yarn global add pageres-cli
