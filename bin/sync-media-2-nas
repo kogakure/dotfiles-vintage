@@ -7,7 +7,13 @@ rsync \
   --ignore-existing \
   --delete \
   --compress \
+  --exclude '.DS_Store' \
   --exclude '.wdmc' \
+  --exclude '.Spotlight-V100' \
+  --exclude '.DocumentRevision-V100' \
+  --exclude '.TemporaryItems' \
+  --exclude '.Trashes' \
+  --exclude '.fseventsd' \
   --verbose \
   /Volumes/Media/ \
   /Volumes/kogakure/Media/
