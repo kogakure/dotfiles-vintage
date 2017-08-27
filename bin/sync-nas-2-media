@@ -1,0 +1,13 @@
+#!/bin/sh
+
+rsync \
+  -X \
+  --archive \
+  --recursive \
+  --ignore-existing \
+  --delete \
+  --compress \
+  --exclude '.wdmc' \
+  --verbose \
+  /Volumes/kogakure/Media/ \
+  /Volumes/Media/
