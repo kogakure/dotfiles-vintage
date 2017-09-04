@@ -338,3 +338,11 @@ fbh() {
   awk -F $sep '{printf "%-'$cols's  \x1b[36m%s\n", $1, $2}' |
   fzf --ansi --multi | sed 's#.*\(https*://\)#\1#' | xargs open
 }
+
+spotlight() {
+  if [ -z "$1" ]; then
+    echo "Search the current folder for files containing a text string"
+  else
+    mdfind -onlyin ./ "$1";
+  fi
+}
