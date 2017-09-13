@@ -5,15 +5,17 @@ rsync \
   --archive \
   --recursive \
   --ignore-existing \
+  --numeric-ids \
+  --progress \
   --delete \
   --compress \
   --exclude '.DS_Store' \
-  --exclude '.wdmc' \
+  --exclude '@*' \
   --exclude '.Spotlight-V100' \
   --exclude '.DocumentRevision-V100' \
   --exclude '.TemporaryItems' \
   --exclude '.Trashes' \
   --exclude '.fseventsd' \
   --verbose \
-  /Volumes/Media/ \
-  /Volumes/kogakure/Media/
+  /Volumes/MediaHD/ \
+  /Volumes/media/
