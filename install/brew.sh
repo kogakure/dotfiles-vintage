@@ -118,6 +118,9 @@ brew install imagesnap
 # Image manipulation library
 brew install jpeg
 
+# Access DVDs as block devices without the decryption
+brew install libdvdcss
+
 # Library for manipulating PNG images
 brew install libpng
 
