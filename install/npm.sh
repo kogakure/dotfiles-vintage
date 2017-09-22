@@ -1,171 +1,171 @@
  #!/bin/sh
 
 # Runs an accessibility audit against a URL
-yarn global add a11y
+npm install -g a11y
 
 # Babel command line.
-yarn global add babel-cli
+npm install -g babel-cli
 
 # Custom parser for ESLint
-yarn global add babel-eslint
+npm install -g babel-eslint
 
 # BackstopJS: Catch CSS curveballs.
-yarn global add backstopjs
+npm install -g backstopjs
 
 # Browser package manager
-yarn global add bower
+npm install -g bower
 
 # Live CSS Reload & Browser Syncing
-yarn global add browser-sync
+npm install -g browser-sync
 
 # caniuse for the command line
 # ➜ caniuse border-radius
-yarn global add caniuse-cmd
+npm install -g caniuse-cmd
 
 # Git commit, but play nice with conventions.
-yarn global add commitizen
+npm install -g commitizen
 
 # Canvas graphics API backed by Cairo
-yarn global add canvas
+npm install -g canvas
 
 # CSSO (CSS Optimizer) is a CSS minifier with structural optimisations
 # ➜ csso in.css out.css
-yarn global add csso
+npm install -g csso
 
 # runs Node.js programs through Chromium DevTools
 # ➜ devtool src/app.js
-yarn global add devtool
+npm install -g devtool
 
 # An AST-based pattern checker for JavaScript.
-yarn global add eslint
-yarn global add eslint-plugin-babel
-yarn global add eslint-plugin-chai
-yarn global add eslint-plugin-chai-expect
-yarn global add eslint-plugin-flowtype
-yarn global add eslint-plugin-html
-yarn global add eslint-plugin-jasmine
-yarn global add eslint-plugin-jsdoc
-yarn global add eslint-plugin-json
-yarn global add eslint-plugin-jsx
-yarn global add eslint-plugin-jsx-extras
-yarn global add eslint-plugin-lodash
-yarn global add eslint-plugin-mocha
-yarn global add eslint-plugin-node
-yarn global add eslint-plugin-react
-yarn global add eslint-plugin-redux
+npm install -g eslint
+npm install -g eslint-plugin-babel
+npm install -g eslint-plugin-chai
+npm install -g eslint-plugin-chai-expect
+npm install -g eslint-plugin-flowtype
+npm install -g eslint-plugin-html
+npm install -g eslint-plugin-jasmine
+npm install -g eslint-plugin-jsdoc
+npm install -g eslint-plugin-json
+npm install -g eslint-plugin-jsx
+npm install -g eslint-plugin-jsx-extras
+npm install -g eslint-plugin-lodash
+npm install -g eslint-plugin-mocha
+npm install -g eslint-plugin-node
+npm install -g eslint-plugin-react
+npm install -g eslint-plugin-redux
 
 # Express' application generator
 # ➜ express myapp --hogan -c less
-yarn global add express-generator
+npm install -g express-generator
 
 # Test your download speed using fast.com
 # ➜ fast
-yarn global add fast-cli
+npm install -g fast-cli
 
 # Command-Line Interface for Firebase
-yarn global add firebase-tools
+npm install -g firebase-tools
 
 # Library for streamlining application deployment or systems administration tasks
 # ➜ fly
-yarn global add flightplan
+npm install -g flightplan
 
 # Just the node wrapper for the Galen Framework.
 # ➜ galen
-yarn global add galenframework-cli
+npm install -g galenframework-cli
 
 # React.js Static Site Generator
-yarn global add gatsby
+npm install -g gatsby
 
 # Convert any video file to an optimized animated GIF
-yarn global add gifify
+npm install -g gifify
 
 # CLI to generate books and documentation using gitbook
-yarn global add gitbook-cli
+npm install -g gitbook-cli
 
 # Command line interface for gulp
-yarn global add gulp-cli
+npm install -g gulp-cli
 
 # Small JSON file server for REST API mock
 # ➜ touch db.json; json-server --watch db.json
-yarn global add json-server
+npm install -g json-server
 
 # Tool for managing JavaScript projects with multiple packages (BETA)
-yarn global add lerna@^2.0.0-beta
+npm install -g lerna@^2.0.0-beta
 
 # Lighthouse analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices.
-yarn global add lighthouse
+npm install -g lighthouse
 
 # simple, flexible, fun test framework
-yarn global add mocha
+npm install -g mocha
 
 # Wrap web apps natively
-yarn global add nativefier
+npm install -g nativefier
 
 # The Netlify CLI tools lets you create, deploy, and delete new sites straight from your terminal.
-yarn global add netlify-cli
+npm install -g netlify-cli
 
 # Tool to create icns files for OSX
-yarn global add node-icns
+npm install -g node-icns
 
 # Simple monitor script for use during development of a node.js app.
-yarn global add nodemon
+npm install -g nodemon
 
 # Check for outdated, incorrect, and unused dependencies.
 # ➜ npm-check -g
-yarn global add npm-check
+npm install -g npm-check
 
 # Find newer versions of dependencies than what your package.json or bower.json allows
 # ➜ ncu
-yarn global add npm-check-updates
+npm install -g npm-check-updates
 
 # Executes <command> either from a local node_modules/.bin, or from a central cache, installing any packages needed in order for <command> to run.
-yarn global add npx
+npm install -g npx
 
 # Capture website screenshots
 # ➜ pageres [ todomvc.com 1200x1000 ] [ yeoman.io 800x600 1200x1000 ] --crop
-yarn global add pageres-cli
+npm install -g pageres-cli
 
 # Single-Command Node.js Compiler
-yarn global add pkg
+npm install -g pkg
 
 # Start building a Preact Progressive Web App in seconds.
-yarn global add preact-cli
+npm install -g preact-cli
 
 # Package for formatting JSON data in a coloured YAML-style, perfect for CLI output
 # ➜ prettyjson package.json
 # ➜ curl https://api.github.com/users/rafeca | prettyjson
-yarn global add prettyjson
+npm install -g prettyjson
 
 # CLI for postcss
-yarn global add postcss-cli
+npm install -g postcss-cli
 
 # Modern CSS linter
-yarn global add stylelint
-yarn global add stylelint-config-standard
+npm install -g stylelint
+npm install -g stylelint-config-standard
 
 # Analyze and debug space usage through source maps
-yarn global add source-map-explorer
+npm install -g source-map-explorer
 
 # Node.js module and command-line tool for exporting SVG to PNG and JPEG.
-yarn global add svgexport
+npm install -g svgexport
 
 # Nodejs-based tool for optimizing SVG vector graphics files
-yarn global add svgo
+npm install -g svgo
 
 # CLI tool for downloading your precious Tumblr likes.
-yarn global add tumblr-lks-downldr-cli
+npm install -g tumblr-lks-downldr-cli
 
 # JavaScript parser, mangler/compressor and beautifier toolkit
-yarn global add uglify-js
+npm install -g uglify-js
 
 # A simple CLI for scaffolding Vue.js projects.
-yarn global add vue-cli
+npm install -g vue-cli
 
 # Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jade, coffee, css, less, ... and your custom stuff.
-yarn global add webpack
+npm install -g webpack
 
 # Serves a webpack app. Updates the browser on changes.
-yarn global add webpack-dev-server
+npm install -g webpack-dev-server
 
 # Fast, reliable, and secure dependency management.
-yarn global add yarn
+npm install -g yarn

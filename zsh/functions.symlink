@@ -27,7 +27,7 @@ function pr() {
 function update () {
   sudo softwareupdate -i -a
     brew update
-    brew upgrade --all
+    brew upgrade
     brew cleanup
     brew cask cleanup
     npm update npm -g
