@@ -26,6 +26,7 @@ function pr() {
 # and their installed packages
 function update () {
   sudo softwareupdate -i -a
+    brew prune
     brew update
     brew upgrade
     brew cleanup
