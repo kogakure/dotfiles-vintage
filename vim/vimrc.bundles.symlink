@@ -126,7 +126,7 @@ Plug 'vim-scripts/PHP-correct-Indenting'
 Plug 'benmills/vimux'
 Plug 'cespare/vim-toml',         { 'for': 'toml' }
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'evanmiller/nginx-vim-syntax'
+Plug 'fatih/vim-nginx'
 Plug 'fatih/vim-go'
 Plug 'galenframework/galen.vim'
 Plug 'skalnik/vim-vroom'
