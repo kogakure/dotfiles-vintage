@@ -787,6 +787,10 @@ endif
 " ### Syntastic ###
 " #################
 
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
 
@@ -813,16 +817,26 @@ let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
 
 " tmuxline Integration
 let g:airline#extensions#tmuxline#enabled = 1
-"
+
+" Check options
+let g:syntastic_always_populate_loc_list  = 1
+let g:syntastic_auto_loc_list             = 0
+let g:syntastic_check_on_open             = 0
+let g:syntastic_check_on_wq               = 0
+
 " Syntax Checker (:SyntasticInfo on a file)
-let g:syntastic_css_checkers            = ['stylelint']
-let g:syntastic_css_eslint_exe          = '[ -f $(npm bin)/stylelint ] && $(npm bin)/stylelint || stylelint'
-let g:syntastic_javascript_checkers     = ['eslint']
-let g:syntastic_javascript_eslint_exe   = '[ -f $(npm bin)/eslint ] && $(npm bin)/eslint || eslint'
+let g:syntastic_css_checkers              = ['stylelint']
+let g:syntastic_css_stylelint_exe         = 'npm run lint:css --'
+
+let g:syntastic_scss_checkers             = ['stylelint']
+let g:syntastic_scss_stylelint_exe        = 'npm run lint:css --'
+
+let g:syntastic_javascript_checkers       = ['eslint']
+let g:syntastic_javascript_eslint_exe     = 'npm run lint:js --'
+
 let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-let g:syntastic_ruby_checkers           = ['mri']
-let g:syntastic_scss_checkers           = ['stylelint']
-let g:syntastic_scss_eslint_exe         = '[ -f $(npm bin)/stylelint ] && $(npm bin)/stylelint || stylelint'
+
+let g:syntastic_ruby_checkers             = ['mri']
 
 
 " ### Neomake ###

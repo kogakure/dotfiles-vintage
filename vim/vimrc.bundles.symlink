@@ -74,6 +74,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'sgur/ctrlp-extensions.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'prettier/vim-prettier', {
+      \ 'do': 'yarn install',
+      \ 'for': ['javascript', 'jsx', 'flow', 'typescript', 'css', 'less', 'scss', 'json', 'graphql'] }
 
 " ### Search ###
 " ##############

@@ -131,6 +131,9 @@ npm install -g pkg
 # Start building a Preact Progressive Web App in seconds.
 npm install -g preact-cli
 
+# Prettier is an opinionated code formatter
+npm install -g prettier
+
 # Package for formatting JSON data in a coloured YAML-style, perfect for CLI output
 # ➜ prettyjson package.json
 # ➜ curl https://api.github.com/users/rafeca | prettyjson
