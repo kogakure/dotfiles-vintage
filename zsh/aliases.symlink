@@ -77,6 +77,9 @@ alias glx='git config user.email "stefan.imhoff@xing.com";'
 alias upstream-update="git co master; git remote update; git fetch --all; git rebase upstream/master; git co -;"
 alias gpp='PATCHNAME=`git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/"`-`date "+%Y-%m-%d-%H%M.patch"`; git diff --full-index master > ../patches/$PATCHNAME'
 
+# Docker
+alias drm="docker run $(docker ps -a -q -f status=exited)"
+
 # nginx
 alias nginx-up="sudo nginx -c /usr/local/etc/nginx/nginx.conf"
 alias nginx-down="sudo nginx -s stop"
