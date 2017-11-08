@@ -121,6 +121,9 @@ brew install jpeg
 # Access DVDs as block devices without the decryption
 brew install libdvdcss
 
+# Text-based web browser
+brew install lynx
+
 # Library for manipulating PNG images
 brew install libpng
 
