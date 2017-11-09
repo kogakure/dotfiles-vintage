@@ -1,0 +1,11 @@
+{
+  "singleQuote": true,
+  "printWidth": 100,
+  "parser": "flow",
+  "overrides": [{
+    "files": "*.css",
+    "options": {
+      "singleQuote": false
+    }
+  }]
+}
