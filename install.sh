@@ -32,6 +32,9 @@ source install/nvm.sh
 # Installing global Node.js modules
 source install/npm.sh
 
+# Installing Python version manager
+source install/python.sh
+
 # Set macOS defaults
 source install/mac.sh
 
