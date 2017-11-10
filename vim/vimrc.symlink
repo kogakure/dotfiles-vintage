@@ -33,6 +33,9 @@ let g:netrw_altv=1      " open splits to the right
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
+" Python
+let g:python_host_prog = '~/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
 
 " Custom Colors
 highlight Conceal cterm=NONE ctermbg=NONE ctermfg=darkred
@@ -567,7 +570,7 @@ let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 
 
 " ### EditorConfig ###
 " ####################
-let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig-0.12.1'
 let g:EditorConfig_core_mode = 'external_command'
 
 " ### HardTime ###

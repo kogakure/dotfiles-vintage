@@ -4,6 +4,10 @@
 
 export DOTFILES="$HOME/.dotfiles"
 
+# Compilers
+export LDFLAGS=-L/usr/local/opt/openssl/lib
+export CPPFLAGS=-I/usr/local/opt/openssl/include
+
 # Paths
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
@@ -32,6 +36,11 @@ export RBENV_ROOT="$HOME/.rbenv/"
 
 # Node.js
 export NODE_PATH="$(npm root -g)"
+
+# Pyenv
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # Man
 export MANPATH="/usr/local/man:$MANPATH"
