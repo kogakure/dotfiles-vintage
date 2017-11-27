@@ -37,6 +37,14 @@ function update () {
     # gem update
 }
 
+# React: Create build
+function create-react-build () {
+  rm -r node_modules/
+  yarn cache clean
+  yarn
+  yarn build
+}
+
 # Incremental Search
 function bind2maps () {
   local i sequence widget
