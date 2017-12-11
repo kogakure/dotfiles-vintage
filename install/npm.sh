@@ -23,10 +23,14 @@ npm install -g browser-sync
 npm install -g caniuse-cmd
 
 # Git commit, but play nice with conventions.
+# ➜ git cz
 npm install -g commitizen
 
 # Canvas graphics API backed by Cairo
 npm install -g canvas
+
+# Prompts for conventional changelog standard.
+npm install -g cz-conventional-changelog
 
 # CSSO (CSS Optimizer) is a CSS minifier with structural optimisations
 # ➜ csso in.css out.css
