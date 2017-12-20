@@ -89,6 +89,9 @@ npm install -g gitbook-cli
 # Command line interface for gulp
 npm install -g gulp-cli
 
+# Hops
+npm install -g hops-cli
+
 # Small JSON file server for REST API mock
 # ➜ touch db.json; json-server --watch db.json
 npm install -g json-server
