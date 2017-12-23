@@ -143,6 +143,7 @@ npm install -g preact-cli
 
 # Prettier is an opinionated code formatter
 npm install -g prettier
+npm install -g prettier-stylelint
 
 # Package for formatting JSON data in a coloured YAML-style, perfect for CLI output
 # ➜ prettyjson package.json
@@ -155,6 +156,7 @@ npm install -g postcss-cli
 # Modern CSS linter
 npm install -g stylelint
 npm install -g stylelint-config-standard
+npm install -g stylelint-config-prettier
 
 # Analyze and debug space usage through source maps
 npm install -g source-map-explorer
