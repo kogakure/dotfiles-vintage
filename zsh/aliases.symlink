@@ -80,6 +80,10 @@ alias gpp='PATCHNAME=`git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)
 # Docker
 alias drm="docker run $(docker ps -a -q -f status=exited)"
 
+# Node
+alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
+alias yarnplease="rm -rf node_modules/ && rm -f yarn.lock && yarn install"
+
 # nginx
 alias nginx-up="sudo nginx -c /usr/local/etc/nginx/nginx.conf"
 alias nginx-down="sudo nginx -s stop"

@@ -9,6 +9,9 @@ npm install -g babel-cli
 # Custom parser for ESLint
 npm install -g babel-eslint
 
+# A Babel preset for each environment.
+npm install babel-preset-env
+
 # BackstopJS: Catch CSS curveballs.
 npm install -g backstopjs
 
