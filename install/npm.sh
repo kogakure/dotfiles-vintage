@@ -153,6 +153,9 @@ npm install -g prettyjson
 # CLI for postcss
 npm install -g postcss-cli
 
+# A commandline tool for Polymer projects
+npm install -g polymer-cli
+
 # Modern CSS linter
 npm install -g stylelint
 npm install -g stylelint-config-standard
