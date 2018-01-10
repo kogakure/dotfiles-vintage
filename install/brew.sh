@@ -189,6 +189,10 @@ brew install readline
 # ➜ toml2yaml -i test.toml -o test.yml; json2toml, yaml2toml etc.
 brew install remarshal
 
+# Search tool like grep and The Silver Searcher
+# ➜ rg
+brew install ripgrep
+
 # Utility that provides fast incremental file transfer
 brew install rsync
 

@@ -112,6 +112,9 @@ then
   source ~/.localrc
 fi
 
+# Unalias
+unalias rg
+
 # Set terminal
 export TERM=xterm-256color
 

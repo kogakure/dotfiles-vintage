@@ -99,8 +99,8 @@
   fsckobjects = false
 [filter "lfs"]
   required = true
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
   clean = git-lfs clean -- %f
 [web]
   browser = open
