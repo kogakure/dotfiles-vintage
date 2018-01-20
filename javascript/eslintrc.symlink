@@ -73,7 +73,6 @@
     'react/react-in-jsx-scope': 0,
     'flowtype/space-after-type-colon': [1, 'always'],
     'flowtype/space-before-type-colon': [1, 'never'],
-    'mocha/no-exclusive-tests': 'error',
     'chai-expect/missing-assertion': 2,
     'chai-expect/terminating-properties': 1
   },
@@ -88,13 +87,11 @@
     'chai-expect',
     'flowtype',
     'html',
-    'jasmine',
     'jsdoc',
     'json',
     'jsx',
     'jsx-extras',
     'lodash',
-    'mocha',
     'node',
     'react'
   ],
