@@ -60,7 +60,7 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 
 -- Big Monitor as Primary, Notebook as Secondary
 local LAYOUT_DUAL = {
-  {"2Do",                   nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
+  {"Things",                nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
   {"Code",                  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Day One",               nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
@@ -82,7 +82,7 @@ local LAYOUT_DUAL = {
 
 --  Notebook
 local LAYOUT_NOTEBOOK = {
-  {"2Do",                   nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
+  {"Things",                nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Code",                  nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Day One",               nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
@@ -171,7 +171,7 @@ hotkey.bind(KEY_SCAM, "M", function() application.launchOrFocus("Mail") end)
 hotkey.bind(KEY_SCAM, "O", function() application.launchOrFocus("Day One") end)
 hotkey.bind(KEY_SCAM, "P", function() application.launchOrFocus("Affinity Photo") end)
 hotkey.bind(KEY_SCAM, "S", function() application.launchOrFocus("Spotify") end)
-hotkey.bind(KEY_SCAM, "T", function() application.launchOrFocus("2Do") end)
+hotkey.bind(KEY_SCAM, "T", function() application.launchOrFocus("Things") end)
 hotkey.bind(KEY_SCAM, "V", function() application.launchOrFocus("Preview") end)
 hotkey.bind(KEY_SCAM, "W", function() application.launchOrFocus("iA Writer") end)
 
