@@ -60,7 +60,8 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 
 -- Big Monitor as Primary, Notebook as Secondary
 local LAYOUT_DUAL = {
-  {"Things",                nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
+  {"Things",                nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
+  {"Microsoft Outlook",     nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Code",                  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Day One",               nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
@@ -83,6 +84,7 @@ local LAYOUT_DUAL = {
 --  Notebook
 local LAYOUT_NOTEBOOK = {
   {"Things",                nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
+  {"Microsoft Outlook",     nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Code",                  nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Day One",               nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
