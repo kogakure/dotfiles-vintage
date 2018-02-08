@@ -11,7 +11,7 @@ export CPPFLAGS=-I/usr/local/opt/openssl/include
 # Paths
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
-PATH="$(yarn global bin):$PATH"
+PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 
 # Switch between light/dark themes
