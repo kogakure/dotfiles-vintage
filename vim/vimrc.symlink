@@ -55,6 +55,10 @@ command! MakeTags !ctags .
 " Set <leader> to `,` instead to `\`
 let mapleader=","
 
+" Quickfix
+nnoremap <leader>qo :copen<CR>
+nnoremap <leader>qc :cclose<CR>
+
 " <loacalleader> to `+`
 let maplocalleader="+"
 
@@ -213,9 +217,6 @@ set foldlevelstart=20
 " Visuall select of just pasted stuff
 nnoremap gp `[v`]
 nnoremap gy `[v`]y
-
-" Reload all open buffers
-nnoremap <leader>ra :tabdo exec "windo e!"
 
 " Create ctags
 nnoremap <leader>c :silent! !ctags<cr>:redraw!<cr>
@@ -392,10 +393,6 @@ noremap { {zzzv
 " Close all buffers
 nnoremap XX :qa<CR>
 
-" VimDiff Mappings
-nnoremap <leader>dj ]c
-nnoremap <leader>dk [c
-
 " Add lines in NORMAL Mode
 nnoremap gn o<ESC>k
 nnoremap gN O<ESC>j
@@ -446,9 +443,9 @@ noremap <leader>he :call HtmlEscape()<CR>
 noremap <leader>hue :call HtmlUnEscape()<CR>
 
 " Open the current file with Firefox, Google Chrome or Safari
-noremap <silent> <leader>ff :! open -a firefox.app %:p<CR>
-noremap <silent> <leader>gc :! open -a google\ chrome.app %:p<CR>
-noremap <silent> <leader>sf :! open -a safari.app %:p<CR>
+noremap <silent> <leader>of :! open -a firefox.app %:p<CR>
+noremap <silent> <leader>oc :! open -a google\ chrome.app %:p<CR>
+noremap <silent> <leader>os :! open -a safari.app %:p<CR>
 
 " Quick toggle between buffers
 noremap <leader>j :b#<CR>
@@ -464,7 +461,6 @@ nnoremap <silent> <leader>s :set spell!<CR>
 nnoremap <leader>v :e $MYVIMRC<CR>
 nnoremap <leader>vb :e ~/.vimrc.bundles<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
-nnoremap <leader>hs :e ~/.hammerspoon/init.lua<CR>
 
 " Exit INSERT MODE with 'jk' herauskommen
 inoremap jk <ESC>
@@ -538,10 +534,6 @@ nnoremap <leader>m :silent !open -a iA\ Writer.app '%:p'<CR>
 noremap <leader>y "*y
 noremap <leader>yy "*Y
 
-" Octopress: Isolate or Integrate posts
-nnoremap <leader>oo :!octopress isolate %<CR>
-nnoremap <leader>oi :!octopress integrate<CR>
-
 " System clipboard
 set clipboard=unnamed
 
@@ -575,23 +567,25 @@ let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig-0.12.1'
 let g:EditorConfig_core_mode = 'external_command'
 
-" ### HardTime ###
-" ################
-let g:hardtime_default_on = 0
-let g:list_of_normal_keys = ["h", "j", "k", "l", "+", "<UP>", "<DOWN>", "<LEFT>", "<RIGHT>"]
-
 " ### FZF ###
 " ###########
 
-nnoremap <leader>fz :FZF<CR>
-nnoremap <C-s> :FZF<CR>
+nnoremap <C-s> :Files<CR>
+nnoremap <leader>fz :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>fg :GFiles<CR>
+nnoremap <leader>fs :GFiles?<CR>
+nnoremap <leader>fl :Lines<CR>
+nnoremap <leader>ag :Ag<space>
+nnoremap <leader>ft :Tags<space>
+nnoremap <leader>fbt :BTags<space>
+nnoremap <leader>fgc :Commits<space>
 
 
 " ### Ctrl-p ###
 " ##############
 
 nnoremap <leader>mru :CtrlPMRU<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>cmd :CtrlPCmdline<CR>
 nnoremap <leader>yr :CtrlPYankring<CR>
 nnoremap <leader>cc :CtrlPClearCache<CR>
@@ -730,39 +724,13 @@ let g:session_default_name = 'default'
 " ###############
 
 " Exclude plugins
-let g:numbers_exclude = ['tagbar', 'gundo', 'minibufexpl']
+let g:numbers_exclude = ['tagbar', 'minibufexpl']
 
 
 " ### Dispatch ###
 " ################
 
 noremap <leader>dp :Dispatch
-
-
-" ### Tern ###
-" ############
-
-" if !has("nvim") && has("python3")
-"   " Activate mappings (http://usevim.com/files/tern_keyboard.pdf)
-"   let g:tern_map_keys=1
-
-"   " Show hints when stopping typing
-"   let g:tern_show_argument_hints='on_hold'
-" endif
-
-
-" ### Ag ###
-" ##########
-
-nnoremap <leader>ag :Ag<space>
-
-
-" ### Gundo ###
-" #############
-
-" Toggle Gundo
-nnoremap <leader>gu :GundoToggle<CR>
-
 
 " ### JavaScript Libraries Syntax ###
 " ###################################
@@ -794,90 +762,33 @@ if has("nvim") && has("python3")
   let g:deoplete#enable_at_startup = 1
 endif
 
+" ### ALE ###
+" ###########
 
-" ### Syntastic ###
-" #################
+" After this is configured, :ALEFix will try and fix your JS code with ESLint.
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Enable completion where available.
+let g:ale_completion_enabled = 1
 
-" Enable Airline
-let g:airline#extensions#tabline#enabled = 1
+" Enable Quickfix
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
 
-" Use Powerline Fonts for symbolse
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-
-" Colorscheme
-let g:airline_theme = 'base16'
-
-" No top bar
-let g:airline#extensions#tabline#enabled = 0
-
-" Airline Whitespace
-let g:airline#extensions#branch#empty_message           = "No SCM"
-let g:airline#extensions#whitespace#enabled             = 1
-let g:airline#extensions#whitespace#symbol              = '!'
-let g:airline#extensions#whitespace#checks              = [ 'indent', 'trailing' ]
-let g:airline#extensions#whitespace#max_lines           = 20000
-let g:airline#extensions#whitespace#show_message        = 1
-let g:airline#extensions#whitespace#trailing_format     = 'trailing[%s]'
-let g:airline#extensions#whitespace#mixed_indent_format = 'mixed-indent[%s]'
-
-" tmuxline Integration
-let g:airline#extensions#tmuxline#enabled = 1
-
-" Check options
-let g:syntastic_always_populate_loc_list  = 1
-let g:syntastic_auto_loc_list             = 0
-let g:syntastic_check_on_open             = 0
-let g:syntastic_check_on_wq               = 0
-
-" Syntax Checker (:SyntasticInfo on a file)
-let g:syntastic_css_checkers              = ['stylelint']
-let g:syntastic_css_stylelint_exe         = 'npm run lint:css --'
-
-let g:syntastic_scss_checkers             = ['stylelint']
-let g:syntastic_scss_stylelint_exe        = 'npm run lint:css --'
-
-let g:syntastic_javascript_checkers       = ['eslint']
-let g:syntastic_javascript_eslint_exe     = 'npm run lint:js --'
-
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
-
-let g:syntastic_ruby_checkers             = ['mri']
-
-
-" ### Neomake ###
-" ###############
-
-if has("neovim")
-  " Run NeoMake on read and write operations
-  autocmd! BufReadPost,BufWritePost * Neomake
-
-  " Disable inherited syntastic
-  let g:syntastic_mode_map = {
-        \ "mode": "passive",
-        \ "active_filetypes": [],
-        \ "passive_filetypes": [] }
-
-  let g:neomake_serialize = 1
-  let g:neomake_serialize_abort_on_error = 1
-endif
-
-
-" ### Splice ###
-" ##############
-
-let g:splice_prefix = "<leader>,,"
-
+" Fix JSX with Stylelint and ESlint
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
+let g:ale_linter_aliases = {'jsx': 'css'}
 
 " ### Gitgutter ###
 " #################
 
 let g:gitgutter_max_signs = 3000
+let g:gitgutter_sign_added = '•'
+let g:gitgutter_sign_modified = '•'
+let g:gitgutter_sign_removed = '•'
+let g:gitgutter_sign_modified_removed = '•'
 
 
 " #################
@@ -1187,7 +1098,7 @@ augroup ft_javascript
   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
   autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
   autocmd BufRead,BufNewFile *.es6 setfiletype javascript
-  autocmd BufRead,BufNewFile *.jsx setfiletype javascript
+  autocmd BufRead,BufNewFile *.jsx setfiletype javascript.jsx
 augroup END
 
 " ### JSON ###
