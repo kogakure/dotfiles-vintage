@@ -637,6 +637,19 @@ let g:auto_save_silent = 0
 
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
+" ### Lang Client ###
+" ###################
+
+let g:LanguageClient_serverCommands = {
+      \ 'javascript': ['~/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+      \ 'javascript.jsx': ['~/.config/yarn/global/node_modules/javascript-typescript-langserver/lib/language-server-stdio.js'],
+      \ }
+
+" Automatically start language servers.
+let g:LanguageClient_autoStart = 1
+nnoremap <silent> <leader>mh :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> <leader>md :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <leader>mr :call LanguageClient_textDocument_rename()<CR>
 
 " ### Vim-JavaScript ###
 " ######################
