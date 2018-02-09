@@ -14,6 +14,8 @@ PATH="/usr/local/sbin:$PATH"
 PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 
+export XDG_CONFIG_HOME="$HOME/.config/"
+
 # Switch between light/dark themes
 if [ "$BACKGROUND" = "light" ]; then
   export THEME="base16-tomorrow"

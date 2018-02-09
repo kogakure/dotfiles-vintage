@@ -34,8 +34,8 @@ let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
 " Python
-let g:python_host_prog = '~/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '~/.pyenv/versions/neovim3/bin/python'
+let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
 
 " Custom Colors
 highlight Conceal cterm=NONE ctermbg=NONE ctermfg=darkred
@@ -784,9 +784,16 @@ endif
 " ###########
 
 " After this is configured, :ALEFix will try and fix your JS code with ESLint.
+let g:ale_linters = {
+      \   'javascript': ['eslint'],
+      \}
+
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\}
+      \   'javascript': ['eslint'],
+      \}
+
+" let g:ale_javascript_eslint_use_global = 1
+" let g:ale_javascript_eslint_executable = '~/.config/yarn/global/node_modules/.bin/eslint'
 
 " Enable completion where available.
 let g:ale_completion_enabled = 1
