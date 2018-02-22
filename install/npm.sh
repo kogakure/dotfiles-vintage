@@ -89,6 +89,9 @@ yarn add global gifify
 # CLI to generate books and documentation using gitbook
 yarn add global gitbook-cli
 
+# GraphQL CLI
+yarn add global graphql-cli
+
 # Command line interface for gulp
 yarn add global gulp-cli
 
