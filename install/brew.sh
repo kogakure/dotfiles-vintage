@@ -66,6 +66,9 @@ brew install eot-utils
 # Play, record, convert, and stream audio and video
 brew install ffmpeg --with-libsass --with-fontconfig
 
+# Static type checker for JavaScript
+brew install flow
+
 # Command-line outline and bitmap font editor/converter
 brew install fontforge
 
