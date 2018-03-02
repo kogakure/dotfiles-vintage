@@ -3,6 +3,9 @@
 # Runs an accessibility audit against a URL
 yarn add global a11y
 
+# Catch insensitive, inconsiderate writing.
+yarn add global alex
+
 # Babel command line.
 yarn add global babel-cli
 
