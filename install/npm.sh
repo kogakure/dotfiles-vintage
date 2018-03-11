@@ -179,6 +179,9 @@ yarn add global svgo
 # CLI tool for downloading your precious Tumblr likes.
 yarn add global tumblr-lks-downldr-cli
 
+# TypeScript is a language for application scale JavaScript development
+yarn add global typescript
+
 # JavaScript parser, mangler/compressor and beautifier toolkit
 yarn add global uglify-js
 
