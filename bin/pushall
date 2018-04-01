@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+
+if [ $# -lt 1 ]; then
+  echo 1>&2 Usage: pushall \<repository\>
+  exit 127
+fi
+
+git remote set-url --add --push origin git@github.com:kogakure/$1.git
+git remote set-url --add --push origin git@gitlab.com:kogakure/$1.git
