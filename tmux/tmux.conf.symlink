@@ -34,7 +34,7 @@ set-window-option -g status-left " #S "
 set-window-option -g status-left-fg black
 set-window-option -g status-left-bg white
 
-set-window-option -g status-right " #{battery_icon} #{battery_percentage} #{online_status} %d.%m.%Y %H:%M "
+set-window-option -g status-right " #{battery_icon} #{battery_percentage} %d.%m.%Y %H:%M"
 set-window-option -g status-right-fg black
 set-window-option -g status-right-bg white
 
@@ -84,7 +84,6 @@ set -g @plugin 'tmux-plugins/tmux-battery'
 set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-copycat'
 set -g @plugin 'tmux-plugins/tmux-logging'
-set -g @plugin 'tmux-plugins/tmux-online-status'
 set -g @plugin 'tmux-plugins/tmux-open'
 set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-resurrect'
