@@ -224,6 +224,9 @@ brew install syncthing-inotify
 # ➜ ag
 brew install the_silver_searcher
 
+# Instant terminal sharing
+brew install tmate
+
 # Terminal multiplexer
 brew install tmux
 
