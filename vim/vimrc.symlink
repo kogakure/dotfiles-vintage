@@ -575,7 +575,7 @@ let g:EditorConfig_core_mode = 'external_command'
 " ### FZF ###
 " ###########
 
-nnoremap <C-s> :Files<CR>
+nnoremap <C-t> :Files<CR>
 nnoremap <leader>fz :Files<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>fg :GFiles<CR>
