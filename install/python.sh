@@ -19,3 +19,5 @@ pip2 install neovim
 
 pyenv activate neovim3
 pip3 install neovim
+
+pip3 install awscli
