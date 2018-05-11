@@ -92,6 +92,9 @@ npm install -g gifify
 # CLI to generate books and documentation using gitbook
 npm install -g gitbook-cli
 
+# Your web font utility belt
+yarn add global glyphhanger
+
 # GraphQL CLI
 npm install -g graphql-cli
 
