@@ -192,7 +192,7 @@ npm install -g typescript
 npm install -g uglify-js
 
 # A simple CLI for scaffolding Vue.js projects.
-npm install -g vue-cli
+npm install -g @vue/cli
 
 # Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jade, coffee, css, less, ... and your custom stuff.
 npm install -g webpack
