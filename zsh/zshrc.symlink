@@ -114,6 +114,7 @@ fi
 
 # Unalias
 unalias rg
+unalias yo
 
 # Set terminal
 export TERM=xterm-256color

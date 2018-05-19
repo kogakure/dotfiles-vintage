@@ -205,3 +205,8 @@ npm install -g webpack-dev-server
 
 # Fast, reliable, and secure dependency management.
 npm install -g yarn
+
+# Yeoman
+npm install -g yo
+npm install -g generator-webapp
+npm install -g generator-alfred
