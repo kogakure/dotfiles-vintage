@@ -182,6 +182,9 @@ npm install -g svgexport
 # Nodejs-based tool for optimizing SVG vector graphics files
 npm install -g svgo
 
+# tldr;
+npm install -g tldr
+
 # CLI tool for downloading your precious Tumblr likes.
 npm install -g tumblr-lks-downldr-cli
 
