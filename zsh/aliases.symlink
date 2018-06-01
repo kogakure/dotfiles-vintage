@@ -84,7 +84,7 @@ alias drm="docker run $(docker ps -a -q -f status=exited)"
 # Node
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
 alias yarnplease="rm -rf node_modules/ && rm -f yarn.lock && yarn install"
-alias yarnbuild="yarn cache clean; yarn clean; yarn build"
+alias yarnbuild="yarn cache clean; yarn build"
 alias yi="yarn install"
 alias yui="yarn upgrade-interactive --latest"
 
