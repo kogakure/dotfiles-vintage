@@ -79,6 +79,9 @@ npm install -g firebase-tools
 # ➜ fly
 npm install -g flightplan
 
+# Binary wrapper for Flow - A static type checker for JavaScript
+npm install -g flow-bin
+
 # Just the node wrapper for the Galen Framework.
 # ➜ galen
 npm install -g galenframework-cli
