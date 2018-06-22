@@ -95,10 +95,10 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tmhedberg/matchit'
 
 " JavaScript
-Plug 'othree/yajs.vim',                        { 'for': 'javascript' }
-Plug 'othree/es.next.syntax.vim',              { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
-Plug 'styled-components/vim-styled-components'
+Plug 'othree/yajs.vim',                         { 'for': 'javascript' }
+Plug 'othree/es.next.syntax.vim',               { 'for': 'javascript' }
+Plug 'othree/javascript-libraries-syntax.vim',  { 'for': 'javascript' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'flowtype/vim-flow'
 
 " Ruby & Rails
