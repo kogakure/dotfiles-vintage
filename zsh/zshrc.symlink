@@ -28,7 +28,6 @@ plugins=(
   extract
   fabric
   git git-extras gitignore
-  gpg-agent
   grunt gulp
   history-substring-search
   jira

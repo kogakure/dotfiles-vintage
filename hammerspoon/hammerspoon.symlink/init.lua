@@ -67,7 +67,7 @@ local LAYOUT_DUAL = {
   {"Day One",               nil, DISPLAY_MAIN,     LEFT_MOST, nil, nil},
   {"Evernote",              nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Firefox",               nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Google Chrome",         nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
+  {"Google Chrome",         nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Hangouts",       nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
   {"Kalender",              nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
   {"Mail",                  nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
