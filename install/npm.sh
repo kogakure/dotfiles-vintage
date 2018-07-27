@@ -96,7 +96,7 @@ npm install -g gifify
 npm install -g gitbook-cli
 
 # Your web font utility belt
-yarn add global glyphhanger
+npm install -g glyphhanger
 
 # GraphQL CLI
 npm install -g graphql-cli
