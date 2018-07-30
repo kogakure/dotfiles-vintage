@@ -91,9 +91,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 # direnv
 eval "$(direnv hook zsh)"
 
-# Tmuxinator
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
 # npm completion
 if npm -v >/dev/null 2>&1; then
   . <(npm completion)
@@ -113,17 +110,9 @@ fi
 
 # Unalias
 unalias rg
-unalias yo
 
 # Set terminal
 export TERM=xterm-256color
 
 # Increase ulimit
 ulimit 32768
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/stefan.imhoff/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/stefan.imhoff/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/stefan.imhoff/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/stefan.imhoff/node_modules/tabtab/.completions/sls.zsh

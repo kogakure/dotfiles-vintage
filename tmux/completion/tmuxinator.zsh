@@ -1,46 +1,30 @@
-#compdef tmuxinator mux
-
-# zsh completion for tmuxinator
-
-# Install:
-# $ mkdir -p ~/.tmuxinator/completion
-# $ cp _tmuxinator ~/.tmuxinator/completion
-# $ vi ~/.zshrc  # add the following codes
-# fpath=($HOME/.tmuxinator/completion ${fpath})
-# autoload -U compinit
-# compinit
-
 _tmuxinator() {
-    local -a projects
-    projects=(`find ~/.tmuxinator -name \*.yml | cut -d/ -f5 | sed s:.yml::g`)
-    
-    local -a commands
-    commands=(
-	'start:start a tmux session using project'\''s tmuxinator config'
-	'open:create a new project file and open it in your editor'
-	'copy:copy source_project project file to a new project called new_project'
-	'delete:deletes the project called project_name'
-	'implode:deletes all existing projects!'
-	'list:list all existing projects'
-	'doctor:look for problems in your configuration'
-	'help:shows this help document'
-	'version:shows tmuxinator version number'
-    )
-    
-    if (( CURRENT == 2 )); then
-	_describe -t commands 'commands' commands
-    elif (( CURRENT == 3 )); then
-	case $words[2] in
-	    copy|delete|open|start)
-		_arguments '*:projects:($projects)'
-		;;
-	    list)
-		_arguments '-v[verbose]' # FIXME: doesn't work well
-		;;
-	esac
-    fi
-    
-    return 0
+  local commands projects
+  commands=(${(f)"$(tmuxinator commands zsh)"})
+  projects=(${(f)"$(tmuxinator completions start)"})
+
+  if (( CURRENT == 2 )); then
+    _alternative \
+      'commands:: _describe -t commands "tmuxinator subcommands" commands' \
+      'projects:: _describe -t projects "tmuxinator projects" projects'
+  elif (( CURRENT == 3)); then
+    case $words[2] in
+      copy|debug|delete|open|start)
+        _arguments '*:projects:($projects)'
+      ;;
+    esac
+  fi
+
+  return
 }
 
-_tmuxinator
+compdef _tmuxinator tmuxinator mux
+alias mux="tmuxinator"
+
+# Local Variables:
+# mode: Shell-Script
+# sh-indentation: 2
+# indent-tabs-mode: nil
+# sh-basic-offset: 2
+# End:
+# vim: ft=zsh sw=2 ts=2 et
