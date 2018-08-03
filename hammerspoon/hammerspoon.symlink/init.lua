@@ -75,10 +75,10 @@ local LAYOUT_DUAL = {
   {"Sonos",                 nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Spotify",               nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Wire",                  nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
-  {"Slack",                 nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
+  {"Slack",                 nil, DISPLAY_MAIN,     FULLSCREEN,  nil, nil},
   {"Telegram",              nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
   {"WhatsApp",              nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
-  {"HipChat",               nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
+  {"HipChat",               nil, DISPLAY_MAIN,     FULLSCREEN,  nil, nil},
   {"iA Writer",             nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"iTerm2",                nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
 }
