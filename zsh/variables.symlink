@@ -28,17 +28,11 @@ fi
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 
 # nvm (Node Version Manager)
-export NPM_TOKEN=""
 export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv/"
-
-# nvm (Node Version Manager)
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
-
-# Node.js
-export NODE_PATH="$(npm root -g)"
 
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
@@ -64,22 +58,12 @@ export SVN_EDITOR="vim"
 export GIT_EDITOR="vim"
 export VMAIL_VIM="vim"
 
-# Python
-export PYTHONPATH="/Library/Python/2.7/site-packages"
-
-# Pow
-export POW_DOMAINS='dev,test,localtld'
-
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# Go
-export GOPATH="$HOME/Code/go"
-export PATH=$PATH:$(go env GOPATH)/bin
 
 export PATH
 
