@@ -30,7 +30,6 @@ function update () {
     brew update
     brew upgrade
     brew cleanup
-    brew cask cleanup
     npm update npm -g
     npm update -g
     gem update --system
