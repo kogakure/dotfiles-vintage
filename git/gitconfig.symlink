@@ -59,6 +59,7 @@
   usedeltabaseoffset = true
 [branch]
   autosetupmerge = true
+  sort = -authordate
 [diff]
   tool = Kaleidoscope
   algorithm = patience
