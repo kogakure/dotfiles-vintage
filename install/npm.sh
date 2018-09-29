@@ -107,6 +107,9 @@ npm install -g gulp-cli
 # Hops
 npm install -g hops-cli
 
+# A simple zero-configuration command-line http server
+npm install -g http-server
+
 # Small JSON file server for REST API mock
 # ➜ touch db.json; json-server --watch db.json
 npm install -g json-server
