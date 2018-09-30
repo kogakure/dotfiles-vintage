@@ -79,7 +79,7 @@ alias upstream-update="git co master; git remote update; git fetch --all; git re
 alias gpp='PATCHNAME=`git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/"`-`date "+%Y-%m-%d-%H%M.patch"`; git diff --full-index master > ../patches/$PATCHNAME'
 
 # Docker
-alias drm="docker run $(docker ps -a -q -f status=exited)"
+# alias drm="docker run $(docker ps -a -q -f status=exited)"
 
 # Node
 alias npmplease="rm -rf node_modules/ && rm -f package-lock.json && npm install"
