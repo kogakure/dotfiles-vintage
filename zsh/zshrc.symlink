@@ -19,9 +19,10 @@ COMPLETION_WAITING_DOTS="true"
 
 # Plugins to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
+  base16-shell
   bower
   brew brew-cask
-  base16-shell
+  bundler capistrano gem rails rake rbenv ruby thor zeus
   colored-man-pages man
   colorize
   docker
@@ -33,13 +34,13 @@ plugins=(
   jira
   node npm nvm
   pip
-  bundler capistrano gem rails rake rbenv ruby thor zeus
   rsync
   sudo
   tmux tmux-cssh tmuxinator
   vagrant virtualenv
   yarn
   z
+  zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
