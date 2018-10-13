@@ -1,8 +1,0 @@
-#!/bin/sh
-rsync -a -v -r \
-  --ignore-existing \
-  --delete \
-  --compress \
-  --exclude '.wdmc' \
-  /Users/kogakure/Pictures/Fotos-Mediathek.photoslibrary/ \
-  root@nas.local:"/shares/Public/Shared\ Pictures/Fotos-Mediathek.photoslibrary/"
