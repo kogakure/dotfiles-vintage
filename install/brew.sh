@@ -21,6 +21,9 @@ brew install ack
 # Bourne-Again SHell, a UNIX command interpreter
 brew install bash
 
+# Clone of cat(1) with syntax highlighting and Git integration
+brew install bat
+
 # Remove large files or passwords from Git history like git-filter-branch
 brew install bfg
 
