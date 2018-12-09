@@ -569,7 +569,7 @@ let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 
 
 " ### EditorConfig ###
 " ####################
-let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig-0.12.2'
+let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 
 " ### FZF ###
