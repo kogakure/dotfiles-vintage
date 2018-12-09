@@ -1,0 +1,5 @@
+#!/bin/bash
+#
+# Delete all node_modules folders recursively
+
+find . -name "node_modules" -prune -type d -exec rm -rf '{}' +
