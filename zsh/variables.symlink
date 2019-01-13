@@ -11,7 +11,6 @@ export CPPFLAGS=-I/usr/local/opt/openssl/include
 # Paths
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
-PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config/"
@@ -27,9 +26,8 @@ fi
 # zsh Highlighters
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 
-# nvm (Node Version Manager)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+# N (Node Version Manager)
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv/"
