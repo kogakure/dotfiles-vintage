@@ -26,14 +26,12 @@ function pr() {
 # and their installed packages
 function update () {
   sudo softwareupdate -i -a
-    brew prune
     brew update
     brew upgrade
     brew cleanup
     npm update npm -g
     npm update -g
     gem update --system
-    # gem update
 }
 
 # React: Create build
