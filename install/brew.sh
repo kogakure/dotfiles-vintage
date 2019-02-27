@@ -7,6 +7,7 @@
 brew tap homebrew/core
 brew tap homebrew/bundle
 brew tap homebrew/services
+brew tap jondot/tap
 
 # Install Java as dependency
 brew cask install java
@@ -114,6 +115,9 @@ brew install httpie
 
 # Configurable static site generator
 brew install hugo
+
+# The scalable code generator that saves you time.
+brew install hygen
 
 # Tools and libraries to manipulate images in many formats
 brew install imagemagick --with-fontconfig
