@@ -27,9 +27,7 @@ function pr() {
 function update () {
     vim -u ~/.vimrc.bundles +PlugUpgrade +PlugInstall +qall
     brew update && brew outdated && brew upgrade && brew cleanup && brew cask upgrade && brew cask cleanup
-    gem update --system && yes | gem update && gem cleanup all
-    pip2 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
-    pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+    gem update --system && gem update && gem cleanup all
     npm update npm -g
     npm update -g
     sudo softwareupdate -i -a --restart
