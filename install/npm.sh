@@ -197,6 +197,9 @@ npm install -g tumblr-lks-downldr-cli
 # TypeScript is a language for application scale JavaScript development
 npm install -g typescript
 
+# Install missing TypeScript typings for dependencies in your package.json.
+npm install -g typesync
+
 # JavaScript parser, mangler/compressor and beautifier toolkit
 npm install -g uglify-js
 

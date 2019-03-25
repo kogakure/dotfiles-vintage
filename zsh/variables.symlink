@@ -26,11 +26,12 @@ fi
 # zsh Highlighters
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
 
-# N (Node Version Manager)
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv/"
+
+# nvm (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"

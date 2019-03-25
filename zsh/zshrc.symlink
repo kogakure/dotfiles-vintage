@@ -32,7 +32,7 @@ plugins=(
   grunt gulp
   history-substring-search
   jira
-  node npm
+  node npm nvm
   pip
   rsync
   sudo
