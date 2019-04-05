@@ -351,3 +351,12 @@ spotlight() {
     mdfind -onlyin ./ "$1";
   fi
 }
+
+npm_install() {
+  if [ -f yarn.lock ]; then
+    yarn install $@
+  else
+    npm install $@
+  fi
+  touch ./node_modules/.metadata_never_index
+}

@@ -87,6 +87,7 @@ alias yarnplease="rm -rf node_modules/ && rm -f yarn.lock && yarn install"
 alias yarnbuild="yarn cache clean; yarn build"
 alias yi="yarn install"
 alias yui="yarn upgrade-interactive --latest"
+alias i=npm_install
 
 # nginx
 alias nginx-up="sudo nginx -c /usr/local/etc/nginx/nginx.conf"
