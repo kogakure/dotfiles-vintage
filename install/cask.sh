@@ -73,6 +73,7 @@ brew cask install origin
 brew cask install owncloud
 brew cask install p4merge
 brew cask install postman
+brew cask install qlcolorcode
 brew cask install qlvideo
 brew cask install riot
 brew cask install robo-3t

@@ -143,6 +143,9 @@ npm install -g npm-check
 # ➜ ncu
 npm install -g npm-check-updates
 
+# npm-check
+npm install -g npm-check-with-yarn
+
 # Executes <command> either from a local node_modules/.bin, or from a central cache, installing any packages needed in order for <command> to run.
 npm install -g npx
 

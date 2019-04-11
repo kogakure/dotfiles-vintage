@@ -110,6 +110,9 @@ brew install gource
 # Numerical library for C and C++
 brew install gsl
 
+# Convert source code to formatted text with syntax highlighting
+brew install highlight
+
 # User-friendly cURL replacement (command-line HTTP client
 brew install httpie
 

@@ -57,6 +57,9 @@ export SVN_EDITOR="vim"
 export GIT_EDITOR="vim"
 export VMAIL_VIM="vim"
 
+# npm-check-with-yarn
+export NPM_CHECK_INSTALLER=yarn
+
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
