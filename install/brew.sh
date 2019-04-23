@@ -116,6 +116,9 @@ brew install highlight
 # User-friendly cURL replacement (command-line HTTP client
 brew install httpie
 
+# Add GitHub support to git on the command-line
+brew install hub
+
 # Configurable static site generator
 brew install hugo
 

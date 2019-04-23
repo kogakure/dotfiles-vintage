@@ -108,3 +108,5 @@
 	clean = git-lfs clean -- %f
 [web]
   browser = open
+[hub]
+	host = source.xing.com
