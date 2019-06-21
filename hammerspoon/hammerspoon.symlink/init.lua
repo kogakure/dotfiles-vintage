@@ -62,7 +62,7 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 local LAYOUT_DUAL = {
   {"Things",                nil, DISPLAY_MAIN,     LEFT_LESS,  nil, nil},
   {"Microsoft Outlook",     nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
-  {"Code",                  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
+  {"Code",                  nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Day One",               nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Evernote",              nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
