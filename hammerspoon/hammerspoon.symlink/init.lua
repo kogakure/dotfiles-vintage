@@ -60,16 +60,16 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 
 -- Big Monitor as Primary, Notebook as Secondary
 local LAYOUT_DUAL = {
-  {"Things",                nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
+  {"Things",                nil, DISPLAY_MAIN,     LEFT_LESS,  nil, nil},
   {"Microsoft Outlook",     nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Code",                  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Day One",               nil, DISPLAY_MAIN,     LEFT_MOST, nil, nil},
+  {"Day One",               nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Evernote",              nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Firefox",               nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Chrome",         nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Google Hangouts",       nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
-  {"Kalender",              nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
+  {"Kalender",              nil, DISPLAY_MAIN,     RIGHT_MOST, nil, nil},
   {"Mail",                  nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Safari",                nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Sonos",                 nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
@@ -83,7 +83,7 @@ local LAYOUT_DUAL = {
 
 --  Notebook
 local LAYOUT_NOTEBOOK = {
-  {"Things",                nil, DISPLAY_MAIN, RIGHT_LESS, nil, nil},
+  {"Things",                nil, DISPLAY_MAIN, LEFT_LESS,  nil, nil},
   {"Microsoft Outlook",     nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Code",                  nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office", nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
@@ -92,7 +92,7 @@ local LAYOUT_NOTEBOOK = {
   {"Firefox",               nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Google Chrome",         nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Google Hangouts",       nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Kalender",              nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
+  {"Kalender",              nil, DISPLAY_MAIN, RIGHT_MOST, nil, nil},
   {"Mail",                  nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
   {"Safari",                nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Sonos",                 nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
