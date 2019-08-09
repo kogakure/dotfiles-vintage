@@ -26,7 +26,7 @@ function pr() {
 # and their installed packages
 function update () {
     vim -u ~/.vimrc.bundles +PlugUpgrade +PlugInstall +qall
-    brew update && brew outdated && brew upgrade && brew cleanup && brew cask upgrade && brew cask cleanup
+    brew update && brew outdated && brew upgrade && brew cleanup && brew cask upgrade
     gem update --system && gem update && gem cleanup all
     npm update npm -g
     npm update -g
