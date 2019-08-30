@@ -30,7 +30,7 @@ function update () {
     gem update --system && gem update && gem cleanup all
     npm update npm -g
     npm update -g
-    sudo softwareupdate -i -a --restart
+    sudo softwareupdate -i -a
 }
 
 # React: Create build
