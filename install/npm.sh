@@ -18,9 +18,6 @@ npm install babel-preset-env
 # BackstopJS: Catch CSS curveballs.
 npm install -g backstopjs
 
-# Browser package manager
-npm install -g bower
-
 # Live CSS Reload & Browser Syncing
 npm install -g browser-sync
 
@@ -42,10 +39,6 @@ npm install -g cz-conventional-changelog
 # ➜ csso in.css out.css
 npm install -g csso
 
-# runs Node.js programs through Chromium DevTools
-# ➜ devtool src/app.js
-npm install -g devtool
-
 # An AST-based pattern checker for JavaScript.
 npm install -g eslint
 npm install -g eslint-plugin-babel
@@ -64,48 +57,19 @@ npm install -g eslint-plugin-node
 npm install -g eslint-plugin-react
 npm install -g eslint-plugin-redux
 
-# Express' application generator
-# ➜ express myapp --hogan -c less
-npm install -g express-generator
-
 # Test your download speed using fast.com
 # ➜ fast
 npm install -g fast-cli
-
-# Command-Line Interface for Firebase
-npm install -g firebase-tools
-
-# Library for streamlining application deployment or systems administration tasks
-# ➜ fly
-npm install -g flightplan
-
-# Binary wrapper for Flow - A static type checker for JavaScript
-npm install -g flow-bin
 
 # Just the node wrapper for the Galen Framework.
 # ➜ galen
 npm install -g galenframework-cli
 
-# React.js Static Site Generator
-npm install -g gatsby
-
 # Convert any video file to an optimized animated GIF
 npm install -g gifify
 
-# CLI to generate books and documentation using gitbook
-npm install -g gitbook-cli
-
 # Your web font utility belt
 npm install -g glyphhanger
-
-# GraphQL CLI
-npm install -g graphql-cli
-
-# Command line interface for gulp
-npm install -g gulp-cli
-
-# Hops
-npm install -g hops-cli
 
 # A simple zero-configuration command-line http server
 npm install -g http-server
@@ -114,23 +78,14 @@ npm install -g http-server
 # ➜ touch db.json; json-server --watch db.json
 npm install -g json-server
 
-# Tool for managing JavaScript projects with multiple packages (BETA)
-npm install -g lerna@^2.0.0-beta
-
 # Lighthouse analyzes web apps and web pages, collecting modern performance metrics and insights on developer best practices.
 npm install -g lighthouse
-
-# simple, flexible, fun test framework
-npm install -g mocha
 
 # Wrap web apps natively
 npm install -g nativefier
 
 # The Netlify CLI tools lets you create, deploy, and delete new sites straight from your terminal.
 npm install -g netlify-cli
-
-# Tool to create icns files for OSX
-npm install -g node-icns
 
 # Simple monitor script for use during development of a node.js app.
 npm install -g nodemon
@@ -143,21 +98,12 @@ npm install -g npm-check
 # ➜ ncu
 npm install -g npm-check-updates
 
-# npm-check
-npm install -g npm-check-with-yarn
-
 # Executes <command> either from a local node_modules/.bin, or from a central cache, installing any packages needed in order for <command> to run.
 npm install -g npx
 
 # Capture website screenshots
 # ➜ pageres [ todomvc.com 1200x1000 ] [ yeoman.io 800x600 1200x1000 ] --crop
 npm install -g pageres-cli
-
-# Single-Command Node.js Compiler
-npm install -g pkg
-
-# Start building a Preact Progressive Web App in seconds.
-npm install -g preact-cli
 
 # Prettier is an opinionated code formatter
 npm install -g prettier
@@ -170,12 +116,6 @@ npm install -g prettyjson
 
 # CLI for postcss
 npm install -g postcss-cli
-
-# A commandline tool for Polymer projects
-npm install -g polymer-cli
-
-# Serverless Framework
-npm install -g serverless
 
 # Modern CSS linter
 npm install -g stylelint
@@ -206,19 +146,5 @@ npm install -g typesync
 # JavaScript parser, mangler/compressor and beautifier toolkit
 npm install -g uglify-js
 
-# A simple CLI for scaffolding Vue.js projects.
-npm install -g @vue/cli
-
-# Packs CommonJs/AMD modules for the browser. Allows to split your codebase into multiple bundles, which can be loaded on demand. Support loaders to preprocess files, i.e. json, jade, coffee, css, less, ... and your custom stuff.
-npm install -g webpack
-
-# Serves a webpack app. Updates the browser on changes.
-npm install -g webpack-dev-server
-
 # Fast, reliable, and secure dependency management.
 npm install -g yarn
-
-# Yeoman
-npm install -g yo
-npm install -g generator-webapp
-npm install -g generator-alfred
