@@ -49,6 +49,10 @@ brew install coreutils
 # Get a file from an HTTP, HTTPS or FTP server
 brew install curl
 
+# An interactive cheatsheet tool for the command-line
+# ➜  navi
+brew install denisidoro/tools/navi
+
 # Load/unload environment variables based on $PWD
 brew install direnv
 
