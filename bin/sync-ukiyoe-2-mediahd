@@ -19,4 +19,4 @@ rsync \
   --exclude '.fseventsd' \
   --verbose \
   /Volumes/Ukiyoe/ \
-  /Volumes/MediaHD/
+  /Volumes/media/
