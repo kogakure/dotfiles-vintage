@@ -1,4 +1,4 @@
 #!/bin/sh
-cd /Users/$USER/Code/backup/Tumblr/
+cd /Users/$USER/Code/Backup/Tumblr/
 tumblr_backup.py -i sketchnotes.stefanimhoff.de
 tumblr_backup.py -i log.stefanimhoff.de

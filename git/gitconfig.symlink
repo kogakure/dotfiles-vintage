@@ -1,8 +1,6 @@
 [user]
   name = Stefan Imhoff
   useConfigOnly = true
-[init]
-  templatedir = ~/.git-templates
 [include]
   path = ~/.gitconfig.local
 [help]

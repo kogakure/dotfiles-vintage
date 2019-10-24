@@ -1,0 +1,21 @@
+#!/bin/sh
+
+rsync \
+  -X \
+  --archive \
+  --recursive \
+  --ignore-existing \
+  --numeric-ids \
+  --progress \
+  --compress \
+  --exclude '.DS_Store' \
+  --exclude '@*' \
+  --exclude '#*' \
+  --exclude '.Spotlight-V100' \
+  --exclude '.DocumentRevision-V100' \
+  --exclude '.TemporaryItems' \
+  --exclude '.Trashes' \
+  --exclude '.fseventsd' \
+  --verbose \
+  ~/Library/Mobile\ Documents/ \
+  /Volumes/home/Drive/iCloud/
