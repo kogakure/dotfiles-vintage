@@ -168,19 +168,19 @@ hotkey.bind(KEY_SCM, "down", function() window.focusedWindow():moveOneScreenSout
 hotkey.bind(KEY_SCM, "j",    function() window.focusedWindow():moveOneScreenSouth(); push(0, 0, 1, 1) end)
 
 -- Application shortcuts
-hotkey.bind(KEY_SCAM, "C", function() application.launchOrFocus("Google Chrome") end)
-hotkey.bind(KEY_SCAM, "D", function() application.launchOrFocus("Affinity Designer") end)
+hotkey.bind(KEY_SCAM, "A", function() application.launchOrFocus("Affinity Designer") end)
+hotkey.bind(KEY_SCAM, "B", function() application.launchOrFocus("Brave Browser") end)
+hotkey.bind(KEY_SCAM, "C", function() application.launchOrFocus("Visual Studio Code") end)
+hotkey.bind(KEY_SCAM, "D", function() application.launchOrFocus("DEVONthink 3") end)
 hotkey.bind(KEY_SCAM, "E", function() application.launchOrFocus("Evernote") end)
-hotkey.bind(KEY_SCAM, "H", function() application.launchOrFocus("HipChat") end)
-hotkey.bind(KEY_SCAM, "I", function() application.launchOrFocus("iTerm") end)
 hotkey.bind(KEY_SCAM, "K", function() application.launchOrFocus("Calendar") end)
 hotkey.bind(KEY_SCAM, "M", function() application.launchOrFocus("Mail") end)
-hotkey.bind(KEY_SCAM, "O", function() application.launchOrFocus("Day One") end)
-hotkey.bind(KEY_SCAM, "P", function() application.launchOrFocus("Affinity Photo") end)
-hotkey.bind(KEY_SCAM, "S", function() application.launchOrFocus("Spotify") end)
+hotkey.bind(KEY_SCAM, "S", function() application.launchOrFocus("Slack") end)
 hotkey.bind(KEY_SCAM, "T", function() application.launchOrFocus("Things") end)
 hotkey.bind(KEY_SCAM, "V", function() application.launchOrFocus("Preview") end)
 hotkey.bind(KEY_SCAM, "W", function() application.launchOrFocus("iA Writer") end)
+hotkey.bind(KEY_SCAM, "Y", function() application.launchOrFocus("Spotify") end)
+hotkey.bind(KEY_SCAM, "Z", function() application.launchOrFocus("Zeplin") end)
 
 -- Place red circle around mouse
 hotkey.bind(KEY_SCAM, "space", mouseHighlight)
