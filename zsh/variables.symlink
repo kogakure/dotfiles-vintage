@@ -11,6 +11,7 @@ export CPPFLAGS=-I/usr/local/opt/openssl/include
 # Paths
 PATH="/usr/local/bin:$PATH"
 PATH="/usr/local/sbin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 
 export XDG_CONFIG_HOME="$HOME/.config/"
