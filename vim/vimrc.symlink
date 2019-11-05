@@ -272,7 +272,7 @@ set showfulltag
 set fillchars=diff:⣿,vert:│
 
 " Ignore whitespace in DIFFs
-set diffopt+=iwhite
+" set diffopt+=iwhite
 
 " Highlight search results
 set hlsearch
