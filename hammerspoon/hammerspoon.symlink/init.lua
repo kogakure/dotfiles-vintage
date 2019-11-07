@@ -63,13 +63,11 @@ local LAYOUT_DUAL = {
   {"Brave Browser",             nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Code",                      nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office",     nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Day One",                   nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Evernote",                  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Firefox Developer Edition", nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Firefox",                   nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Google Chrome",             nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Google Hangouts",           nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
-  {"HipChat",                   nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Kalender",                  nil, DISPLAY_NOTEBOOK, LEFT_MOST,  nil, nil},
   {"Mail",                      nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
   {"Microsoft Outlook",         nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
@@ -85,28 +83,26 @@ local LAYOUT_DUAL = {
   {"Zeplin",                    nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
 }
 
---  Notebook
-local LAYOUT_NOTEBOOK = {
+--  Single Monitor
+local LAYOUT_SINGLE = {
   {"Brave Browser",             nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Code",                      nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"DEVONthink Pro Office",     nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Day One",                   nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Evernote",                  nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Firefox Developer Edition", nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Firefox",                   nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Google Chrome",             nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Google Hangouts",           nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"HipChat",                   nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Kalender",                  nil, DISPLAY_MAIN, RIGHT_MOST, nil, nil},
+  {"Kalender",                  nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
   {"Mail",                      nil, DISPLAY_MAIN, RIGHT_MOST, nil, nil},
   {"Microsoft Outlook",         nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Safari",                    nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Slack",                     nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
   {"Sonos",                     nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Spotify",                   nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Things",                    nil, DISPLAY_MAIN, LEFT_LESS,  nil, nil},
+  {"Things",                    nil, DISPLAY_MAIN, RIGHT_LESS, nil, nil},
   {"Visual Studio Code",        nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Wire",                      nil, DISPLAY_MAIN, LEFT_HALF,  nil, nil},
+  {"Wire",                      nil, DISPLAY_MAIN, RIGHT_LESS, nil, nil},
   {"iA Writer",                 nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"iTerm2",                    nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
 }
@@ -199,5 +195,5 @@ hotkey.bind(KEY_CAM, 'h', function() window.focusedWindow():focusWindowWest() en
 hotkey.bind(KEY_CAM, "space", function() hints.windowHints(getAllValidWindows()) end)
 
 -- Layouts
-hotkey.bind(KEY_SCAM, "1", function() layout.apply(LAYOUT_NOTEBOOK) end)
+hotkey.bind(KEY_SCAM, "1", function() layout.apply(LAYOUT_SINGLE) end)
 hotkey.bind(KEY_SCAM, "2", function() layout.apply(LAYOUT_DUAL) end)
