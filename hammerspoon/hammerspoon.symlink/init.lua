@@ -69,7 +69,7 @@ local LAYOUT_DUAL = {
   {"Google Chrome",             nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Google Hangouts",           nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
   {"Kalender",                  nil, DISPLAY_NOTEBOOK, LEFT_MOST,  nil, nil},
-  {"Mail",                      nil, DISPLAY_MAIN,     RIGHT_HALF, nil, nil},
+  {"Mail",                      nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
   {"Microsoft Outlook",         nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Safari",                    nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Slack",                     nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
