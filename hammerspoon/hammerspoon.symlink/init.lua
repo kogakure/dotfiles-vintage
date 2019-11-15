@@ -71,6 +71,7 @@ local LAYOUT_DUAL = {
   {"Kalender",                  nil, DISPLAY_NOTEBOOK, LEFT_MOST,  nil, nil},
   {"Mail",                      nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
   {"Microsoft Outlook",         nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
+  {"Nachrichten",               nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
   {"Safari",                    nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Slack",                     nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
   {"Sonos",                     nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
@@ -78,9 +79,9 @@ local LAYOUT_DUAL = {
   {"Things",                    nil, DISPLAY_NOTEBOOK, RIGHT_LESS, nil, nil},
   {"Visual Studio Code",        nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"Wire",                      nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
+  {"Zeplin",                    nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
   {"iA Writer",                 nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"iTerm2",                    nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Zeplin",                    nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
 }
 
 --  Single Monitor
@@ -96,6 +97,7 @@ local LAYOUT_SINGLE = {
   {"Kalender",                  nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
   {"Mail",                      nil, DISPLAY_MAIN, RIGHT_MOST, nil, nil},
   {"Microsoft Outlook",         nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
+  {"Nachrichten",               nil, DISPLAY_MAIN, RIGHT_LESS, nil, nil},
   {"Safari",                    nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
   {"Slack",                     nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
   {"Sonos",                     nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
