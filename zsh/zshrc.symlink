@@ -33,7 +33,6 @@ plugins=(
   history-substring-search
   jira
   node npm nvm
-  pip
   rsync
   sudo
   tmux tmux-cssh tmuxinator
