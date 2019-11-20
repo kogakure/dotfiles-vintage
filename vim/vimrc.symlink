@@ -88,15 +88,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
 
-" Completion Manager
-" Plug 'ncm2/ncm2'
-" Plug 'roxma/nvim-yarp'
-" Plug 'ncm2/ncm2-bufword'
-" Plug 'ncm2/ncm2-path'
-
-" Snippet support
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+ " Snippet support
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
@@ -186,8 +180,8 @@ Plug 'prettier/vim-prettier', {
     \ 'html' ] }
 
 
-" ### Search ###
-" ##############
+" ### Search/Find ###
+" ###################
 
 " Vim motion on speed
 " ➜ ,,motion command
@@ -206,6 +200,9 @@ Plug 'mileszs/ack.vim'
 " ➜ :Abolish! anomol{y,ies} anomal{}
 Plug 'tpope/vim-abolish'
 
+" Bookmarks
+Plug 'MattesGroeger/vim-bookmarks'
+
 " ### Syntax & Indentation, Helper  ###
 " #####################################
 
@@ -216,9 +213,9 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tmhedberg/matchit'
 
 " *** JavaScript ***
+Plug 'othree/javascript-libraries-syntax.vim',  { 'for': 'javascript' }
 Plug 'othree/yajs.vim',                         { 'for': 'javascript' }
 Plug 'othree/es.next.syntax.vim',               { 'for': 'javascript' }
-Plug 'othree/javascript-libraries-syntax.vim',  { 'for': 'javascript' }
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'heavenshell/vim-jsdoc'
 Plug 'mxw/vim-jsx'
@@ -245,6 +242,8 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'whatyouhide/vim-textobj-xmlattr'
+
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -1049,12 +1048,6 @@ augroup END
 " |_| |____\___/ \___|___|_|\_|___/
 
 
-" ### COC ###
-" ###########
-
-nnoremap <leader>coc :CocConfig<CR>
-nnoremap <leader>coci :CocInstall coc-json coc-yaml coc-jest coc-css coc-html coc-eslint coc-stylelint coc-emmet coc-prettier coc-highlight coc-lists coc-yank coc-git<CR>
-
 " ### Ctrl-p ###
 " ##############
 
@@ -1077,8 +1070,165 @@ nnoremap <leader>ft :Tags<space>
 nnoremap <leader>fbt :BTags<space>
 nnoremap <leader>fgc :Commits<space>
 
+" ### Denite ###
+" ##############
+
+try
+  " Use ripgrep for searching current directory for files
+  " By default, ripgrep will respect rules in .gitignore
+  "   --files: Print each file that would be searched (but don't search)
+  "   --glob:  Include or exclues files for searching that match the given glob
+  "            (aka ignore .git files)
+  "
+  call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
+
+  " Use ripgrep in place of "grep"
+  call denite#custom#var('grep', 'command', ['rg'])
+
+  " Custom options for ripgrep
+  "   --vimgrep:  Show results with every match on it's own line
+  "   --hidden:   Search hidden directories and files
+  "   --heading:  Show the file name above clusters of matches from each file
+  "   --S:        Search case insensitively if the pattern is all lowercase
+  call denite#custom#var('grep', 'default_opts', ['--hidden', '--vimgrep', '--heading', '-S'])
+
+  " Recommended defaults for ripgrep via Denite docs
+  call denite#custom#var('grep', 'recursive_opts', [])
+  call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+  call denite#custom#var('grep', 'separator', ['--'])
+  call denite#custom#var('grep', 'final_opts', [])
+
+  " Remove date from buffer list
+  call denite#custom#var('buffer', 'date_format', '')
+
+  " Custom options for Denite
+  "   auto_resize             - Auto resize the Denite window height automatically.
+  "   prompt                  - Customize denite prompt
+  "   direction               - Specify Denite window direction as directly below current pane
+  "   winminheight            - Specify min height for Denite window
+  "   highlight_mode_insert   - Specify h1-CursorLine in insert mode
+  "   prompt_highlight        - Specify color of prompt
+  "   highlight_matched_char  - Matched characters highlight
+  "   highlight_matched_range - matched range highlight
+  let s:denite_options = {'default' : {
+        \ 'split': 'floating',
+        \ 'start_filter': 1,
+        \ 'auto_resize': 1,
+        \ 'source_names': 'short',
+        \ 'prompt': 'λ ',
+        \ 'statusline': 0,
+        \ 'highlight_matched_char': 'QuickFixLine',
+        \ 'highlight_matched_range': 'Visual',
+        \ 'highlight_window_background': 'Visual',
+        \ 'highlight_filter_background': 'DiffAdd',
+        \ 'winrow': 1,
+        \ 'vertical_preview': 1
+        \ }}
+
+  " Loop through denite options and enable them
+  function! s:profile(opts) abort
+    for l:fname in keys(a:opts)
+      for l:dopt in keys(a:opts[l:fname])
+        call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
+      endfor
+    endfor
+  endfunction
+
+  call s:profile(s:denite_options)
+catch
+  echo 'Denite not installed. It should work after running :PlugInstall'
+endtry
+
+" ### COC ###
+" ###########
+
+nnoremap <leader>coc :CocConfig<CR>
+nnoremap <leader>coci :CocInstall coc-json coc-yaml coc-jest coc-css coc-html coc-eslint coc-stylelint coc-emmet coc-prettier coc-highlight coc-lists coc-yank coc-git<CR>
+
+" Use <tab> for trigger completion and navigate to next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Close preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+" ### NeoSnippet ###
+" ##################
+
+" Map <C-k> as shortcut to activate snippet if available
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" Load custom snippets from snippets folder
+let g:neosnippet#snippets_directory='~/.vim/snippets'
+
+" Hide conceal markers
+let g:neosnippet#enable_conceal_markers = 0
+
+" ### Vim Airline ###
+" ###################
+
+try
+  " Enable extensions
+  let g:airline_extensions = ['branch', 'bookmark', 'denite', 'hunks', 'coc', 'quickfix', 'wordcount']
+
+  " Update section z to just have line number
+  let g:airline_section_z = airline#section#create(['linenr'])
+
+  " Do not draw separators for empty sections (only for the active window) >
+  let g:airline_skip_empty_sections = 1
+
+  " Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+  " Custom setup that removes filetype/whitespace from default vim airline bar
+  let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
+
+  let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+
+  let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
+  " Configure error/warning section to use coc.nvim
+  let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+  let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+  " Disable vim-airline in preview mode
+  let g:airline_exclude_preview = 1
+
+  " Enable powerline fonts
+  let g:airline_powerline_fonts = 1
+
+  " Enable caching of syntax highlighting groups
+  let g:airline_highlighting_cache = 1
+
+  " Define custom airline symbols
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+  " Don't show git changes to current file in airline
+  let g:airline#extensions#hunks#enabled=0
+
+catch
+  echo 'Airline not installed. It should work after running :PlugInstall'
+endtry
+
+" ### Vim-Bookmark ###
+" ####################
+
+let g:bookmark_center = 1
+
 " ### EditorConfig ###
 " ####################
+
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 
@@ -1140,17 +1290,13 @@ let g:auto_save = 0
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 0
 
-" ### JSX ###
-" ###########
-
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
 " ### Emmet ###
 " #############
 
-autocmd FileType html,eruby imap <tab> <plug>(emmet-expand-abbr)
-autocmd FileType css,scss,pcss,postcss imap <tab> <plug>(emmet-expand-abbr)
-autocmd FileType javascript imap <tab> <plug>(emmet-expand-abbr)
+" TODO: Test later
+" autocmd FileType html,eruby imap <tab> <plug>(emmet-expand-abbr)
+" autocmd FileType css,scss,pcss,postcss imap <tab> <plug>(emmet-expand-abbr)
+" autocmd FileType javascript imap <tab> <plug>(emmet-expand-abbr)
 
 " ### Fugitive ###
 " ################
@@ -1183,61 +1329,6 @@ let g:session_autoload = 'no'
 let g:session_autosave_periodic = "5"
 let g:session_default_name = 'default'
 
-" ### Ultisnips ###
-" #################
-
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsRemoveSelectModeMappings = 0
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-" ### NCM2 ###
-" ############
-
-" enable ncm2 for all buffers
-" autocmd BufEnter * call ncm2#enable_for_buffer()
-
-" IMPORTANT: :help Ncm2PopupOpen for more information
-" set completeopt=noinsert,menuone,noselect
-
-" Debug
-" suppress the annoying 'match x of y', 'The only match' and 'Pattern not
-" found' messages
-" set shortmess+=c
-
-" CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
-" inoremap <c-c> <ESC>
-
-" When the <Enter> key is pressed while the popup menu is visible, it only
-" hides the menu. Use this mapping to close the menu and also start a new
-" line.
-" inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
-
-" Use <TAB> to select the popup menu:
-" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" wrap existing omnifunc
-" Note that omnifunc does not run in background and may probably block the
-" editor. If you don't want to be blocked by omnifunc too often, you could
-" add 180ms delay before the omni wrapper:
-"  'on_complete': ['ncm2#on_complete#delay', 180,
-"               \ 'ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-" au User Ncm2Plugin call ncm2#register_source({
-"       \ 'name' : 'css',
-"       \ 'priority': 9,
-"       \ 'subscope_enable': 1,
-"       \ 'scope': ['css','scss'],
-"       \ 'mark': 'css',
-"       \ 'word_pattern': '[\w\-]+',
-"       \ 'complete_pattern': ':\s*',
-"       \ 'on_complete': ['ncm2#on_complete#omni', 'csscomplete#CompleteCSS'],
-"       \ })
-
 " ### ALE ###
 " ###########
 
@@ -1269,6 +1360,29 @@ let g:gitgutter_sign_added = '•'
 let g:gitgutter_sign_modified = '•'
 let g:gitgutter_sign_removed = '•'
 let g:gitgutter_sign_modified_removed = '•'
+
+" ### Echodoc ###
+" ###############
+
+" Enable echodoc on startup
+let g:echodoc#enable_at_startup = 1
+
+" ### Vim-JavaScript ###
+" ######################
+
+" Enable syntax highlighting for JSDoc
+let g:javascript_plugin_jsdoc = 1
+
+" ### JavaScript-Libraries-Syntax ###
+" ###################################
+
+let g:used_javascript_libs = 'jquery,underscore,react,requirejs,handlebars,vue,ramda,d3'
+
+" ### Vim-JSX ###
+" ###############
+
+" Highlight jsx syntax even in non .jsx files
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 
 " Last Line
