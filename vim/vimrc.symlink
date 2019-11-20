@@ -1,30 +1,767 @@
-" Specify a directory for plugins
+" {{{ *** *** *** Bundles *** *** ***
+"  ___ _   _ _  _ ___  _    ___ ___
+" | _ ) | | | \| |   \| |  | __/ __|
+" | _ \ |_| | .` | |) | |__| _|\__ \
+" |___/\___/|_|\_|___/|____|___|___/
+
+
+if &compatible
+  set nocompatible
+endif
+
+filetype off
+
+let g:python_host_prog=$HOME.'/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
+
+" Check whether vim-plug is installed and install it if necessary
+let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
+if !filereadable(plugpath)
+    if executable('curl')
+        let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' . plugurl)
+        if v:shell_error
+            echom "Error downloading vim-plug. Please install it manually.\n"
+            exit
+        endif
+    else
+        echom "vim-plug not installed. Please install it manually or install curl.\n"
+        exit
+    endif
+endif
+
 call plug#begin('~/.vim/plugged')
 
+" Intellisense Engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'scrooloose/nerdtree'
-"Plug 'tsony-tsonev/nerdtree-git-plugin'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
-Plug 'scrooloose/nerdcommenter'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
+" Denite - Fuzzy finding, buffer management
+Plug 'Shougo/denite.nvim'
+
+ " Snippet support
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+
+" Print function signatures in echo area
+Plug 'Shougo/echodoc.vim'
+
+" Base16 for Vim
+Plug 'chriskempson/base16-vim'
+
+" Customized vim status lline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Argumentative aids with manipulating and moving between function arguments.
+Plug 'PeterRincker/vim-argumentative'
+
+" Insert or delete brackets, parens, quotes in pair.
+" TODO: Disabled temporarily
+" Plug 'jiangmiao/auto-pairs'
+
+" Close brackets (a more conservative version of auto-pairs)
+Plug 'rstacruz/vim-closer'
+
+" Emmet
+Plug 'mattn/emmet-vim'
+
+" Better whitespace highlighting for Vim
+Plug 'ntpeters/vim-better-whitespace'
+
+" Escape/Unecape HTML entities
+" ➜ <leader>he <leader>hu
+Plug 'skwp/vim-html-escape', { 'on': ['HtmlEscape', 'HtmlUnEscape'] }
+
+" Multiple cursors
+" ➜ <C-k>
+Plug 'terryma/vim-multiple-cursors'
+
+" Show Unicode character names, vim digraphs (<C-K>), emoji codes, etc.
+" ➜ ga
+Plug 'tpope/vim-characterize'
+
+" Comment stuff out.
+" ➜ gcc (comment out line)
+" ➜ gc (comment out target in motion, e. g. gcap)
+Plug 'tpope/vim-commentary'
+
+" Enable repeating supported plugins maps with '.'
+Plug 'tpope/vim-repeat'
+
+" Increment date, times, and more
+" ➜ <C-A> <C-X>
+Plug 'tpope/vim-speeddating'
+
+" Manipulate surroundings (parenteses, brackets, quotes, etc.)
+Plug 'tpope/vim-surround'
+
+" Increase columns
+" :I or :II etc.
+Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
+
+" Check syntax in Vim asynchronously and fix files, with LSP support
+Plug 'w0rp/ale'
+
+" Text filtering and alignment (fork)
+Plug 'kogakure/tabular'
+
+" Git Wrapper
+" ➜ :G…
+Plug 'tpope/vim-fugitive'
+
+" Vim Git runtime files
+Plug 'tpope/vim-git', { 'for': ['git', 'gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail'] }
+
+" Show a git diff gutter
+Plug 'airblade/vim-gitgutter'
+
+" AutoSave (disabled by default)
+" ➜ :AutoSave
+Plug '907th/vim-auto-save'
+
+" Miscellaneous auto-load Vim scripts
+Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveSession', 'DelteSession', 'CloseSession'] }
+
+" Speed up Vim by updating folds only when called-for
+Plug 'Konfekt/FastFold'
+
+" Pandoc integration & syntax
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
+" Browse tags
+" ➜ :TagbarToggle
+Plug 'majutsushi/tagbar'
+
+" Allow opening a file on a specific line (vim index.html:20)
+Plug 'bogado/file-line'
+
+" Full path fuzzy file, buffer, mru, tag, … finder
+" ➜ <C-f>, <C-b>, <C-r>, <C-j>, <C-k>, <C-z>, etc.
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'sgur/ctrlp-extensions.vim'
+
+" A command-line fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" Extend netrw
+Plug 'tpope/vim-vinegar'
+
+" EditorConfig
+Plug 'editorconfig/editorconfig-vim'
+
+" Vim motion on speed
+" ➜ ,,motion command
+Plug 'Lokaltog/vim-easymotion'
+
+" Show 'Match 123 of 456'
+Plug 'henrik/vim-indexed-search'
+
+" Visual select something and press * to search it
+Plug 'nelstrom/vim-visual-star-search'
+
+" Vim Plugin for 'ack' or 'ag'
+Plug 'mileszs/ack.vim'
+
+" Easily search for, subsitute, and abbreviate multiple variants of a word
+" ➜ :Abolish! anomol{y,ies} anomal{}
+Plug 'tpope/vim-abolish'
+
+" Bookmarks
+Plug 'MattesGroeger/vim-bookmarks'
+
+" A collection of language packs for Vim.
+Plug 'sheerun/vim-polyglot'
+
+" Extend % matching for HTML, LaTex and other languages
+Plug 'tmhedberg/matchit'
+
+" *** JavaScript ***
+Plug 'othree/javascript-libraries-syntax.vim',  { 'for': 'javascript' }
+Plug 'othree/yajs.vim',                         { 'for': 'javascript' }
+Plug 'othree/es.next.syntax.vim',               { 'for': 'javascript' }
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'heavenshell/vim-jsdoc'
+Plug 'mxw/vim-jsx'
+
+" *** CSS ***
+" Color name highlighting
+Plug 'ap/vim-css-color'
+
+" *** Ruby & Rails ***
+Plug 'tpope/vim-rails',          { 'for': ['ruby', 'eruby'] }
+
+" *** PHP ***
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'vim-scripts/PHP-correct-Indenting'
+
+" Interact with tmux
+Plug 'benmills/vimux'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'morhetz/gruvbox'
+" Text Objects
+Plug 'glts/vim-textobj-comment'
+Plug 'jceb/vim-textobj-uri'
+Plug 'kana/vim-textobj-datetime'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'whatyouhide/vim-textobj-xmlattr'
 
-Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
-" Initialize plugin system
+
+" Add plugins to &runtimepath
 call plug#end()
 
-inoremap jk <ESC>
-nmap <C-n> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
+
+" }}}
+" {{{ *** *** *** Global Settings *** *** ***
+"   ___ _    ___  ___   _   _      ___ ___ _____ _____ ___ _  _  ___ ___
+"  / __| |  / _ \| _ ) /_\ | |    / __| __|_   _|_   _|_ _| \| |/ __/ __|
+" | (_ | |_| (_) | _ \/ _ \| |__  \__ \ _|  | |   | |  | || .` | (_ \__ \
+"  \___|____\___/|___/_/ \_\____| |___/___| |_|   |_| |___|_|\_|\___|___/
+
+
+" Default shell
+set shell=/bin/zsh
+
+" Search for all files in all subfolders
+set path+=**
+
+" Encoding to UTF-8
+scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+
+filetype plugin indent on
+
+" Syntax highlighting
+syntax on
+
+" Colorscheme (Base16 color)
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+" Custom Colors
+highlight Conceal cterm=NONE ctermbg=NONE ctermfg=darkred
+highlight SpellBad cterm=underline ctermfg=white ctermbg=red
+highlight SpellCap cterm=underline
+highlight SpellLocal cterm=underline
+highlight SpellRare cterm=underline
+highlight Comment cterm=italic
+
+" 256 colors
+set t_Co=256
+
+" Set <leader> to `,` instead to `\`
+let mapleader=","
+
+" <loacalleader> to `+`
+let maplocalleader="+"
+
+" Create ctags
+command! MakeTags !ctags .
+
+" Switch of modelines (it is a risk for security)
+set modelines=0
+
+" Command Line Height
+set cmdheight=2
+
+" Remove fixed password for encryption (:X)
+if !has('nvim')
+  set key=
+  set cryptmethod=blowfish
+endif
+
+" Automatic save at file switch
+set autowrite
+
+" Update buffer automatically, when changed by extern
+set autoread
+
+" No line break
+set nowrap
+
+" Don’t refresh while executing a macro
+set lazyredraw
+
+" Show partially completed commands
+set showcmd
+
+" Show the mode
+set showmode
+
+" Search on the oposite of the file when reaching end/beginning
+set wrapscan
+
+" Start highlighting search results while typing
+set incsearch
+
+" Show line breaks
+set showbreak=↪
+
+" Ignore case when searching (unless using capital letters)
+set ignorecase
+set smartcase
+
+" use forward slash
+set shellslash
+
+" Highlight search results
+set hlsearch
+
+" Height of command line
+set ch=1
+
+" Don’t break lines
+set textwidth=0
+
+" Show full tag when autocompleting
+set showfulltag
+
+" Which characters to use for statuslines etc.
+set fillchars=diff:⣿,vert:│
+
+" Show invisibles (tabs, line endings etc.)
+" set list
+
+" Choose symbols to show invisibles
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮,space:·
+
+" No beeping
+set visualbell
+
+" Line numbering
+set number
+set relativenumber
+
+" Intuitive backspacing
+set backspace=indent,eol,start
+
+" Use hidden buffers
+set hidden
+
+" System clipboard
+set clipboard=unnamed
+
+" Add dashes to words
+set iskeyword+=-
+
+" Don't delete the word, but put a $ to the end till exit the mode
+set cpoptions+=$
+
+" Fast terminal connection
+set ttyfast
+
+" Set title of the window
+set title
+
+" Show status line
+set laststatus=2
+
+" Hightlight matching paar (brackets etc.)
+set showmatch
+
+" Welcome screen (e. g. no welcome message)
+set shortmess=caoOtI
+
+" always show signcolumns
+set signcolumn=yes
+
+" Increase line-height
+set linespace=2
+
+" Highlight line with cursor
+set cursorline
+
+" Show line and row of the cursor
+set ruler
+
+" Tabs and indentation
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set expandtab
+set autoindent
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+set copyindent
+set shiftround
+
+" Conceal
+set conceallevel=0
+
+" Persistent (G)undo files between sessions
+set undofile
+set history=1000
+set undolevels=100
+
+" Update time (Default: 4 seconds)
+set updatetime=300
+
+" Don’t syntax highlight lines longer than 800 characters
+set synmaxcol=800
+
+" Timeout for waiting after pressing <leader>
+set timeoutlen=500
+
+" Fold the code
+set foldenable
+
+" Don’t show the foldcolumn
+set foldcolumn=0
+
+" Default fold is marker
+set foldmethod=marker
+set foldlevelstart=20
+
+" Split the window below and right of the current window
+set splitbelow
+set splitright
+
+" Active mouse in terminal mode
+if !has('nvim')
+  set mouse=a ttymouse=xterm2
+else
+  set mouse=a
+endif
+
+" Hide mouse cursor while typing
+set mousehide
+
+" Keep 3 lines context above and below
+set scrolloff=3
+
+" Enable positioning of cursor where no character is
+set virtualedit=all
+command! MakeTags !ctags .
+
+" Switch of modelines (it is a risk for security)
+set modelines=0
+
+" Command Line Height
+set cmdheight=2
+
+" Remove fixed password for encryption (:X)
+if !has('nvim')
+  set key=
+  set cryptmethod=blowfish
+endif
+
+" Automatic save at file switch
+set autowrite
+
+" Update buffer automatically, when changed by extern
+set autoread
+
+" No line break
+set nowrap
+
+" Don’t refresh while executing a macro
+set lazyredraw
+
+" Show partially completed commands
+set showcmd
+
+" Show the mode
+set showmode
+
+" Search on the oposite of the file when reaching end/beginning
+set wrapscan
+
+" Start highlighting search results while typing
+set incsearch
+
+" Show line breaks
+set showbreak=↪
+
+" Ignore case when searching (unless using capital letters)
+set ignorecase
+set smartcase
+
+" use forward slash
+set shellslash
+
+" Highlight search results
+set hlsearch
+
+" Height of command line
+set ch=1
+
+" Don’t break lines
+set textwidth=0
+
+" Show full tag when autocompleting
+set showfulltag
+
+" Which characters to use for statuslines etc.
+set fillchars=diff:⣿,vert:│
+
+" Show invisibles (tabs, line endings etc.)
+" set list
+
+" Choose symbols to show invisibles
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮,space:·
+
+" No beeping
+set visualbell
+
+" Line numbering
+set number
+set relativenumber
+
+" Intuitive backspacing
+set backspace=indent,eol,start
+
+" Use hidden buffers
+set hidden
+
+" System clipboard
+set clipboard=unnamed
+
+" Add dashes to words
+set iskeyword+=-
+
+" Don't delete the word, but put a $ to the end till exit the mode
+set cpoptions+=$
+
+" Fast terminal connection
+set ttyfast
+
+" Set title of the window
+set title
+
+" Show status line
+set laststatus=2
+
+" Hightlight matching paar (brackets etc.)
+set showmatch
+
+" Welcome screen (e. g. no welcome message)
+set shortmess=caoOtI
+
+" always show signcolumns
+set signcolumn=yes
+
+" Increase line-height
+set linespace=2
+
+" Highlight line with cursor
+set cursorline
+
+" Show line and row of the cursor
+set ruler
+
+" Tabs and indentation
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set expandtab
+set autoindent
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+set copyindent
+set shiftround
+
+" Conceal
+set conceallevel=0
+
+" Persistent (G)undo files between sessions
+set undofile
+set history=1000
+set undolevels=100
+
+" Update time (Default: 4 seconds)
+set updatetime=300
+
+" Don’t syntax highlight lines longer than 800 characters
+set synmaxcol=800
+
+" Timeout for waiting after pressing <leader>
+set timeoutlen=500
+
+" Fold the code
+set foldenable
+
+" Don’t show the foldcolumn
+set foldcolumn=0
+
+" Default fold is marker
+set foldmethod=marker
+set foldlevelstart=20
+
+" Split the window below and right of the current window
+set splitbelow
+set splitright
+
+" Active mouse in terminal mode
+if !has('nvim')
+  set mouse=a ttymouse=xterm2
+else
+  set mouse=a
+endif
+
+" Hide mouse cursor while typing
+set mousehide
+
+" Keep 3 lines context above and below
+set scrolloff=3
+
+" Enable positioning of cursor where no character is
+set virtualedit=all
+
+
+" Complete all buffers
+" set complete=.,w,b,u,t,i,kspell
+set complete=.,w,b,u,t,kspell
+set completeopt=longest,menuone,preview
+
+" Better command line completion
+set wildmenu
+
+" Complete files like a shell
+set wildmode=list:longest,list:full
+
+" Ignore stuff
+set wildignore+=.DS_Store,Icon
+set wildignore+=*.dmg
+set wildignore+=*.doc,*.docx,*.xls,*.xlsx,*.ppt,*.pptx,*.gsheet
+set wildignore+=*.gem,gems/**
+set wildignore+=*.mp4,*.mov,*.m4v,*.mp3
+set wildignore+=*.pages
+set wildignore+=*.pdf,*.graffle
+set wildignore+=*.png,*.gif,*.jpeg,*.jpg,*.tiff,*.psd
+set wildignore+=*.py[co]
+set wildignore+=*.sqlite3,*.db
+set wildignore+=*.sw?
+set wildignore+=*.zip,*.tar,*.tar.gz
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
+set wildignore+=*/build/**,*/dist/**
+set wildignore+=*/node_modules/**
+set wildignore+=*/tmp/**
+set wildignore+=*/vendor/**
+
+" Spell checker language to German
+" To clean the custom files :runtime spell/cleanadd.vim
+set spelllang=de_de,en_us
+set spellfile+="~/.vim/spell/de.utf-8.add" " (1)zg, (1)zw
+set spellfile+="~/.vim/spell/en.utf-8.add" " 2zg, 2zw
+
+" Custom Dictionaries (<C-x> <C-k>)
+" http://ftp.vim.org/vim/runtime/spell/
+set dictionary+="~/.vim/dictionary/de_user.txt"
+set dictionary+="~/.vim/dictionary/de_neu.txt"
+set dictionary+="~/.vim/dictionary/en_us.txt"
+
+" Custom Thesauri (Synonyms) (<C-x> <C-t>)
+set thesaurus+="~/.vim/thesaurus/de_user.txt"
+set thesaurus+="~/.vim/thesaurus/de_openthesaurus.txt"
+
+set complete+=kspell
+" Backups
+set undodir=$HOME/.vim/tmp/undo//
+set backupdir=$HOME/.vim/tmp/backup//
+set directory=$HOME/.vim/tmp/swap//
+set backupskip=/tmp/*,/private/tmp/*
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Session Management
+let g:session_directory = "~/.vim/sessions"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
+" Netrw tweaks
+let g:netrw_banner=0    " disable banner
+let g:netrw_altv=1      " open splits to the right
+let g:netrw_list_hide=netrw_gitignore#Hide()
+let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+
+" Close HTML elemente with XHTML rules
+let xml_use_xhtml = 1
+
+" Better syntax hightlighting for Python
+let python_highlight_all = 1
+
+" Extended TextObjects
+" http://connermcd.com/blog/2012/10/01/extending-vim%27s-text-objects/
+let pairs = { ":" : ":",
+      \ "." : ".",
+      \ "<bar>" : "<bar>",
+      \ "*" : "*",
+      \ "-" : "-",
+      \ "_" : "_" }
+
+for [key, value] in items(pairs)
+  exe "nnoremap ci".key." T".key."ct".value
+  exe "nnoremap ca".key." F".key."cf".value
+  exe "nnoremap vi".key." T".key."vt".value
+  exe "nnoremap va".key." F".key."vf".value
+  exe "nnoremap di".key." T".key."dt".value
+  exe "nnoremap da".key." F".key."df".value
+  exe "nnoremap yi".key." T".key."yt".value
+  exe "nnoremap ya".key." F".key."yf".value
+endfor
+
+" Changing cursor shape per mode
+" 1 or 0 -> blinking block
+" 2 -> solid block
+" 3 -> blinking underscore
+" 4 -> solid underscore
+if exists('$TMUX')
+  " tmux will only forward escape sequences to the terminal if surrounded by a DCS sequence
+  let &t_SI .= "\<Esc>Ptmux;\<Esc>\<Esc>[4 q\<Esc>\\"
+  let &t_EI .= "\<Esc>Ptmux;\<Esc>\<Esc>[2 q\<Esc>\\"
+  autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033[0 q\033\\"
+else
+  let &t_SI .= "\<Esc>[4 q"
+  let &t_EI .= "\<Esc>[2 q"
+  autocmd VimLeave * silent !echo -ne "\033[0 q"
+endif
+
+
+" }}}
+" {{{ *** *** *** Mappings *** *** ***
+"  __  __   _   ___ ___ ___ _  _  ___ ___
+" |  \/  | /_\ | _ \ _ \_ _| \| |/ __/ __|
+" | |\/| |/ _ \|  _/  _/| || .` | (_ \__ \
+" |_|  |_/_/ \_\_| |_| |___|_|\_|\___|___/
+
+" }}}
+" {{{ *** *** *** Functions *** *** ***
+"  ___ _   _ _  _  ___ _____ ___ ___  _  _ ___
+" | __| | | | \| |/ __|_   _|_ _/ _ \| \| / __|
+" | _|| |_| | .` | (__  | |  | | (_) | .` \__ \
+" |_|  \___/|_|\_|\___| |_| |___\___/|_|\_|___/
+
+" }}}
+" {{{ *** *** *** Auto Commands *** *** ***
+"    _  _   _ _____ ___     ___ ___  __  __ __  __   _   _  _ ___  ___
+"   /_\| | | |_   _/ _ \   / __/ _ \|  \/  |  \/  | /_\ | \| |   \/ __|
+"  / _ \ |_| | | || (_) | | (_| (_) | |\/| | |\/| |/ _ \| .` | |) \__ \
+" /_/ \_\___/  |_| \___/   \___\___/|_|  |_|_|  |_/_/ \_\_|\_|___/|___/
+
+" }}}
+
+
+
+
+
+
+
+
+
+" >>>>>>> -----------------------------------------------
+" inoremap jk <ESC>
+" nmap <C-n> :NERDTreeToggle<CR>
+" vmap ++ <plug>NERDCommenterToggle
+" nmap ++ <plug>NERDCommenterToggle
 
 " open NERDTree automatically
 "autocmd StdinReadPre * let s:std_in=1
@@ -47,51 +784,11 @@ let g:NERDTreeGitStatusWithFlags = 1
 
 let g:NERDTreeIgnore = ['^node_modules$']
 
-" vim-prettier
-"let g:prettier#quickfix_enabled = 0
-"let g:prettier#quickfix_auto_focus = 0
-" prettier command for coc
+" Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
-" run prettier on save
-"let g:prettier#autoformat = 0
-"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
-
 
 " ctrlp
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" j/k will move virtual lines (lines that wrap)
-noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-
-set relativenumber
-
-set smarttab
-set cindent
-set tabstop=2
-set shiftwidth=2
-" always uses spaces instead of tab characters
-set expandtab
-
-colorscheme gruvbox
-
-" sync open file with NERDTree
-" " Check if NERDTree is open or active
-function! IsNERDTreeOpen()
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
 
 " coc config
 let g:coc_global_extensions = [
@@ -102,6 +799,7 @@ let g:coc_global_extensions = [
   \ 'coc-prettier',
   \ 'coc-json',
   \ ]
+
 " from readme
 " if hidden is not set, TextEdit might fail.
 set hidden " Some servers have issues with backup files, see #649 set nobackup set nowritebackup " Better display for messages set cmdheight=2 " You will have bad experience for diagnostic messages when it's default 4000.
@@ -190,8 +888,8 @@ omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
-nmap <silent> <C-d> <Plug>(coc-range-select)
-xmap <silent> <C-d> <Plug>(coc-range-select)
+" nmap <silent> <C-d> <Plug>(coc-range-select)
+" xmap <silent> <C-d> <Plug>(coc-range-select)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -207,19 +905,19 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+" nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" " Manage extensions
+" nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" " Show commands
+" nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" " Find symbol of current document
+" nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" " Search workspace symbols
+" nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" " Do default action for next item.
+" nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" " Do default action for previous item.
+" nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" " Resume latest coc list
+" nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
