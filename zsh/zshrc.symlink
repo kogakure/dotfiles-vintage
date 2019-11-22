@@ -20,22 +20,23 @@ COMPLETION_WAITING_DOTS="true"
 # Plugins to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
   base16-shell
-  bower
   brew brew-cask
-  bundler capistrano gem rails rake rbenv ruby thor zeus
+  bundler gem rbenv
   colored-man-pages man
   colorize
+  dotenv
   docker
   extract
-  fabric
   git git-extras gitignore
-  grunt gulp
+  gpg-agent
+  gulp
   history-substring-search
   jira
-  node npm nvm
+  node npm npx nvm
   rsync
   sudo
   tmux tmux-cssh tmuxinator
+  pip pyenv python
   vagrant virtualenv
   yarn
   z
@@ -107,9 +108,6 @@ if [[ -e ~/.localrc ]]
 then
   source ~/.localrc
 fi
-
-# Unalias
-unalias rg
 
 # Set terminal
 export TERM=xterm-256color
