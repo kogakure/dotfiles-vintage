@@ -1231,8 +1231,8 @@ nnoremap <leader>fgc :Commits<space>
 " Search in lines or content in lines
 nnoremap <leader>fl :Lines<CR>
 
-" Use the silver_searcher to search for words in files
-nnoremap <leader>ag :Ag<space>
+" Use Ripgrep to search for words in files
+nnoremap <leader>rg :Rg<space>
 
 " Search tags
 nnoremap <leader>ft :Tags<space>
@@ -1274,6 +1274,24 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Snippets
+imap <C-s> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
 
 " Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
@@ -1360,13 +1378,13 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " ### UltiSnips ###
 " #################
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
+let g:ultisnips_javascript = {
+      \ 'keyword-spacing': 'always',
+      \ 'semi': 'always',
+      \ 'space-before-function-paren': 'never'
+      \ }
 
 " ### Vim Airline ###
 " ###################
@@ -1481,10 +1499,9 @@ let g:auto_save_silent = 0
 " ### Emmet ###
 " #############
 
-" TODO: Test later
-" autocmd FileType html,eruby imap <tab> <plug>(emmet-expand-abbr)
-" autocmd FileType css,scss,pcss,postcss imap <tab> <plug>(emmet-expand-abbr)
-" autocmd FileType javascript imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType html,eruby imap <c-e> <plug>(emmet-expand-abbr)
+autocmd FileType css,scss,pcss,postcss imap <c-e> <plug>(emmet-expand-abbr)
+autocmd FileType javascript imap <c-e> <plug>(emmet-expand-abbr)
 
 " ### Fugitive ###
 " ################
