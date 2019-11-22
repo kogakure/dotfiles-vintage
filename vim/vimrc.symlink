@@ -96,8 +96,8 @@ Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
 Plug 'w0rp/ale'
 
 " File Explorer
-Plug 'scrooloose/nerdtree'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'scrooloose/nerdtree'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Text filtering and alignment (fork)
 Plug 'kogakure/tabular'
@@ -1595,10 +1595,10 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " ### NERDTree ###
 " ################
 
-let g:NERDTreeGitStatusWithFlags = 1
-let g:NERDTreeIgnore = ['^node_modules$']
+" let g:NERDTreeGitStatusWithFlags = 1
+" let g:NERDTreeIgnore = ['^node_modules$']
 
-nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+" nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " ### GitHub Line ###
 " ################
