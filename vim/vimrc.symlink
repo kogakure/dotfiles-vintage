@@ -11,36 +11,46 @@ endif
 
 filetype off
 
+let g:python_host_prog=$HOME.'/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
+
 " Check whether vim-plug is installed and install it if necessary
 let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
 if !filereadable(plugpath)
-    if executable('curl')
-        let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-        call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' . plugurl)
-        if v:shell_error
-            echom "Error downloading vim-plug. Please install it manually.\n"
-            exit
-        endif
-    else
-        echom "vim-plug not installed. Please install it manually or install curl.\n"
-        exit
+  if executable('curl')
+    let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' . plugurl)
+    if v:shell_error
+      echom "Error downloading vim-plug. Please install it manually.\n"
+      exit
     endif
+  else
+    echom "vim-plug not installed. Please install it manually or install curl.\n"
+    exit
+  endif
 endif
 
 call plug#begin('~/.vim/plugged')
 
+" Intellisense Engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Snippet support
+Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+
+" Print function signatures in echo area
+Plug 'Shougo/echodoc.vim'
+
+" Base16 for Vim
+Plug 'chriskempson/base16-vim'
+
+" Customized vim status lline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 " Argumentative aids with manipulating and moving between function arguments.
 Plug 'PeterRincker/vim-argumentative'
-
-" Insert or delete brackets, parens, quotes in pair.
-" TODO: Disabled temporarily
-" Plug 'jiangmiao/auto-pairs'
-
-" Close brackets (a more conservative version of auto-pairs)
-Plug 'rstacruz/vim-closer'
-
-" End certain structures automatically (end, endif)
-Plug 'tpope/vim-endwise'
 
 " Emmet
 Plug 'mattn/emmet-vim'
@@ -53,7 +63,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'skwp/vim-html-escape', { 'on': ['HtmlEscape', 'HtmlUnEscape'] }
 
 " Multiple cursors
-" ➜ <C-k>
+" ➜ <C-n>
 Plug 'terryma/vim-multiple-cursors'
 
 " Show Unicode character names, vim digraphs (<C-K>), emoji codes, etc.
@@ -82,24 +92,12 @@ Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
 " Check syntax in Vim asynchronously and fix files, with LSP support
 Plug 'w0rp/ale'
 
-" Intellisense Engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
-
-" Snippet support
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" Print function signatures in echo area
-Plug 'Shougo/echodoc.vim'
+" File Explorer
+Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Text filtering and alignment (fork)
 Plug 'kogakure/tabular'
-
-" ### Git ###
-" ###########
 
 " Git Wrapper
 " ➜ :G…
@@ -111,25 +109,12 @@ Plug 'tpope/vim-git', { 'for': ['git', 'gitcommit', 'gitconfig', 'gitrebase', 'g
 " Show a git diff gutter
 Plug 'airblade/vim-gitgutter'
 
-" ### Sessions ###
-" ################
-
 " AutoSave (disabled by default)
-" ➜ :AutoSave
+" ➜ :AutoSaveToggle
 Plug '907th/vim-auto-save'
 
 " Miscellaneous auto-load Vim scripts
 Plug 'xolox/vim-misc' | Plug 'xolox/vim-session', { 'on': ['OpenSession', 'SaveSession', 'DelteSession', 'CloseSession'] }
-
-" ### UI ###
-" ##########
-
-" Base16 for Vim
-Plug 'chriskempson/base16-vim'
-
-" Customized vim status lline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Speed up Vim by updating folds only when called-for
 Plug 'Konfekt/FastFold'
@@ -146,7 +131,6 @@ Plug 'majutsushi/tagbar'
 Plug 'bogado/file-line'
 
 " Full path fuzzy file, buffer, mru, tag, … finder
-" ➜ <C-f>, <C-b>, <C-r>, <C-j>, <C-k>, <C-z>, etc.
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'sgur/ctrlp-extensions.vim'
 
@@ -159,29 +143,6 @@ Plug 'tpope/vim-vinegar'
 
 " EditorConfig
 Plug 'editorconfig/editorconfig-vim'
-
-" Prettier
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'less',
-    \ 'scss',
-    \ 'json',
-    \ 'graphql',
-    \ 'markdown',
-    \ 'vue',
-    \ 'php',
-    \ 'python',
-    \ 'ruby',
-    \ 'html' ] }
-
-
-" ### Search ###
-" ##############
 
 " Vim motion on speed
 " ➜ ,,motion command
@@ -200,8 +161,8 @@ Plug 'mileszs/ack.vim'
 " ➜ :Abolish! anomol{y,ies} anomal{}
 Plug 'tpope/vim-abolish'
 
-" ### Syntax & Indentation, Helper  ###
-" #####################################
+" Bookmarks
+Plug 'MattesGroeger/vim-bookmarks'
 
 " A collection of language packs for Vim.
 Plug 'sheerun/vim-polyglot'
@@ -210,19 +171,16 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tmhedberg/matchit'
 
 " *** JavaScript ***
-Plug 'othree/yajs.vim',                         { 'for': 'javascript' }
-Plug 'othree/es.next.syntax.vim',               { 'for': 'javascript' }
 Plug 'othree/javascript-libraries-syntax.vim',  { 'for': 'javascript' }
+Plug 'othree/yajs.vim',                         { 'for': 'javascript' }
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'heavenshell/vim-jsdoc'
-Plug 'mxw/vim-jsx'
 
 " *** CSS ***
 " Color name highlighting
 Plug 'ap/vim-css-color'
 
 " *** Ruby & Rails ***
-Plug 'tpope/vim-rails',          { 'for': ['ruby', 'eruby'] }
+Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 
 " *** PHP ***
 Plug 'shawncplus/phpcomplete.vim'
@@ -230,6 +188,7 @@ Plug 'vim-scripts/PHP-correct-Indenting'
 
 " Interact with tmux
 Plug 'benmills/vimux'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Text Objects
 Plug 'glts/vim-textobj-comment'
@@ -239,6 +198,7 @@ Plug 'kana/vim-textobj-line'
 Plug 'kana/vim-textobj-user'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'whatyouhide/vim-textobj-xmlattr'
+
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -254,10 +214,6 @@ call plug#end()
 
 " Default shell
 set shell=/bin/zsh
-
-" Python
-let g:python_host_prog = '$HOME/.pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = '$HOME/.pyenv/versions/neovim3/bin/python'
 
 " Search for all files in all subfolders
 set path+=**
@@ -278,6 +234,14 @@ if filereadable(expand("~/.vimrc_background"))
   source ~/.vimrc_background
 endif
 
+" Make background transparent for many things
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+hi! LineNr ctermfg=NONE guibg=NONE
+hi! SignColumn ctermfg=NONE guibg=NONE
+hi! StatusLine guifg=#16252b guibg=#6699CC
+hi! StatusLineNC guifg=#16252b guibg=#16252b
+
 " Custom Colors
 highlight Conceal cterm=NONE ctermbg=NONE ctermfg=darkred
 highlight SpellBad cterm=underline ctermfg=white ctermbg=red
@@ -295,11 +259,23 @@ let mapleader=","
 " <loacalleader> to `+`
 let maplocalleader="+"
 
+" Backups
+set undodir=$HOME/.vim/tmp/undo//
+set backupdir=$HOME/.vim/tmp/backup//
+set directory=$HOME/.vim/tmp/swap//
+set backupskip=/tmp/*,/private/tmp/*
+set nobackup
+set nowritebackup
+set noswapfile
+
 " Create ctags
 command! MakeTags !ctags .
 
 " Switch of modelines (it is a risk for security)
 set modelines=0
+
+" Command Line Height
+set cmdheight=2
 
 " Remove fixed password for encryption (:X)
 if !has('nvim')
@@ -397,7 +373,10 @@ set laststatus=2
 set showmatch
 
 " Welcome screen (e. g. no welcome message)
-set shortmess=aoOtI
+set shortmess=caoOtI
+
+" always show signcolumns
+set signcolumn=yes
 
 " Increase line-height
 set linespace=2
@@ -427,8 +406,183 @@ set undofile
 set history=1000
 set undolevels=100
 
-" Update time to 1 second (Default: 4 seconds)
-set updatetime=1000
+" Update time (Default: 4 seconds)
+set updatetime=300
+
+" Don’t syntax highlight lines longer than 800 characters
+set synmaxcol=800
+
+" Timeout for waiting after pressing <leader>
+set timeoutlen=500
+
+" Fold the code
+set foldenable
+
+" Don’t show the foldcolumn
+set foldcolumn=0
+
+" Default fold is marker
+set foldmethod=marker
+set foldlevelstart=20
+
+" Split the window below and right of the current window
+set splitbelow
+set splitright
+
+" Active mouse in terminal mode
+if !has('nvim')
+  set mouse=a ttymouse=xterm2
+else
+  set mouse=a
+endif
+
+" Hide mouse cursor while typing
+set mousehide
+
+" Keep 3 lines context above and below
+set scrolloff=3
+
+" Enable positioning of cursor where no character is
+set virtualedit=all
+command! MakeTags !ctags .
+
+" Switch of modelines (it is a risk for security)
+set modelines=0
+
+" Command Line Height
+set cmdheight=2
+
+" Remove fixed password for encryption (:X)
+if !has('nvim')
+  set key=
+  set cryptmethod=blowfish
+endif
+
+" Automatic save at file switch
+set autowrite
+
+" Update buffer automatically, when changed by extern
+set autoread
+
+" No line break
+set nowrap
+
+" Don’t refresh while executing a macro
+set lazyredraw
+
+" Show partially completed commands
+set showcmd
+
+" Show the mode
+set showmode
+
+" Search on the oposite of the file when reaching end/beginning
+set wrapscan
+
+" Start highlighting search results while typing
+set incsearch
+
+" Show line breaks
+set showbreak=↪
+
+" Ignore case when searching (unless using capital letters)
+set ignorecase
+set smartcase
+
+" use forward slash
+set shellslash
+
+" Highlight search results
+set hlsearch
+
+" Height of command line
+set ch=1
+
+" Don’t break lines
+set textwidth=0
+
+" Show full tag when autocompleting
+set showfulltag
+
+" Which characters to use for statuslines etc.
+set fillchars=diff:⣿,vert:│
+
+" Show invisibles (tabs, line endings etc.)
+" set list
+
+" Choose symbols to show invisibles
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮,space:·
+
+" No beeping
+set visualbell
+
+" Line numbering
+set number
+set relativenumber
+
+" Intuitive backspacing
+set backspace=indent,eol,start
+
+" Use hidden buffers
+set hidden
+
+" System clipboard
+set clipboard=unnamed
+
+" Add dashes to words
+set iskeyword+=-
+
+" Don't delete the word, but put a $ to the end till exit the mode
+set cpoptions+=$
+
+" Fast terminal connection
+set ttyfast
+
+" Set title of the window
+set title
+
+" Show status line
+set laststatus=2
+
+" Hightlight matching paar (brackets etc.)
+set showmatch
+
+" Welcome screen (e. g. no welcome message)
+set shortmess=caoOtI
+
+" Always show signcolumns
+set signcolumn=yes
+
+" Increase line-height
+set linespace=2
+
+" Highlight line with cursor
+set cursorline
+
+" Show line and row of the cursor
+set ruler
+
+" Tabs and indentation
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set expandtab
+set autoindent
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+set copyindent
+set shiftround
+
+" Conceal
+set conceallevel=0
+
+" Persistent (G)undo files between sessions
+set undofile
+set history=1000
+set undolevels=100
+
+" Update time (Default: 4 seconds)
+set updatetime=300
 
 " Don’t syntax highlight lines longer than 800 characters
 set synmaxcol=800
@@ -466,8 +620,10 @@ set scrolloff=3
 " Enable positioning of cursor where no character is
 set virtualedit=all
 
+
 " Complete all buffers
-set complete=.,w,b,u,t,i,kspell
+" set complete=.,w,b,u,t,i,kspell
+set complete=.,w,b,u,t,kspell
 set completeopt=longest,menuone,preview
 
 " Better command line completion
@@ -512,14 +668,6 @@ set thesaurus+="~/.vim/thesaurus/de_user.txt"
 set thesaurus+="~/.vim/thesaurus/de_openthesaurus.txt"
 
 set complete+=kspell
-" Backups
-set undodir=$HOME/.vim/tmp/undo//
-set backupdir=$HOME/.vim/tmp/backup//
-set directory=$HOME/.vim/tmp/swap//
-set backupskip=/tmp/*,/private/tmp/*
-set backup
-set writebackup
-set noswapfile
 
 " Session Management
 let g:session_directory = "~/.vim/sessions"
@@ -576,6 +724,7 @@ else
 endif
 
 
+
 " }}}
 " {{{ *** *** *** Mappings *** *** ***
 "  __  __   _   ___ ___ ___ _  _  ___ ___
@@ -583,11 +732,12 @@ endif
 " | |\/| |/ _ \|  _/  _/| || .` | (_ \__ \
 " |_|  |_/_/ \_\_| |_| |___|_|\_|\___|___/
 
-" Quick toggle between buffers
-noremap <leader>j :b#<CR>
 
 " Command mode
 nnoremap <space> :
+
+" Quick toggle between buffers
+noremap <leader>j :b#<CR>
 
 " Yank text to the OS X clipboard
 noremap <leader>y "*y
@@ -601,7 +751,7 @@ nnoremap <leader>. A,<ESC>
 nnoremap <leader>x $x
 
 " Open .vimrc in a new buffer, reload .vimrc
-nnoremap <leader>ev :e $MYVIMRC<CR>
+nnoremap <leader>vv :e $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " Delete all buffers
@@ -626,7 +776,7 @@ nnoremap <leader>th :call ToggleSearchHighlighting()<CR>
 nnoremap <leader>l :set list!<CR>
 
 " Indent the whole source code
-nnoremap <leader>f gg=G
+nnoremap <leader>ff gg=G
 
 " Change marks mapping (ma)
 nnoremap ' `
@@ -698,7 +848,7 @@ nnoremap <leader>c :silent! !ctags<cr>:redraw!<cr>
 noremap <leader>he :call HtmlEscape()<CR>
 noremap <leader>hue :call HtmlUnEscape()<CR>
 
-" Exit INSERT MODE with 'jk' herauskommen
+" Exit INSERT MODE with 'jk'
 inoremap jk <ESC>
 
 " Simulate CTRL-Q of TextMate for 'Reformat Paragraph'
@@ -728,16 +878,16 @@ if has('nvim')
 endif
 
 " Indentation in VISUAL Mode like in INSERT Mode
-vnoremap > >gv
-vnoremap < <gv
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
+" vnoremap > >gv
+" vnoremap < <gv
+" vnoremap <Tab> >gv
+" vnoremap <S-Tab> <gv
 
 " Open for Markdown in iA Writer
 nnoremap <leader>m :silent !open -a iA\ Writer.app '%:p'<CR>
 
 
-"}}}
+" }}}
 " {{{ *** *** *** Functions *** *** ***
 "  ___ _   _ _  _  ___ _____ ___ ___  _  _ ___
 " | __| | | | \| |/ __|_   _|_ _/ _ \| \| / __|
@@ -861,12 +1011,14 @@ function! s:align()
 endfunction
 
 
+
 " }}}
 " {{{ *** *** *** Auto Commands *** *** ***
 "    _  _   _ _____ ___     ___ ___  __  __ __  __   _   _  _ ___  ___
 "   /_\| | | |_   _/ _ \   / __/ _ \|  \/  |  \/  | /_\ | \| |   \/ __|
 "  / _ \ |_| | | || (_) | | (_| (_) | |\/| | |\/| |/ _ \| .` | |) \__ \
 " /_/ \_\___/  |_| \___/   \___\___/|_|  |_|_|  |_/_/ \_\_|\_|___/|___/
+
 
 " Colorscheme changes
 function! s:after_colorscheme()
@@ -882,16 +1034,13 @@ function! s:after_colorscheme()
   highlight ExtraWhitespace ctermbg=red guibg=red
 endfunction
 
-" Show trailing whitespace when moving to a new line or exit mode
-highlight ExtraWhitespace ctermbg=red guibg=red
 augroup WhitespaceMatch
   " Remove ALL autocommands for the WhitespaceMatch group.
   autocmd!
-  autocmd BufWinEnter * let w:whitespace_match_number =
-        \ matchadd('ExtraWhitespace', '\s\+$')
   autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
   autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
 augroup END
+
 function! s:ToggleWhitespaceMatch(mode)
   let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
   if exists('w:whitespace_match_number')
@@ -902,6 +1051,11 @@ function! s:ToggleWhitespaceMatch(mode)
     let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
   endif
 endfunction
+
+" coc.nvim color changes
+hi! link CocErrorSign WarningMsg
+hi! link CocWarningSign Number
+hi! link CocInfoSign Type
 
 " Show VCS conflict marker
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
@@ -1039,6 +1193,7 @@ augroup ft_vim
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
+
 " }}}
 " {{{ *** *** *** Auto Commands *** *** ***
 "  ___ _   _   _  ___ ___ _  _ ___
@@ -1047,14 +1202,10 @@ augroup END
 " |_| |____\___/ \___|___|_|\_|___/
 
 
-" ### COC ###
-" ###########
-
-nnoremap <leader>coc :CocConfig<CR>
-nnoremap <leader>coci :CocInstall coc-json coc-yaml coc-jest coc-css coc-html coc-eslint coc-stylelint coc-emmet coc-prettier coc-highlight coc-lists coc-yank coc-git<CR>
-
 " ### Ctrl-p ###
 " ##############
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 nnoremap <leader>mru :CtrlPMRU<CR>
 nnoremap <leader>cmd :CtrlPCmdline<CR>
@@ -1064,19 +1215,235 @@ nnoremap <leader>cc :CtrlPClearCache<CR>
 " ### FZF ###
 " ###########
 
+" Search files
 nnoremap <C-t> :Files<CR>
 nnoremap <leader>fz :Files<CR>
+nnoremap <leader>t :Files<CR>
+
+" Search buffers
 nnoremap <leader>b :Buffers<CR>
+
+" Search Git files/commits
 nnoremap <leader>fg :GFiles<CR>
 nnoremap <leader>fs :GFiles?<CR>
+nnoremap <leader>fgc :Commits<space>
+
+" Search in lines or content in lines
 nnoremap <leader>fl :Lines<CR>
-nnoremap <leader>ag :Ag<space>
+
+" Use Ripgrep to search for words in files
+nnoremap <leader>rg :Rg<space>
+
+" Search tags
 nnoremap <leader>ft :Tags<space>
 nnoremap <leader>fbt :BTags<space>
-nnoremap <leader>fgc :Commits<space>
+
+
+" ### COC ###
+" ###########
+
+let g:coc_global_extensions = [
+      \ 'coc-css',
+      \ 'coc-dictionary',
+      \ 'coc-emmet',
+      \ 'coc-emoji',
+      \ 'coc-eslint',
+      \ 'coc-git',
+      \ 'coc-highlight',
+      \ 'coc-html',
+      \ 'coc-jest',
+      \ 'coc-json',
+      \ 'coc-lists',
+      \ 'coc-omni',
+      \ 'coc-pairs',
+      \ 'coc-prettier',
+      \ 'coc-snippets',
+      \ 'coc-stylelint',
+      \ 'coc-syntax',
+      \ 'coc-tag',
+      \ 'coc-tsserver',
+      \ 'coc-word',
+      \ 'coc-yaml',
+      \ 'coc-yank',
+      \ ]
+
+nnoremap <leader>coc :CocConfig<CR>
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Snippets
+imap <C-s> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-s-space> to trigger completion.
+inoremap <silent><expr> <c-s-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <F2> <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
+
+augroup coc_group
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" ### UltiSnips ###
+" #################
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:ultisnips_javascript = {
+      \ 'keyword-spacing': 'always',
+      \ 'semi': 'always',
+      \ 'space-before-function-paren': 'never'
+      \ }
+
+" ### Vim Airline ###
+" ###################
+
+try
+  " Don't dispay mode in command line (airilne already shows it)
+  set noshowmode
+
+  " Enable extensions
+  let g:airline_extensions = ['branch', 'bookmark', 'hunks', 'coc', 'quickfix', 'wordcount']
+
+  " Update section z to just have line number
+  let g:airline_section_z = airline#section#create(['linenr'])
+
+  " Do not draw separators for empty sections (only for the active window) >
+  let g:airline_skip_empty_sections = 1
+
+  " Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
+  let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+  " Custom setup that removes filetype/whitespace from default vim airline bar
+  let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
+
+  let airline#extensions#coc#stl_format_err = '%E{[%e(#%fe)]}'
+
+  let airline#extensions#coc#stl_format_warn = '%W{[%w(#%fw)]}'
+
+  " Configure error/warning section to use coc.nvim
+  let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+  let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
+
+  " Disable vim-airline in preview mode
+  let g:airline_exclude_preview = 1
+
+  " Enable powerline fonts
+  let g:airline_powerline_fonts = 1
+
+  " Enable caching of syntax highlighting groups
+  let g:airline_highlighting_cache = 1
+
+  " Define custom airline symbols
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+
+  " Don't show git changes to current file in airline
+  let g:airline#extensions#hunks#enabled=0
+catch
+  echo 'Airline not installed. It should work after running :PlugInstall'
+endtry
+
+" ### Vim-Bookmark ###
+" ####################
+
+let g:bookmark_center = 1
 
 " ### EditorConfig ###
 " ####################
+
 let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
 let g:EditorConfig_core_mode = 'external_command'
 
@@ -1084,15 +1451,6 @@ let g:EditorConfig_core_mode = 'external_command'
 " #########################
 
 let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 'help', 'pandoc', 'markdown']
-
-" ### Prettier ###
-" ################
-
-nnoremap <silent> <leader>pr :PrettierAsync<CR>
-
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql PrettierAsync
-let g:prettier#exec_cmd_async = 1
 
 " ### ack.vim ###
 " ###############
@@ -1138,17 +1496,12 @@ let g:auto_save = 0
 let g:auto_save_in_insert_mode = 0
 let g:auto_save_silent = 0
 
-" ### JSX ###
-" ###########
-
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
 " ### Emmet ###
 " #############
 
-autocmd FileType html,eruby imap <tab> <plug>(emmet-expand-abbr)
-autocmd FileType css,scss,pcss,postcss imap <tab> <plug>(emmet-expand-abbr)
-autocmd FileType javascript imap <tab> <plug>(emmet-expand-abbr)
+autocmd FileType html,eruby imap <c-e> <plug>(emmet-expand-abbr)
+autocmd FileType css,scss,pcss,postcss imap <c-e> <plug>(emmet-expand-abbr)
+autocmd FileType javascript imap <c-e> <plug>(emmet-expand-abbr)
 
 " ### Fugitive ###
 " ################
@@ -1180,17 +1533,6 @@ let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 let g:session_autosave_periodic = "5"
 let g:session_default_name = 'default'
-
-" ### Ultisnips ###
-" #################
-"
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
 
 " ### ALE ###
 " ###########
@@ -1224,8 +1566,37 @@ let g:gitgutter_sign_modified = '•'
 let g:gitgutter_sign_removed = '•'
 let g:gitgutter_sign_modified_removed = '•'
 
+" ### Echodoc ###
+" ###############
 
-" Last Line
+" Enable echodoc on startup
+let g:echodoc#enable_at_startup = 1
+
+" ### Vim-JavaScript ###
+" ######################
+
+" Enable syntax highlighting for JSDoc
+let g:javascript_plugin_jsdoc = 1
+
+" ### JavaScript-Libraries-Syntax ###
+" ###################################
+
+let g:used_javascript_libs = 'jquery,underscore,react,requirejs,handlebars,vue,ramda,d3'
+
+" ### Vim-JSX ###
+" ###############
+
+" Highlight jsx syntax even in non .jsx files
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" ### NERDTree ###
+" ################
+
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+
+nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+
+
 let g:vimrcloaded = 1
-
 " }}}

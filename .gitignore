@@ -3,3 +3,5 @@ vim/vim.symlink/.netrwbook
 vim/vim.symlink/plugged
 vim/vim.symlink/init.vim
 bin/sync-server-*
+config/coc/
+bin/flake8

@@ -5,8 +5,14 @@
 export DOTFILES="$HOME/.dotfiles"
 
 # Compilers
-export LDFLAGS=-L/usr/local/opt/openssl/lib
-export CPPFLAGS=-I/usr/local/opt/openssl/include
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/sqlite/include"
+export CPPFLAGS="${CPPFLAGS} -I/usr/local/opt/zlib/include"
+export CPPFLAGS="${CPPFLAGS}-I/usr/local/opt/openssl/include"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/sqlite/lib"
+export LDFLAGS="${LDFLAGS} -L/usr/local/opt/zlib/lib"
+export LDFLAGS="${LDFLAGS}-L/usr/local/opt/openssl/lib"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/sqlite/lib/pkgconfig"
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /usr/local/opt/zlib/lib/pkgconfig"
 
 # Paths
 PATH="/usr/local/bin:$PATH"
@@ -65,8 +71,24 @@ export NPM_CHECK_INSTALLER=yarn
 export LESS_TERMCAP_md="$ORANGE"
 
 # FZF
-export FZF_DEFAULT_COMMAND='ag -g ""'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# export FZF_DEFAULT_COMMAND='ag -g ""'
+# export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Exclude those directories even if not listed in .gitignore, or if .gitignore is missing
+FD_OPTIONS="--follow --exclude .git --exclude node_modules"
+
+# Change behavior of fzf dialogue
+export FZF_DEFAULT_OPTS="--no-mouse --height 50% -1 --reverse --multi --inline-info --preview='[[ \$(file --mime {}) =~ binary ]] && echo {} is a binary file || (bat --style=numbers --color=always {} || cat {}) 2> /dev/null | head -300' --preview-window='right:50%'"
+
+# Change find backend
+# Use 'git ls-files' when inside GIT repo, or fd otherwise
+export FZF_DEFAULT_COMMAND="git ls-files --cached --others --exclude-standard | fd --type f --type l $FD_OPTIONS"
+
+# Find commands for "Ctrl+T" and "Opt+C" shortcuts
+export FZF_CTRL_T_COMMAND="fd $FD_OPTIONS"
+export FZF_ALT_C_COMMAND="fd --type d $FD_OPTIONS"
+
+export BAT_PAGER="less -R"
 
 export PATH
 

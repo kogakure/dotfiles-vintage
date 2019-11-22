@@ -80,6 +80,9 @@ brew install flow
 # Command-line outline and bitmap font editor/converter
 brew install fontforge
 
+# Simple, fast and user-friendly alternative to find
+brew install fd
+
 # CLI program that accepts piped input and presents files for selection
 # https://facebook.github.io/PathPicker/
 brew install fpp
