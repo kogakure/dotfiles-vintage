@@ -55,6 +55,9 @@ Plug 'PeterRincker/vim-argumentative'
 " Emmet
 Plug 'mattn/emmet-vim'
 
+" GitHub Line
+Plug 'ruanyl/vim-gh-line'
+
 " Better whitespace highlighting for Vim
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -1596,6 +1599,11 @@ let g:NERDTreeGitStatusWithFlags = 1
 let g:NERDTreeIgnore = ['^node_modules$']
 
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
+
+" ### GitHub Line ###
+" ################
+
+let g:gh_github_domain = "source.xing.com"
 
 
 let g:vimrcloaded = 1
