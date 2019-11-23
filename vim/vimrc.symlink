@@ -95,10 +95,6 @@ Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
 " Check syntax in Vim asynchronously and fix files, with LSP support
 Plug 'w0rp/ale'
 
-" File Explorer
-" Plug 'scrooloose/nerdtree'
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
 " Text filtering and alignment (fork)
 Plug 'kogakure/tabular'
 
@@ -678,11 +674,12 @@ let g:session_autoload = "no"
 let g:session_autosave = "no"
 let g:session_command_aliases = 1
 
-" Netrw tweaks
-let g:netrw_banner=0    " disable banner
-let g:netrw_altv=1      " open splits to the right
+" Netrd tweaks
+let g:netrw_banner = 0
+let g:netrw_altv = 1
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_liststyle = 3
 
 " Close HTML elemente with XHTML rules
 let xml_use_xhtml = 1
@@ -1591,14 +1588,6 @@ let g:used_javascript_libs = 'jquery,underscore,react,requirejs,handlebars,vue,r
 
 " Highlight jsx syntax even in non .jsx files
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-
-" ### NERDTree ###
-" ################
-
-" let g:NERDTreeGitStatusWithFlags = 1
-" let g:NERDTreeIgnore = ['^node_modules$']
-
-" nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 
 " ### GitHub Line ###
 " ################
