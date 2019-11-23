@@ -92,9 +92,6 @@ Plug 'tpope/vim-surround'
 " :I or :II etc.
 Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
 
-" Check syntax in Vim asynchronously and fix files, with LSP support
-Plug 'w0rp/ale'
-
 " Text filtering and alignment (fork)
 Plug 'kogakure/tabular'
 
@@ -152,9 +149,6 @@ Plug 'henrik/vim-indexed-search'
 
 " Visual select something and press * to search it
 Plug 'nelstrom/vim-visual-star-search'
-
-" Vim Plugin for 'ack' or 'ag'
-Plug 'mileszs/ack.vim'
 
 " Easily search for, subsitute, and abbreviate multiple variants of a word
 " ➜ :Abolish! anomol{y,ies} anomal{}
@@ -999,16 +993,16 @@ endfunction
 command! -register HardcoreWrite silent! call HardcoreWrite() | redraw!
 
 " Automatic Tabular.vim with the (|)
-function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
-endfunction
+" function! s:align()
+"   let p = '^\s*|\s.*\s|\s*$'
+"   if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+"     let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+"     let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+"     Tabularize/|/l1
+"     normal! 0
+"     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+"   endif
+" endfunction
 
 
 
@@ -1450,14 +1444,7 @@ let g:EditorConfig_core_mode = 'external_command'
 " ### Better Whitespace ###
 " #########################
 
-let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 'help', 'pandoc', 'markdown']
-
-" ### ack.vim ###
-" ###############
-
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 'help', 'pandoc', 'markdown']
 
 " ### Vimux ###
 " #############
@@ -1533,29 +1520,6 @@ let g:session_autosave = 'no'
 let g:session_autoload = 'no'
 let g:session_autosave_periodic = "5"
 let g:session_default_name = 'default'
-
-" ### ALE ###
-" ###########
-
-" After this is configured, :ALEFix will try and fix your JS code with ESLint.
-let g:ale_linters = {
-      \   'javascript': ['eslint'],
-      \}
-
-let g:ale_fixers = {
-      \   'javascript': ['eslint'],
-      \}
-
-" Enable completion where available.
-let g:ale_completion_enabled = 1
-
-" Enable Quickfix
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-
-" Fix JSX with Stylelint and ESlint
-let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
-let g:ale_linter_aliases = {'jsx': 'css'}
 
 " ### Gitgutter ###
 " #################
