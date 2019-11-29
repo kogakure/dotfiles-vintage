@@ -1,4 +1,4 @@
-" {{{ *** *** *** Bundles *** *** ***
+" {{ ** *** *** Bundles *** *** ***
 "  ___ _   _ _  _ ___  _    ___ ___
 " | _ ) | | | \| |   \| |  | __/ __|
 " | _ \ |_| | .` | |) | |__| _|\__ \
@@ -32,12 +32,12 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Intellisense Engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 " Snippet support
 Plug 'SirVer/ultisnips'
 " Plug 'honza/vim-snippets'
+
+" Intellisense Engine
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
@@ -1025,25 +1025,6 @@ function! s:after_colorscheme()
   highlight SpellCap cterm=underline
   highlight SpellLocal cterm=underline
   highlight SpellRare cterm=underline
-  highlight ExtraWhitespace ctermbg=red guibg=red
-endfunction
-
-augroup WhitespaceMatch
-  " Remove ALL autocommands for the WhitespaceMatch group.
-  autocmd!
-  autocmd InsertEnter * call s:ToggleWhitespaceMatch('i')
-  autocmd InsertLeave * call s:ToggleWhitespaceMatch('n')
-augroup END
-
-function! s:ToggleWhitespaceMatch(mode)
-  let pattern = (a:mode == 'i') ? '\s\+\%#\@<!$' : '\s\+$'
-  if exists('w:whitespace_match_number')
-    call matchdelete(w:whitespace_match_number)
-    call matchadd('ExtraWhitespace', pattern, 10, w:whitespace_match_number)
-  else
-    " Something went wrong, try to be graceful.
-    let w:whitespace_match_number =  matchadd('ExtraWhitespace', pattern)
-  endif
 endfunction
 
 " coc.nvim color changes
