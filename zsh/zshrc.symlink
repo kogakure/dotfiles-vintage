@@ -28,7 +28,6 @@ plugins=(
   docker
   extract
   git git-extras gitignore
-  gpg-agent
   gulp
   history-substring-search
   jira
