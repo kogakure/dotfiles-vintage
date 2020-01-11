@@ -25,7 +25,7 @@ function pr() {
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm,
 # and their installed packages
 function update () {
-    vim -u ~/.vimrc.bundles +PlugUpgrade +PlugInstall +qall
+    vim -u ~/.vimrc +PlugUpgrade +PlugInstall +PlugClean +qall
     brew update && brew outdated && brew upgrade && brew cleanup && brew cask upgrade
     gem update --system && gem update && gem cleanup all
     npm update npm -g
