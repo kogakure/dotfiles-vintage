@@ -22,6 +22,8 @@ hints.fontSize        = 18
 hints.showTitleThresh = 0
 -- hints.style           = "vimperator" -- Buggy, gets slow after a while
 
+-- Allow searching for alternate names
+application.enableSpotlightForNameSearches(true)
 
 ------------
 -- Aliase --
@@ -38,7 +40,8 @@ local KEY_SAM  = { "⇧", "⌥", "⌘" }
 local KEY_AM   = { "⌥", "⌘" }
 
 -- Displays
-local DISPLAY_MAIN     = screen.primaryScreen()
+local DISPLAY_PRIMARY = screen.primaryScreen()
+local DISPLAY_SECONDARY = screen.findByName("DELL U2719DC")
 local DISPLAY_NOTEBOOK = "Color LCD"
 
 -- Sizes
@@ -50,7 +53,6 @@ local FULLSCREEN = hs.geometry.unitrect(0, 0, 1, 1)
 local RIGHT_HALF = hs.geometry.unitrect(0.5, 0, 0.5, 1)
 local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 
-
 -------------
 -- Layouts --
 -------------
@@ -58,55 +60,63 @@ local LEFT_HALF  = hs.geometry.unitrect(0, 0, 0.5, 1)
 -- Format reminder:
 -- {"App name", "Window name", "Display Name", "unitrect", "framerect", "fullframerect"},
 
--- Big Monitor as Primary, Notebook as Secondary
+-- Two Monitors and Notebook
+local LAYOUT_TRI = {
+  {"Brave Browser",             nil, DISPLAY_NOTEBOOK,  FULLSCREEN, nil, nil},
+  {"Code",                      nil, DISPLAY_PRIMARY,   FULLSCREEN, nil, nil},
+  {"DEVONthink 3",              nil, DISPLAY_NOTEBOOK,  FULLSCREEN, nil, nil},
+  {"Evernote",                  nil, DISPLAY_NOTEBOOK,  FULLSCREEN, nil, nil},
+  {"Firefox Developer Edition", nil, DISPLAY_NOTEBOOK,  FULLSCREEN, nil, nil},
+  {"Kalender",                  nil, DISPLAY_SECONDARY, LEFT_HALF,  nil, nil},
+  {"Mail",                      nil, DISPLAY_SECONDARY, RIGHT_HALF, nil, nil},
+  {"Microsoft Outlook",         nil, DISPLAY_SECONDARY, LEFT_HALF,  nil, nil},
+  {"Nachrichten",               nil, DISPLAY_SECONDARY, LEFT_HALF,  nil, nil},
+  {"Slack",                     nil, DISPLAY_SECONDARY, RIGHT_HALF, nil, nil},
+  {"Spotify",                   nil, DISPLAY_SECONDARY, LEFT_HALF,  nil, nil},
+  {"Things",                    nil, DISPLAY_NOTEBOOK,  FULLSCREEN, nil, nil},
+  {"Code",                      nil, DISPLAY_PRIMARY,   FULLSCREEN, nil, nil},
+  {"Zeplin",                    nil, DISPLAY_SECONDARY, FULLSCREEN, nil, nil},
+  {"iA Writer",                 nil, DISPLAY_NOTEBOOK,  FULLSCREEN, nil, nil},
+  {"iTerm2",                    nil, DISPLAY_PRIMARY,   FULLSCREEN, nil, nil},
+}
+-- One Monitor and Notebook
 local LAYOUT_DUAL = {
-  {"Brave Browser",             nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"Code",                      nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"DEVONthink Pro Office",     nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Evernote",                  nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"Firefox Developer Edition", nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"Firefox",                   nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Google Chrome",             nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"Google Hangouts",           nil, DISPLAY_MAIN,     LEFT_HALF,  nil, nil},
-  {"Kalender",                  nil, DISPLAY_NOTEBOOK, LEFT_MOST,  nil, nil},
-  {"Mail",                      nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
-  {"Microsoft Outlook",         nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
-  {"Nachrichten",               nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
-  {"Safari",                    nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"Slack",                     nil, DISPLAY_MAIN,     LEFT_MOST,  nil, nil},
-  {"Sonos",                     nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"Brave Browser",             nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
+  {"Code",                      nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
+  {"DEVONthink 3",              nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
+  {"Evernote",                  nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
+  {"Firefox Developer Edition", nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
+  {"Kalender",                  nil, DISPLAY_PRIMARY,  LEFT_MOST,  nil, nil},
+  {"Mail",                      nil, DISPLAY_PRIMARY,  RIGHT_LESS, nil, nil},
+  {"Microsoft Outlook",         nil, DISPLAY_PRIMARY,  LEFT_MOST,  nil, nil},
+  {"Nachrichten",               nil, DISPLAY_PRIMARY,  RIGHT_LESS, nil, nil},
+  {"Slack",                     nil, DISPLAY_PRIMARY,  LEFT_MOST,  nil, nil},
+  {"Sonos",                     nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
   {"Spotify",                   nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"Things",                    nil, DISPLAY_NOTEBOOK, RIGHT_LESS, nil, nil},
-  {"Visual Studio Code",        nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
-  {"Wire",                      nil, DISPLAY_MAIN,     RIGHT_LESS, nil, nil},
-  {"Zeplin",                    nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"Things",                    nil, DISPLAY_PRIMARY,  RIGHT_LESS, nil, nil},
+  {"Code",                      nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
   {"iA Writer",                 nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"iTerm2",                    nil, DISPLAY_MAIN,     FULLSCREEN, nil, nil},
+  {"iTerm2",                    nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
 }
 
---  Single Monitor
+--  One Monitor
 local LAYOUT_SINGLE = {
-  {"Brave Browser",             nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Code",                      nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"DEVONthink Pro Office",     nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Evernote",                  nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Firefox Developer Edition", nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Firefox",                   nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Google Chrome",             nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Google Hangouts",           nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Kalender",                  nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
-  {"Mail",                      nil, DISPLAY_MAIN, RIGHT_MOST, nil, nil},
-  {"Microsoft Outlook",         nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Nachrichten",               nil, DISPLAY_MAIN, RIGHT_LESS, nil, nil},
-  {"Safari",                    nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Slack",                     nil, DISPLAY_MAIN, LEFT_MOST,  nil, nil},
-  {"Sonos",                     nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Spotify",                   nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Things",                    nil, DISPLAY_MAIN, RIGHT_LESS, nil, nil},
-  {"Visual Studio Code",        nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"Wire",                      nil, DISPLAY_MAIN, RIGHT_LESS, nil, nil},
-  {"iA Writer",                 nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
-  {"iTerm2",                    nil, DISPLAY_MAIN, FULLSCREEN, nil, nil},
+  {"Brave Browser",             nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"Code",                      nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"DEVONthink 3",              nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"Evernote",                  nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"Firefox Developer Edition", nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"Kalender",                  nil, DISPLAY_PRIMARY, LEFT_MOST,  nil, nil},
+  {"Mail",                      nil, DISPLAY_PRIMARY, RIGHT_MOST, nil, nil},
+  {"Microsoft Outlook",         nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"Nachrichten",               nil, DISPLAY_PRIMARY, RIGHT_LESS, nil, nil},
+  {"Slack",                     nil, DISPLAY_PRIMARY, LEFT_MOST,  nil, nil},
+  {"Sonos",                     nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"Spotify",                   nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"Things",                    nil, DISPLAY_PRIMARY, RIGHT_LESS, nil, nil},
+  {"Code",                      nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"iA Writer",                 nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
+  {"iTerm2",                    nil, DISPLAY_PRIMARY, FULLSCREEN, nil, nil},
 }
 
 ------------------
@@ -151,20 +161,31 @@ hotkey.bind(KEY_CAM, "5", function() push(0, 0, 0.4, 1) end)
 hotkey.bind(KEY_CAM, "6", function() push(0.4, 0, 0.6, 1) end)
 hotkey.bind(KEY_CAM, "7", function() push(0.6, 0, 0.4, 1) end)
 
--- Move a window between monitors
+-- Move a window between monitors (preserve size)
 hotkey.bind(KEY_CM,  "1",    function() window.focusedWindow():moveOneScreenNorth() end)
-hotkey.bind(KEY_CM,  "up",   function() window.focusedWindow():moveOneScreenNorth() end)
-hotkey.bind(KEY_CM,  "k",    function() window.focusedWindow():moveOneScreenNorth() end)
-hotkey.bind(KEY_SCM, "1",    function() window.focusedWindow():moveOneScreenNorth(); push(0, 0, 1, 1) end)
-hotkey.bind(KEY_SCM, "up",   function() window.focusedWindow():moveOneScreenNorth(); push(0, 0, 1, 1) end)
-hotkey.bind(KEY_SCM, "k",    function() window.focusedWindow():moveOneScreenNorth(); push(0, 0, 1, 1) end)
-
 hotkey.bind(KEY_CM,  "2",    function() window.focusedWindow():moveOneScreenSouth() end)
+hotkey.bind(KEY_CM,  "3",    function() window.focusedWindow():moveOneScreenWest() end)
+hotkey.bind(KEY_CM,  "up",   function() window.focusedWindow():moveOneScreenNorth() end)
 hotkey.bind(KEY_CM,  "down", function() window.focusedWindow():moveOneScreenSouth() end)
+hotkey.bind(KEY_CM,  "right", function() window.focusedWindow():moveOneScreenEast() end)
+hotkey.bind(KEY_CM,  "left", function() window.focusedWindow():moveOneScreenWest() end)
+hotkey.bind(KEY_CM,  "k",    function() window.focusedWindow():moveOneScreenNorth() end)
 hotkey.bind(KEY_CM,  "j",    function() window.focusedWindow():moveOneScreenSouth() end)
+hotkey.bind(KEY_CM,  "l",    function() window.focusedWindow():moveOneScreenEast() end)
+hotkey.bind(KEY_CM,  "h",    function() window.focusedWindow():moveOneScreenWest() end)
+
+-- Move a window between monitors (change to fullscreen)
+hotkey.bind(KEY_SCM, "1",    function() window.focusedWindow():moveOneScreenNorth(); push(0, 0, 1, 1) end)
 hotkey.bind(KEY_SCM, "2",    function() window.focusedWindow():moveOneScreenSouth(); push(0, 0, 1, 1) end)
+hotkey.bind(KEY_SCM, "3",    function() window.focusedWindow():moveOneScreenWest(); window.focusedWindow():moveOneScreenWest(); push(0, 0, 1, 1) end)
+hotkey.bind(KEY_SCM, "up",   function() window.focusedWindow():moveOneScreenNorth(); push(0, 0, 1, 1) end)
 hotkey.bind(KEY_SCM, "down", function() window.focusedWindow():moveOneScreenSouth(); push(0, 0, 1, 1) end)
+hotkey.bind(KEY_SCM, "right", function() window.focusedWindow():moveOneScreenEast(); push(0, 0, 1, 1) end)
+hotkey.bind(KEY_SCM, "left", function() window.focusedWindow():moveOneScreenWest(); window.focusedWindow():moveOneScreenWest(); push(0, 0, 1, 1) end)
+hotkey.bind(KEY_SCM, "k",    function() window.focusedWindow():moveOneScreenNorth(); push(0, 0, 1, 1) end)
 hotkey.bind(KEY_SCM, "j",    function() window.focusedWindow():moveOneScreenSouth(); push(0, 0, 1, 1) end)
+hotkey.bind(KEY_SCM, "l",    function() window.focusedWindow():moveOneScreenEast(); push(0, 0, 1, 1) end)
+hotkey.bind(KEY_SCM, "h",    function() window.focusedWindow():moveOneScreenWest(); window.focusedWindow():moveOneScreenWest(); push(0, 0, 1, 1) end)
 
 -- Application shortcuts
 hotkey.bind(KEY_SCAM, "A", function() application.launchOrFocus("Affinity Designer") end)
@@ -200,3 +221,4 @@ hotkey.bind(KEY_CAM, "space", function() hints.windowHints(getAllValidWindows())
 -- Layouts
 hotkey.bind(KEY_SCAM, "1", function() layout.apply(LAYOUT_SINGLE) end)
 hotkey.bind(KEY_SCAM, "2", function() layout.apply(LAYOUT_DUAL) end)
+hotkey.bind(KEY_SCAM, "3", function() layout.apply(LAYOUT_TRI) end)
