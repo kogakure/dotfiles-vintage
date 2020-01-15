@@ -374,9 +374,6 @@ set signcolumn=yes
 " Increase line-height
 set linespace=2
 
-" Highlight line with cursor
-set cursorline
-
 " Show line and row of the cursor
 set ruler
 
@@ -549,8 +546,12 @@ set signcolumn=yes
 " Increase line-height
 set linespace=2
 
-" Highlight line with cursor
-set cursorline
+if !exists('g:vscode')
+  " Highlight line with cursor
+  set cursorline
+endif
+
+" -------------------------^ Wrong above
 
 " Show line and row of the cursor
 set ruler
@@ -719,6 +720,7 @@ endif
 
 
 
+
 " }}}
 " {{{ *** *** *** Mappings *** *** ***
 "  __  __   _   ___ ___ ___ _  _  ___ ___
@@ -881,6 +883,7 @@ endif
 nnoremap <leader>m :silent !open -a iA\ Writer.app '%:p'<CR>
 
 
+
 " }}}
 " {{{ *** *** *** Functions *** *** ***
 "  ___ _   _ _  _  ___ _____ ___ ___  _  _ ___
@@ -1003,7 +1006,6 @@ command! -register HardcoreWrite silent! call HardcoreWrite() | redraw!
 "     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
 "   endif
 " endfunction
-
 
 
 " }}}
@@ -1167,7 +1169,6 @@ augroup ft_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
-
 
 " }}}
 " {{{ *** *** *** Auto Commands *** *** ***
@@ -1542,3 +1543,4 @@ let g:gh_github_domain = "source.xing.com"
 
 let g:vimrcloaded = 1
 " }}}
+
