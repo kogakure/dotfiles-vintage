@@ -1,0 +1,309 @@
+"  ___ _   _ _  _ ___  _    ___ ___
+" | _ ) | | | \| |   \| |  | __/ __|
+" | _ \ |_| | .` | |) | |__| _|\__ \
+" |___/\___/|_|\_|___/|____|___|___/
+
+if &compatible
+  set nocompatible
+endif
+
+filetype off
+
+" Check whether vim-plug is installed and install it if necessary
+let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
+if !filereadable(plugpath)
+  if executable('curl')
+    let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' . plugurl)
+    if v:shell_error
+      echom "Error downloading vim-plug. Please install it manually.\n"
+      exit
+    endif
+  else
+    echom "vim-plug not installed. Please install it manually or install curl.\n"
+    exit
+  endif
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" Argumentative aids with manipulating and moving between function arguments.
+Plug 'PeterRincker/vim-argumentative'
+
+" Escape/Unecape HTML entities
+" ➜ <leader>he <leader>hu
+Plug 'skwp/vim-html-escape', { 'on': ['HtmlEscape', 'HtmlUnEscape'] }
+
+" Show Unicode character names, vim digraphs (<C-K>), emoji codes, etc.
+" ➜ ga
+Plug 'tpope/vim-characterize'
+
+" Enable repeating supported plugins maps with '.'
+Plug 'tpope/vim-repeat'
+
+" Increment date, times, and more
+" ➜ <C-A> <C-X>
+Plug 'tpope/vim-speeddating'
+
+" Manipulate surroundings (parenteses, brackets, quotes, etc.)
+Plug 'tpope/vim-surround'
+
+" Increase columns
+" :I or :II etc.
+Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
+
+" Text filtering and alignment (fork)
+Plug 'kogakure/tabular'
+
+" Speed up Vim by updating folds only when called-for
+Plug 'Konfekt/FastFold'
+
+" Vim motion on speed
+" ➜ ,,motion command
+Plug 'Lokaltog/vim-easymotion'
+
+" Visual select something and press * to search it
+Plug 'nelstrom/vim-visual-star-search'
+
+" Easily search for, subsitute, and abbreviate multiple variants of a word
+" ➜ :Abolish! anomol{y,ies} anomal{}
+Plug 'tpope/vim-abolish'
+
+" A collection of language packs for Vim.
+Plug 'sheerun/vim-polyglot'
+
+" Extend % matching for HTML, LaTex and other languages
+Plug 'tmhedberg/matchit'
+
+" Text Objects
+Plug 'glts/vim-textobj-comment'
+Plug 'jceb/vim-textobj-uri'
+Plug 'kana/vim-textobj-datetime'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'whatyouhide/vim-textobj-xmlattr'
+
+" Add plugins to &runtimepath
+call plug#end()
+
+" }}}
+" {{{ *** *** *** Global Settings *** *** ***
+"   ___ _    ___  ___   _   _      ___ ___ _____ _____ ___ _  _  ___ ___
+"  / __| |  / _ \| _ ) /_\ | |    / __| __|_   _|_   _|_ _| \| |/ __/ __|
+" | (_ | |_| (_) | _ \/ _ \| |__  \__ \ _|  | |   | |  | || .` | (_ \__ \
+"  \___|____\___/|___/_/ \_\____| |___/___| |_|   |_| |___|_|\_|\___|___/
+
+" Encoding to UTF-8
+scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+
+" Set <leader> to `,` instead to `\`
+let mapleader=","
+
+" <loacalleader> to `+`
+let maplocalleader="+"
+
+" Command Line Height
+set cmdheight=2
+
+" Update buffer automatically, when changed by extern
+set autoread
+
+" No line break
+set nowrap
+
+" Search on the oposite of the file when reaching end/beginning
+set wrapscan
+
+" Start highlighting search results while typing
+set incsearch
+
+" Ignore case when searching (unless using capital letters)
+set ignorecase
+set smartcase
+
+" use forward slash
+set shellslash
+
+" Highlight search results
+set hlsearch
+
+" Don’t break lines
+set textwidth=0
+
+" Show full tag when autocompleting
+set showfulltag
+
+" Intuitive backspacing
+set backspace=indent,eol,start
+
+" Add dashes to words
+set iskeyword+=-
+
+" Don't delete the word, but put a $ to the end till exit the mode
+set cpoptions+=$
+
+" Increase line-height
+set linespace=2
+
+" Show line and row of the cursor
+set ruler
+
+" Tabs and indentation
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set smarttab
+set expandtab
+set autoindent
+set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+set copyindent
+set shiftround
+
+" Update time (Default: 4 seconds)
+set updatetime=300
+
+" Timeout for waiting after pressing <leader>
+set timeoutlen=500
+
+" Fold the code
+set foldenable
+
+" Don’t show the foldcolumn
+set foldcolumn=0
+
+" Default fold is marker
+set foldmethod=marker
+set foldlevelstart=20
+
+" Split the window below and right of the current window
+set splitbelow
+set splitright
+
+" Keep 3 lines context above and below
+set scrolloff=3
+
+" Better command line completion
+set wildmenu
+
+" Complete files like a shell
+set wildmode=list:longest,list:full
+
+" Ignore stuff
+set wildignore+=.DS_Store,Icon
+set wildignore+=*.dmg
+set wildignore+=*.doc,*.docx,*.xls,*.xlsx,*.ppt,*.pptx,*.gsheet
+set wildignore+=*.gem,gems/**
+set wildignore+=*.mp4,*.mov,*.m4v,*.mp3
+set wildignore+=*.pages
+set wildignore+=*.pdf,*.graffle
+set wildignore+=*.png,*.gif,*.jpeg,*.jpg,*.tiff,*.psd
+set wildignore+=*.py[co]
+set wildignore+=*.sqlite3,*.db
+set wildignore+=*.sw?
+set wildignore+=*.zip,*.tar,*.tar.gz
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*.so
+set wildignore+=*/build/**,*/dist/**
+set wildignore+=*/node_modules/**
+set wildignore+=*/tmp/**
+set wildignore+=*/vendor/**
+
+" Spell checker language to German
+" To clean the custom files :runtime spell/cleanadd.vim
+set spelllang=de_de,en_us
+set spellfile+="~/.vim/spell/de.utf-8.add" " (1)zg, (1)zw
+set spellfile+="~/.vim/spell/en.utf-8.add" " 2zg, 2zw
+
+" Custom Dictionaries (<C-x> <C-k>)
+" http://ftp.vim.org/vim/runtime/spell/
+set dictionary+="~/.vim/dictionary/de_user.txt"
+set dictionary+="~/.vim/dictionary/de_neu.txt"
+set dictionary+="~/.vim/dictionary/en_us.txt"
+
+" Custom Thesauri (Synonyms) (<C-x> <C-t>)
+set thesaurus+="~/.vim/thesaurus/de_user.txt"
+set thesaurus+="~/.vim/thesaurus/de_openthesaurus.txt"
+
+set complete+=kspell
+
+" Extended TextObjects
+" http://connermcd.com/blog/2012/10/01/extending-vim%27s-text-objects/
+let pairs = { ":" : ":",
+      \ "." : ".",
+      \ "<bar>" : "<bar>",
+      \ "*" : "*",
+      \ "-" : "-",
+      \ "_" : "_" }
+
+for [key, value] in items(pairs)
+  exe "nnoremap ci".key." T".key."ct".value
+  exe "nnoremap ca".key." F".key."cf".value
+  exe "nnoremap vi".key." T".key."vt".value
+  exe "nnoremap va".key." F".key."vf".value
+  exe "nnoremap di".key." T".key."dt".value
+  exe "nnoremap da".key." F".key."df".value
+  exe "nnoremap yi".key." T".key."yt".value
+  exe "nnoremap ya".key." F".key."yf".value
+endfor
+
+" }}}
+" {{{ *** *** *** Mappings *** *** ***
+"  __  __   _   ___ ___ ___ _  _  ___ ___
+" |  \/  | /_\ | _ \ _ \_ _| \| |/ __/ __|
+" | |\/| |/ _ \|  _/  _/| || .` | (_ \__ \
+" |_|  |_/_/ \_\_| |_| |___|_|\_|\___|___/
+
+" Command mode
+nnoremap <space> :
+
+" Add semicolon or comma to the end of the line
+nnoremap <leader>; A;<ESC>
+nnoremap <leader>. A,<ESC>
+
+" Delete last character of line
+nnoremap <leader>x $x
+
+" Mapping for easier OmniCompletion
+inoremap <C-]> <C-X><C-]>
+inoremap <C-F> <C-X><C-F>
+inoremap <C-D> <C-X><C-D>
+inoremap <C-L> <C-X><C-L>
+inoremap <C-O> <C-X><C-O>
+
+" Switch of highlighting with ',h'
+nnoremap <silent> <leader>h :nohlsearch<CR>
+
+" Change marks mapping (ma)
+nnoremap ' `
+nnoremap ` '
+
+" Visuall select of just pasted stuff
+nnoremap gp `[v`]
+nnoremap gy `[v`]y
+
+" Faster linewise scrolling
+noremap <C-e> 3<C-e>
+noremap <C-y> 3<C-y>
+
+" Keep the window centered
+noremap G Gzzzv
+noremap n nzzzv
+noremap N Nzzzv
+noremap } }zzzv
+noremap { {zzzv
+
+" Add lines in NORMAL Mode
+nnoremap gn o<ESC>k
+nnoremap gN O<ESC>j
+
+" VSCode Mappings
+nnoremap <silent> ? :<C-u>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
+xmap gc  <Plug>VSCodeCommentary
+nmap gc  <Plug>VSCodeCommentary
+omap gc  <Plug>VSCodeCommentary
+nmap gcc <Plug>VSCodeCommentaryLine
+
+
+" }}}
