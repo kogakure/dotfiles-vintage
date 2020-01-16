@@ -60,7 +60,7 @@ Plug 'Konfekt/FastFold'
 
 " Vim motion on speed
 " ➜ ,,motion command
-Plug 'Lokaltog/vim-easymotion'
+Plug 'asvetliakov/vim-easymotion'
 
 " Visual select something and press * to search it
 Plug 'nelstrom/vim-visual-star-search'
@@ -168,6 +168,9 @@ set updatetime=300
 " Timeout for waiting after pressing <leader>
 set timeoutlen=500
 
+" System clipboard
+set clipboard=unnamed
+
 " Fold the code
 set foldenable
 
@@ -257,6 +260,10 @@ endfor
 
 " Command mode
 nnoremap <space> :
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
 
 " Add semicolon or comma to the end of the line
 nnoremap <leader>; A;<ESC>
