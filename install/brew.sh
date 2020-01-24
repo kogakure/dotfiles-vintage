@@ -117,6 +117,9 @@ brew install gource
 # Numerical library for C and C++
 brew install gsl
 
+# GNU Pretty Good Privacy (PGP)
+brew install gpg
+
 # Convert source code to formatted text with syntax highlighting
 brew install highlight
 
@@ -180,6 +183,9 @@ brew install pandoc
 
 # Framework for layout and rendering of i18n text
 brew install pango
+
+# Password manager
+brew install pass
 
 # Manage compile and link flags for libraries
 brew install pkg-config

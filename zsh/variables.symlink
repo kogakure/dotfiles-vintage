@@ -64,6 +64,10 @@ export SVN_EDITOR="vim"
 export GIT_EDITOR="vim"
 export VMAIL_VIM="vim"
 
+# Pass extensions
+export PASSWORD_STORE_ENABLE_EXTENSIONS=true
+export PASSWORD_STORE_EXTENSIONS_DIR=/usr/local/lib/password-store/extensions
+
 # npm-check-with-yarn
 export NPM_CHECK_INSTALLER=yarn
 

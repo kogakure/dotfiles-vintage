@@ -1,5 +1,6 @@
 [user]
   useConfigOnly = true
+  signingkey = 21CE017ED5FA22C6
 [include]
   path = ~/.gitconfig.local
 [help]
@@ -65,7 +66,7 @@
 [difftool]
   prompt = false
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool "icdiff"]
   prompt = false
   cmd = icdiff --line-numbers $LOCAL $REMOTE
@@ -73,13 +74,13 @@
   external = p4merge
 [merge]
   conflictstyle = diff3
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [mergetool]
   prompt = false
-	keepBackup = false
+  keepBackup = false
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustexitcode = true
 [mergetool "splice"]
   cmd = "vim -f $BASE $LOCAL $REMOTE $MERGED -c 'SpliceInit'"
   trustExitCode = true
@@ -100,11 +101,17 @@
   prune = true
   fsckobjects = false
 [filter "lfs"]
-	required = true
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	clean = git-lfs clean -- %f
+  required = true
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  clean = git-lfs clean -- %f
 [web]
   browser = open
 [hub]
-	host = source.xing.com
+  host = source.xing.com
+[difftool "sourcetree"]
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path =
+[mergetool "sourcetree"]
+  cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true

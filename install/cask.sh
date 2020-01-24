@@ -59,6 +59,7 @@ brew cask install integrity
 brew cask install iterm2
 brew cask install kaleidoscope
 brew cask install kindle
+brew cask install keybase
 brew cask install lastfm
 brew cask install livereload
 brew cask install macvim
