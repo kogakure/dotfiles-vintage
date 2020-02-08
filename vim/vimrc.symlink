@@ -76,6 +76,9 @@ else
   " ➜ ga
   Plug 'tpope/vim-characterize'
 
+  " WakaTime
+  Plug 'wakatime/vim-wakatime'
+
   " Comment stuff out.
   " ➜ gcc (comment out line)
   " ➜ gc (comment out target in motion, e. g. gcap)
