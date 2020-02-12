@@ -108,6 +108,9 @@ brew install git-lfs
 # Simple and efficient way to access statistics in git.
 brew install git-quick-stats
 
+# GitHub command-line tool
+brew install github/gh/gh
+
 # The Go programming language
 brew install go
 
