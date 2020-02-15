@@ -37,6 +37,9 @@ brew install casperjs
 # Statistics utility to count lines of code
 brew install cloc
 
+# Cross-platform make
+brew install cmake
+
 # JavaScript optimizing compiler
 brew install closure-compiler
 
@@ -137,6 +140,9 @@ brew install hugo
 
 # The scalable code generator that saves you time.
 brew install hygen
+
+# C/C++ and Java libraries for Unicode and globalization
+brew install icu4c
 
 # Tools and libraries to manipulate images in many formats
 brew install imagemagick --with-fontconfig

@@ -12,6 +12,9 @@ gem install foreman
 # git command to fetch and rebase all branches
 gem install git-up
 
+# Language Savant.
+gem install github-linguist
+
 # lolcommits takes a snapshot with your webcam every time you git commit code
 gem install lolcommits
 
