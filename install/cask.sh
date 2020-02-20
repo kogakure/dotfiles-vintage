@@ -4,9 +4,9 @@
 ### Taps ###
 ############
 
-brew tap caskroom/cask
-brew tap caskroom/versions
-brew tap caskroom/drivers
+brew tap homebrew/cask-cask
+brew tap homebrew/cask-versions
+brew tap homebrew/cask-drivers
 
 # XQuartz needs to be installed first
 brew cask install xquartz
@@ -21,6 +21,7 @@ brew cask install appzapper
 brew cask install autumn
 brew cask install bartender
 brew cask install blender
+brew cask install blisk
 brew cask install brave
 brew cask install calibre
 brew cask install ccmenu
@@ -73,6 +74,7 @@ brew cask install protonmail-bridge
 brew cask install qlcolorcode
 brew cask install qlvideo
 brew cask install riot
+brew cask install safari-technology-preview
 brew cask install sequel-pro
 brew cask install shiori
 brew cask install signal
