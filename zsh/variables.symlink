@@ -20,6 +20,9 @@ PATH="/usr/local/sbin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="$HOME/.dotfiles/bin:$PATH"
 
+# Yarn
+PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
 export XDG_CONFIG_HOME="$HOME/.config/"
 
 # Switch between light/dark themes
