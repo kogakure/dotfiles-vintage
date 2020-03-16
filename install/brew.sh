@@ -153,6 +153,9 @@ brew install imagesnap
 # Image manipulation library
 brew install jpeg
 
+# Simple terminal UI for git commands
+brew install lazygit
+
 # Access DVDs as block devices without the decryption
 brew install libdvdcss
 

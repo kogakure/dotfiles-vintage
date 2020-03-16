@@ -79,6 +79,7 @@ alias glu='git config user.name "Stefan Imhoff" && git config user.email "stefan
 alias glx='git config user.name "Stefan Imhoff" && git config user.email "stefan.imhoff@xing.com";'
 alias upstream-update="git co master; git remote update; git fetch --all; git rebase upstream/master; git co -;"
 alias gpp='PATCHNAME=`git branch 2> /dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/"`-`date "+%Y-%m-%d-%H%M.patch"`; git diff --full-index master > ../patches/$PATCHNAME'
+alias lg='lazygit'
 
 # Docker
 # alias drm="docker run $(docker ps -a -q -f status=exited)"
