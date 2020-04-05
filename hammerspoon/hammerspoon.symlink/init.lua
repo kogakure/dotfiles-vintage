@@ -90,7 +90,7 @@ local LAYOUT_DUAL = {
   {"Firefox Developer Edition", nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
   {"Kalender",                  nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
   {"Keybase",                   nil, DISPLAY_NOTEBOOK, LEFT_HALF,  nil, nil},
-  {"Mail",                      nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
+  {"Mail",                      nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
   {"Microsoft Outlook",         nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
   {"Nachrichten",               nil, DISPLAY_PRIMARY,  RIGHT_HALF, nil, nil},
   {"Riot",                      nil, DISPLAY_NOTEBOOK, RIGHT_HALF, nil, nil},
@@ -99,7 +99,7 @@ local LAYOUT_DUAL = {
   {"Spotify",                   nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
   {"Telegram",                  nil, DISPLAY_PRIMARY,  LEFT_HALF,  nil, nil},
   {"Things",                    nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
-  {"iA Writer",                 nil, DISPLAY_NOTEBOOK, FULLSCREEN, nil, nil},
+  {"iA Writer",                 nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
   {"iTerm2",                    nil, DISPLAY_PRIMARY,  FULLSCREEN, nil, nil},
 }
 
@@ -205,7 +205,6 @@ hotkey.bind(KEY_SCAM, "M", function() application.launchOrFocus("Mail") end)
 hotkey.bind(KEY_SCAM, "O", function() application.launchOrFocus("Microsoft Outlook") end)
 hotkey.bind(KEY_SCAM, "S", function() application.launchOrFocus("Slack") end)
 hotkey.bind(KEY_SCAM, "T", function() application.launchOrFocus("Things3") end)
-hotkey.bind(KEY_SCAM, "V", function() application.launchOrFocus("Preview") end)
 hotkey.bind(KEY_SCAM, "W", function() application.launchOrFocus("iA Writer") end)
 hotkey.bind(KEY_SCAM, "Y", function() application.launchOrFocus("Spotify") end)
 hotkey.bind(KEY_SCAM, "Z", function() application.launchOrFocus("Zeplin") end)
