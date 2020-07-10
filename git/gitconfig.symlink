@@ -73,7 +73,6 @@
 [difftool "p4merge"]
   external = p4merge
 [merge]
-  conflictstyle = diff3
   tool = Kaleidoscope
 [mergetool]
   prompt = false
