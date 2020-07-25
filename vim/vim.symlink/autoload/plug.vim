@@ -890,9 +890,9 @@ function! s:chsh(swap)
     set shell=sh
   endif
   if a:swap
-    if &shell =~# 'powershell\.exe' || &shell =~# 'pwsh$'
+    if &shell =~# 'powershell\(\.exe\)\?$' || &shell =~# 'pwsh$'
       let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s'
-    elseif &shell =~# 'sh' || &shell =~# 'cmd\.exe'
+    elseif &shell =~# 'sh' || &shell =~# 'cmd\(\.exe\)\?$'
       set shellredir=>%s\ 2>&1
     endif
   endif
@@ -2182,7 +2182,7 @@ function! s:system(cmd, ...)
         return system(a:cmd)
       endif
       let cmd = join(map(copy(a:cmd), 'plug#shellescape(v:val, {"shell": &shell, "script": 0})'))
-      if &shell =~# 'powershell\.exe'
+      if &shell =~# 'powershell\(\.exe\)\?$'
         let cmd = '& ' . cmd
       endif
     else
