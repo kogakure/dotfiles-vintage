@@ -4,7 +4,8 @@ function box_name {
 
 bracket_color="%{$fg[white]%}"
 ruby_color="%{$fg[red]%}"
-nvm_color="%{$fg[yellow]%}"
+node_color="%{$fg[yellow]%}"
+pyenv_color="%{$fg[green]%}"
 dir_color="%{$fg[blue]%}"
 git_branch_color="%{$fg[green]%}"
 git_clean_color="%{$fg[green]%}"
@@ -26,9 +27,14 @@ else
   fi
 fi
 
+# Python Version
+if which pyenv &> /dev/null; then
+  python_version="$pyenv_color\${\$(pyenv version | sed -e 's/ (set.*$//')}%{$reset_color%}"
+fi
+
 # Node Version
-if which nvm &> /dev/null; then
-  nvm_version="$nvm_color\${\$(nvm version)}%{$reset_color%}"
+if which node &> /dev/null; then
+  node_version="$node_color\${\$(node -v | sed 's/v//')}%{$reset_color%}"
 fi
 
 # Is Git repository upstream?
@@ -46,10 +52,11 @@ git_upstream="\$(check_upstream 2>/dev/null)"
 dir="$dir_color%~%{$reset_color%}"
 
 prompt_start=""
-prompt_end="💬  "
+# prompt_end="~~> "
+prompt_end="❯ "
 
 # Put it all together!
-RPROMPT="$ruby_version $nvm_version"
+RPROMPT="$ruby_version $python_version $node_version"
 PROMPT="
 $dir$git_upstream$git
 $prompt_end"
