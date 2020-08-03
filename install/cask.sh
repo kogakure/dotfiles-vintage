@@ -4,8 +4,8 @@
 ### Taps ###
 ############
 
-brew tap homebrew/cask-cask
 brew tap homebrew/cask-versions
+brew tap homebrew/cask-fonts
 brew tap homebrew/cask-drivers
 
 # XQuartz needs to be installed first
@@ -23,7 +23,7 @@ brew cask install basecamp
 brew cask install bibdesk
 brew cask install bitwarden
 brew cask install blender
-brew cask install brave
+brew cask install brave-browser
 brew cask install calibre
 brew cask install color-oracle
 brew cask install cryptomator
@@ -32,21 +32,18 @@ brew cask install dash
 brew cask install delicious-library
 brew cask install docker
 brew cask install dropbox
-brew cask install ebeaver-community
 brew cask install element
 brew cask install firefox
-brew cask install firefoxdeveloperedition
-brew cask install firefoxnightly
+brew cask install firefox-developer-edition
+brew cask install firefox-nightly
 brew cask install flip4mac
 brew cask install folx
 brew cask install fontforge
 brew cask install gemini
-brew cask install github-desktop
+brew cask install github
 brew cask install google-chrome
 brew cask install google-chrome-beta
 brew cask install google-chrome-canary
-brew cask install google-chrome-dev
-brew cask install google-drive
 brew cask install google-earth-pro
 brew cask install google-japanese-ime
 brew cask install google-photos-backup-and-sync
@@ -64,7 +61,7 @@ brew cask install kaleidoscope
 brew cask install keybase
 brew cask install kindle
 brew cask install ledger-live
-brew cask install makemvk
+brew cask install makemkv
 brew cask install marked
 brew cask install microsoft-edge
 brew cask install music-manager
@@ -89,27 +86,22 @@ brew cask install selfcontrol
 brew cask install sequel-pro
 brew cask install shiori
 brew cask install signal
-brew cask install sitesucker
 brew cask install sketchbook
 brew cask install slack
 brew cask install spotify
-brew cask install spotify-notifications
-brew cask install sqlitebrowser
 brew cask install steam
 brew cask install stellarium
 brew cask install telegram-desktop
 brew cask install textmate
 brew cask install the-unarchiver
-brew cask install torbrowser
+brew cask install tor-browser
 brew cask install transmit
 brew cask install tunnelblick
 brew cask install typeface
-brew cask install unrarx
 brew cask install virtualbox
 brew cask install visual-studio-code
 brew cask install vlc
 brew cask install vlc-webplugin
-brew cask install webkit-nightly
 brew cask install webponize
 brew cask install whatroute
 brew cask install whatsapp

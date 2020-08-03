@@ -1,18 +1,10 @@
 #!/bin/sh
 
-# Italic terminal
-tic -o ~/.terminfo terminfo/tmux.terminfo
-tic -o ~/.terminfo terminfo/tmux-256color.terminfo
-tic -o ~/.terminfo terminfo/xterm-256color.terminfo
-
 # Install Xcode Developer Tools
 xcode-select --install
 
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-# Initializing submodules
-git submodule update --init --recursive
 
 # Linking files
 source install/link.sh
@@ -52,6 +44,14 @@ source install/vim-plugins.sh
 
 # Symlink Neovim
 source install/neovim.sh
+
+# Initializing submodules
+git submodule update --init --recursive
+
+# Italic terminal
+tic -o ~/.terminfo terminfo/tmux.terminfo
+tic -o ~/.terminfo terminfo/tmux-256color.terminfo
+tic -o ~/.terminfo terminfo/xterm-256color.terminfo
 
 # Activate Base16-Shell
 BASE16_SHELL=$HOME/.config/base16-shell/
