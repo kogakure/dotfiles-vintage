@@ -1,3 +1,3 @@
 #!/bin/sh
 
-vim -u ~/.vimrc.bundles +PlugInstall +qall
+vim -u ~/.vimrc +PlugInstall +qall
