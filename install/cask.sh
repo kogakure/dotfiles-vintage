@@ -30,6 +30,7 @@ brew cask install cryptomator
 brew cask install daisydisk
 brew cask install dash
 brew cask install delicious-library
+brew cask install devonthink
 brew cask install docker
 brew cask install dropbox
 brew cask install element

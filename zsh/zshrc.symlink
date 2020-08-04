@@ -19,8 +19,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Plugins to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 plugins=(
-  base16-shell
-  brew brew-cask
+  brew
   bundler gem rbenv
   colored-man-pages man
   colorize
@@ -39,8 +38,9 @@ plugins=(
   vagrant virtualenv
   yarn
   z
-  zsh-autosuggestions
-  zsh-syntax-highlighting
+  # zsh-autosuggestions
+  # zsh-syntax-highlighting
+  zsh-interactive-cd
 )
 
 # Base16 Shell

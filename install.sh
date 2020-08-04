@@ -6,6 +6,9 @@ xcode-select --install
 # Install Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# Initializing submodules
+git submodule update --init --recursive
+
 # Linking files
 source install/link.sh
 
