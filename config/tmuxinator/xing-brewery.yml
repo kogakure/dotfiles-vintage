@@ -1,4 +1,4 @@
-name: Web
+name: Brewery
 root: ~/Code/XING/brewery/
 windows:
   - Vim: vim

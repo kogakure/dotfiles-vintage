@@ -1,4 +1,4 @@
-name: Web
+name: Designkit
 root: ~/Code/XING/xds-kit/
 windows:
   - Vim: vim
