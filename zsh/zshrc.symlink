@@ -38,8 +38,8 @@ plugins=(
   vagrant virtualenv
   yarn
   z
-  # zsh-autosuggestions
-  # zsh-syntax-highlighting
+  zsh-autosuggestions
+  zsh-syntax-highlighting
   zsh-interactive-cd
 )
 
