@@ -1,0 +1,6 @@
+name: Hamburg
+root: ~/Code/Github/website-hugo-hamburg.stefanimhoff.de/
+windows:
+  - Vim: vim
+  - Terminal: clear
+  - Server: yarn start
