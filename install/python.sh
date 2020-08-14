@@ -8,11 +8,11 @@ export PATH="~/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-pyenv install 2.7.11
-pyenv install 3.4.4
+pyenv install 2.7.17
+pyenv install 3.8.5
 
-pyenv virtualenv 2.7.11 neovim2
-pyenv virtualenv 3.4.4 neovim3
+pyenv virtualenv 2.7.17 neovim2
+pyenv virtualenv 3.8.5 neovim3
 
 pyenv activate neovim2
 pip2 install neovim
