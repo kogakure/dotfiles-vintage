@@ -1,0 +1,5 @@
+name: Daily
+root: ~/Code/GitHub/Daily/
+windows:
+  - Vim: vim .
+  - Terminal: clear

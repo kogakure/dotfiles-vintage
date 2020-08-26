@@ -1,0 +1,5 @@
+name: Zettelkasten
+root: ~/Code/GitHub/Zettelkasten/
+windows:
+  - Vim: vim .
+  - Terminal: clear
