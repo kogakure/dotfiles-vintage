@@ -27,7 +27,7 @@ function pr() {
 function update () {
     vim -u ~/.vimrc +PlugUpgrade +PlugInstall +PlugClean +qall
     brew update && brew outdated && brew upgrade && brew cleanup && brew cask upgrade
-    gem update --system && gem update && gem cleanup all
+    sudo gem update --system && sudo gem update && gem cleanup all
     npm update npm -g
     npm update -g
     sudo softwareupdate -i -a
