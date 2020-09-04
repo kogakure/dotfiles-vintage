@@ -3,4 +3,4 @@ root: ~/Code/Github/website-gatsby-stefanimhoff.de/
 windows:
   - Vim: vim
   - Terminal: clear
-  - Server: yarn start
+  - Server: yarn develop
