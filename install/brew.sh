@@ -179,7 +179,7 @@ brew install mongodb
 brew install multimarkdown
 
 # NeoVim
-brew install neovim/neovim/neovim
+brew install --HEAD neovim
 
 # Open source relational database management system
 brew install mysql
