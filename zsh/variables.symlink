@@ -64,6 +64,8 @@ export ARCHFLAGS="-arch x86_64"
 # Fix 'macos sierra: [warn]: kq_init: detected broken kqueue; not using.'
 export EVENT_NOKQUEUE=1
 
+export VIM=/usr/local/share/nvim
+
 # Editors
 export EDITOR="vim"
 export CVSEDITOR="vim"

@@ -208,7 +208,7 @@ hotkey.bind(KEY_SCAM, "P", function() application.launchOrFocus("Podcasts") end)
 hotkey.bind(KEY_SCAM, "S", function() application.launchOrFocus("Slack") end)
 hotkey.bind(KEY_SCAM, "T", function() application.launchOrFocus("Things3") end)
 hotkey.bind(KEY_SCAM, "W", function() application.launchOrFocus("iA Writer") end)
-hotkey.bind(KEY_SCAM, "Y", function() application.launchOrFocus("Spotify") end)
+hotkey.bind(KEY_SCAM, "Y", function() application.launchOrFocus("Music") end)
 hotkey.bind(KEY_SCAM, "Z", function() application.launchOrFocus("Zeplin") end)
 
 -- Place red circle around mouse
