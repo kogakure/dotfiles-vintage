@@ -30,7 +30,7 @@ plugins=(
   gulp
   history-substring-search
   jira
-  node npm npx nvm
+  node npm nvm
   rsync
   sudo
   tmux tmux-cssh tmuxinator
@@ -110,6 +110,7 @@ fi
 
 # Set terminal
 export TERM=xterm-256color
+eval "$(starship init zsh)"
 
 # Increase ulimit
 ulimit 32768

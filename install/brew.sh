@@ -252,6 +252,9 @@ brew install sqlite
 # Add a public key to a remote machine's authorized_keys file
 brew install ssh-copy-id
 
+# Cross-shell prompt for astronauts
+brew install startship
+
 # Open source continuous file synchronization application
 brew install syncthing
 
