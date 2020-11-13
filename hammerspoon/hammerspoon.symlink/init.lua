@@ -203,6 +203,7 @@ hotkey.bind(KEY_SCAM, "F", function() application.launchOrFocus("Firefox Develop
 hotkey.bind(KEY_SCAM, "K", function() application.launchOrFocus("Calendar") end)
 hotkey.bind(KEY_SCAM, "L", function() application.launchOrFocus("Microsoft Outlook") end)
 hotkey.bind(KEY_SCAM, "M", function() application.launchOrFocus("Mail") end)
+hotkey.bind(KEY_SCAM, "N", function() application.launchOrFocus("Messages") end)
 hotkey.bind(KEY_SCAM, "O", function() application.launchOrFocus("Obsidian") end)
 hotkey.bind(KEY_SCAM, "P", function() application.launchOrFocus("Podcasts") end)
 hotkey.bind(KEY_SCAM, "S", function() application.launchOrFocus("Slack") end)
