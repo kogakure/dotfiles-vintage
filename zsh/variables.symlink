@@ -68,10 +68,6 @@ export VIM=/usr/local/share/nvim
 
 # Editors
 export EDITOR="vim"
-# export CVSEDITOR="vim"
-# export SVN_EDITOR="vim"
-# export GIT_EDITOR="vim"
-# export VMAIL_VIM="vim"
 
 # Pass extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
