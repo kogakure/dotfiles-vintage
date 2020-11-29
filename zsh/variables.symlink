@@ -67,7 +67,7 @@ export EVENT_NOKQUEUE=1
 export VIM=/usr/local/share/nvim
 
 # Editors
-export EDITOR="vim"
+export EDITOR="code"
 
 # Pass extensions
 export PASSWORD_STORE_ENABLE_EXTENSIONS=true
