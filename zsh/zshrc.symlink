@@ -113,4 +113,5 @@ export TERM=xterm-256color
 eval "$(starship init zsh)"
 
 # Increase ulimit
-ulimit 32768
+ulimit -c 2097152
+ulimit -f 2097152
