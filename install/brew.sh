@@ -117,6 +117,9 @@ brew install go
 # Version Control Visualization Tool
 brew install gource
 
+# Command-line tool for generating regular expressions
+brew install grex
+
 # Numerical library for C and C++
 brew install gsl
 
