@@ -1,5 +1,8 @@
  #!/bin/sh
 
+# Eleventy
+npm install -g @11ty/eleventy
+
 # Runs an accessibility audit against a URL
 npm install -g a11y
 
