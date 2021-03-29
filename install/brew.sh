@@ -65,9 +65,6 @@ brew install docker-machine
 # Maintain consistent coding style between multiple editors
 brew install editorconfig
 
-# Distributed search & analytics engine
-brew install elasticsearch
-
 # Tools to convert fonts from OTF/TTF to EOT format
 brew install eot-utils
 
