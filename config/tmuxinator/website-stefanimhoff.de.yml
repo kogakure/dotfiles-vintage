@@ -1,6 +1,6 @@
 name: stefanimhoff
-root: ~/Code/Github/website-gatsby-stefanimhoff.de/
+root: ~/Code/Github/website-11ty-stefanimhoff.de/
 windows:
   - Vim: vim
   - Terminal: clear
-  - Server: yarn develop
+  - Server: npm install; npm start
