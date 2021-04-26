@@ -1,6 +1,0 @@
-name: Gatsby
-root: ~/Code/Github/website-gatsby-kogakure.de/
-windows:
-  - Vim: vim
-  - Terminal: clear
-  - Server: yarn develop
