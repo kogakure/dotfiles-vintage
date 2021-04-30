@@ -3,4 +3,4 @@ root: ~/Code/Github/website-11ty-stefanimhoff.de/
 windows:
   - Vim: vim
   - Terminal: clear
-  - Server: npm install; npm start
+  - Server: npm ci; npm start

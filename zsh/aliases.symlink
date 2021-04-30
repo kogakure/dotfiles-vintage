@@ -122,6 +122,9 @@ alias ia='open $1 -a /Applications/iA\ Writer.app'
 # Dotfiles folder
 alias dotfiles="cd $HOME/.dotfiles"
 
+# iCloud
+alias icloud="cd $HOME/Library/Mobile\ Documents/com~apple~CloudDocs"
+
 # Pipe my public key to my clipboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
