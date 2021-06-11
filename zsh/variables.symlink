@@ -47,6 +47,9 @@ export RBENV_ROOT="$HOME/.rbenv/"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
+# Ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
 # Pyenv
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
