@@ -1,5 +1,5 @@
 name: Zettelkasten
-root: ~/Code/GitHub/Zettelkasten/
+root: ~/Library/Mobile Documents/iCloud~md~obsidian/Documents/Zettelkasten/
 windows:
   - Vim: vim .
   - Terminal: clear
