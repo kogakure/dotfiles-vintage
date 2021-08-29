@@ -1,5 +1,5 @@
 name: hamburg
-root: ~/Code/Github/website-11ty-hamburg.stefanimhoff.de
+root: ~/Code/Github/11ty-hamburg.stefanimhoff.de
 windows:
   - Vim: vim
   - Terminal: clear

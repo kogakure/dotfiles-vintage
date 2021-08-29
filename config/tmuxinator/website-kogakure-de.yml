@@ -1,5 +1,5 @@
 name: kogakure
-root: ~/Code/Github/website-hugo-kogakure.de/
+root: ~/Code/Github/hugo-kogakure.de/
 windows:
   - Vim: vim
   - Terminal: clear

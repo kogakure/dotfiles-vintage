@@ -1,5 +1,5 @@
 name: hamburg
-root: ~/Code/Github/website-hugo-hamburg.stefanimhoff.de/
+root: ~/Code/Github/hamburg.stefanimhoff.de/
 windows:
   - Vim: vim
   - Terminal: clear

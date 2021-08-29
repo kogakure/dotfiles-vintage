@@ -1,5 +1,5 @@
 name: Relaunch
-root: ~/Code/Github/website-11ty-stefanimhoff.de/
+root: ~/Code/Github/11ty-stefanimhoff.de/
 windows:
   - Vim: vim
   - Terminal: clear
