@@ -1,6 +1,5 @@
 [user]
   useConfigOnly = true
-  signingkey = 21CE017ED5FA22C6
 [include]
   path = ~/.gitconfig.local
 [help]
