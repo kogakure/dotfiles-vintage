@@ -56,7 +56,7 @@ else
   Plug 'PeterRincker/vim-argumentative'
 
   " Emmet
-  Plug 'mattn/emmet-vim'
+  Plug 'mattn/emmet-vim', { 'for': ['html', 'javascript', 'javascript.jsx', 'typescript']}
 
   " GitHub Line
   Plug 'ruanyl/vim-gh-line'
@@ -176,11 +176,11 @@ else
   Plug 'ap/vim-css-color'
 
   " *** Ruby & Rails ***
-  Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
+  " Plug 'tpope/vim-rails', { 'for': ['ruby', 'eruby'] }
 
   " *** PHP ***
-  Plug 'shawncplus/phpcomplete.vim'
-  Plug 'vim-scripts/PHP-correct-Indenting'
+  " Plug 'shawncplus/phpcomplete.vim'
+  " Plug 'vim-scripts/PHP-correct-Indenting'
 
 
   " Interact with tmux
