@@ -138,7 +138,7 @@ else
   Plug 'junegunn/fzf.vim'
 
   " Extend netrw
-  " Plug 'tpope/vim-vinegar'
+  Plug 'tpope/vim-vinegar'
 
   " EditorConfig
   Plug 'editorconfig/editorconfig-vim'
@@ -1008,6 +1008,7 @@ else
 
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+  nnoremap <leader>cp :CtrlP<CR>
   nnoremap <leader>mru :CtrlPMRU<CR>
   nnoremap <leader>cmd :CtrlPCmdline<CR>
   nnoremap <leader>yr :CtrlPYankring<CR>
@@ -1018,6 +1019,7 @@ else
 
   " Search files
   nnoremap <C-t> :Files<CR>
+  nnoremap <C-p> :Files<CR>
   nnoremap <leader>fz :Files<CR>
   nnoremap <leader>t :Files<CR>
 
