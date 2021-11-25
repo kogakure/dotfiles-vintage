@@ -5,3 +5,4 @@ vim/vim.symlink/init.vim
 bin/sync-server-*
 config/coc/
 bin/flake8
+config/nvim/autoload

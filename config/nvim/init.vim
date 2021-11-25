@@ -1,13 +1,13 @@
-"  ___ _   _ _  _ ___  _    ___ ___
-" | _ ) | | | \| |   \| |  | __/ __|
-" | _ \ |_| | .` | |) | |__| _|\__ \
-" |___/\___/|_|\_|___/|____|___|___/
-
 if &compatible
   set nocompatible
 endif
 
 filetype off
+
+let g:python_host_prog=$HOME.'/.pyenv/versions/neovim2/bin/python'
+let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
+
+" {{{ *** *** *** Plugins *** *** ***
 
 " Check whether vim-plug is installed and install it if necessary
 let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
@@ -25,79 +25,54 @@ if !filereadable(plugpath)
   endif
 endif
 
-call plug#begin('~/.vim/plugged')
-
-" Argumentative aids with manipulating and moving between function arguments.
-Plug 'PeterRincker/vim-argumentative'
-
-" Escape/Unecape HTML entities
-" ➜ <leader>he <leader>hu
-Plug 'skwp/vim-html-escape', { 'on': ['HtmlEscape', 'HtmlUnEscape'] }
-
-" Show Unicode character names, vim digraphs (<C-K>), emoji codes, etc.
-" ➜ ga
-Plug 'tpope/vim-characterize'
-
-" Enable repeating supported plugins maps with '.'
-Plug 'tpope/vim-repeat'
-
-" Increment date, times, and more
-" ➜ <C-A> <C-X>
-Plug 'tpope/vim-speeddating'
-
-" Manipulate surroundings (parenteses, brackets, quotes, etc.)
-Plug 'tpope/vim-surround'
-
-" Increase columns
-" :I or :II etc.
-Plug 'vim-scripts/VisIncr', { 'on': ['I', 'IR'] }
-
-" Text filtering and alignment (fork)
-Plug 'kogakure/tabular'
-
-" Speed up Vim by updating folds only when called-for
-Plug 'Konfekt/FastFold'
-
-" Vim motion on speed
-" ➜ ,,motion command
-Plug 'asvetliakov/vim-easymotion'
-
-" Visual select something and press * to search it
-Plug 'nelstrom/vim-visual-star-search'
-
-" Easily search for, subsitute, and abbreviate multiple variants of a word
-" ➜ :Abolish! anomol{y,ies} anomal{}
-Plug 'tpope/vim-abolish'
-
-" A collection of language packs for Vim.
-Plug 'sheerun/vim-polyglot'
-
-" Extend % matching for HTML, LaTex and other languages
-Plug 'tmhedberg/matchit'
-
-" Text Objects
-Plug 'glts/vim-textobj-comment'
-Plug 'jceb/vim-textobj-uri'
-Plug 'kana/vim-textobj-datetime'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'nelstrom/vim-textobj-rubyblock'
-Plug 'whatyouhide/vim-textobj-xmlattr'
-
-" Add plugins to &runtimepath
+call plug#begin("~/.vim/plugged")
+  " Base16 for Vim
+  Plug 'chriskempson/base16-vim'
 call plug#end()
 
 " }}}
 " {{{ *** *** *** Global Settings *** *** ***
-"   ___ _    ___  ___   _   _      ___ ___ _____ _____ ___ _  _  ___ ___
-"  / __| |  / _ \| _ ) /_\ | |    / __| __|_   _|_   _|_ _| \| |/ __/ __|
-" | (_ | |_| (_) | _ \/ _ \| |__  \__ \ _|  | |   | |  | || .` | (_ \__ \
-"  \___|____\___/|___/_/ \_\____| |___/___| |_|   |_| |___|_|\_|\___|___/
+
+" Default shell
+set shell=/bin/zsh
+
+" Search for all files in all subfolders
+  set path+=**
 
 " Encoding to UTF-8
 scriptencoding utf-8
 set encoding=utf-8
 set fileencoding=utf-8
+
+filetype plugin indent on
+
+" Syntax highlighting
+syntax on
+
+" Colorscheme (Base16 color)
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
+
+" Make background transparent for many things
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE
+hi! LineNr ctermfg=NONE guibg=NONE
+hi! SignColumn ctermfg=NONE guibg=NONE
+hi! StatusLine guifg=#16252b guibg=#6699CC
+hi! StatusLineNC guifg=#16252b guibg=#16252b
+
+" Custom Colors
+highlight Conceal cterm=NONE ctermbg=NONE ctermfg=darkred
+highlight SpellBad cterm=underline ctermfg=white ctermbg=red
+highlight SpellCap cterm=underline
+highlight SpellLocal cterm=underline
+highlight SpellRare cterm=underline
+highlight Comment cterm=italic
+
+" 256 colors
+set t_Co=256
 
 " Set <leader> to `,` instead to `\`
 let mapleader=","
@@ -105,8 +80,23 @@ let mapleader=","
 " <loacalleader> to `+`
 let maplocalleader="+"
 
+" Backups
+set undodir=$HOME/.vim/tmp/undo//
+set backupdir=$HOME/.vim/tmp/backup//
+set directory=$HOME/.vim/tmp/swap//
+set backupskip=/tmp/*,/private/tmp/*
+set nobackup
+set nowritebackup
+set noswapfile
+
+" Switch of modelines (it is a risk for security)
+set modelines=0
+
 " Command Line Height
-set cmdheight=2
+set cmdheight=1
+
+" Automatic save at file switch
+set autowrite
 
 " Update buffer automatically, when changed by extern
 set autoread
@@ -114,11 +104,23 @@ set autoread
 " No line break
 set nowrap
 
+" Don’t refresh while executing a macro
+set lazyredraw
+
+" Show partially completed commands
+set showcmd
+
+" Show the mode
+set showmode
+
 " Search on the oposite of the file when reaching end/beginning
 set wrapscan
 
 " Start highlighting search results while typing
 set incsearch
+
+" Show line breaks
+set showbreak=↪
 
 " Ignore case when searching (unless using capital letters)
 set ignorecase
@@ -130,20 +132,63 @@ set shellslash
 " Highlight search results
 set hlsearch
 
+" Height of command line
+set ch=1
+
 " Don’t break lines
 set textwidth=0
 
 " Show full tag when autocompleting
 set showfulltag
 
+" Which characters to use for statuslines etc.
+set fillchars=diff:⣿,vert:│
+
+" Show invisibles (tabs, line endings etc.)
+" set list
+
+" Choose symbols to show invisibles
+set listchars=tab:▸\ ,eol:¬,trail:·,nbsp:.,extends:❯,precedes:❮,space:·
+
+" No beeping
+set visualbell
+
+" Line numbering
+set number
+set relativenumber
+
 " Intuitive backspacing
 set backspace=indent,eol,start
+
+" Use hidden buffers
+set hidden
+
+" System clipboard
+set clipboard=unnamed
 
 " Add dashes to words
 set iskeyword+=-
 
 " Don't delete the word, but put a $ to the end till exit the mode
 set cpoptions+=$
+
+" Fast terminal connection
+set ttyfast
+
+" Set title of the window
+set title
+
+" Show status line
+set laststatus=2
+
+" Hightlight matching paar (brackets etc.)
+set showmatch
+
+" Welcome screen (e. g. no welcome message)
+set shortmess=caoOtI
+
+" always show signcolumns
+set signcolumn=yes
 
 " Increase line-height
 set linespace=2
@@ -162,14 +207,17 @@ set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 set copyindent
 set shiftround
 
+" Conceal
+set conceallevel=0
+
 " Update time (Default: 4 seconds)
 set updatetime=300
 
+" Don’t syntax highlight lines longer than 800 characters
+set synmaxcol=800
+
 " Timeout for waiting after pressing <leader>
 set timeoutlen=500
-
-" System clipboard
-set clipboard=unnamed
 
 " Fold the code
 set foldenable
@@ -185,8 +233,25 @@ set foldlevelstart=20
 set splitbelow
 set splitright
 
+" Active mouse in terminal mode
+set mouse=a
+
+" Hide mouse cursor while typing
+set mousehide
+
 " Keep 3 lines context above and below
 set scrolloff=3
+
+" Enable positioning of cursor where no character is
+set virtualedit=all
+
+" Highlight line with cursor
+set cursorline
+
+" Complete all buffers
+" set complete=.,w,b,u,t,i,kspell
+set complete=.,w,b,u,t,kspell
+set completeopt=longest,menuone,preview
 
 " Better command line completion
 set wildmenu
@@ -231,6 +296,12 @@ set thesaurus+="~/.vim/thesaurus/de_openthesaurus.txt"
 
 set complete+=kspell
 
+" Session Management
+let g:session_directory = "~/.vim/sessions"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+
 " Extended TextObjects
 " http://connermcd.com/blog/2012/10/01/extending-vim%27s-text-objects/
 let pairs = { ":" : ":",
@@ -240,77 +311,10 @@ let pairs = { ":" : ":",
       \ "-" : "-",
       \ "_" : "_" }
 
-for [key, value] in items(pairs)
-  exe "nnoremap ci".key." T".key."ct".value
-  exe "nnoremap ca".key." F".key."cf".value
-  exe "nnoremap vi".key." T".key."vt".value
-  exe "nnoremap va".key." F".key."vf".value
-  exe "nnoremap di".key." T".key."dt".value
-  exe "nnoremap da".key." F".key."df".value
-  exe "nnoremap yi".key." T".key."yt".value
-  exe "nnoremap ya".key." F".key."yf".value
-endfor
-
 " }}}
 " {{{ *** *** *** Mappings *** *** ***
-"  __  __   _   ___ ___ ___ _  _  ___ ___
-" |  \/  | /_\ | _ \ _ \_ _| \| |/ __/ __|
-" | |\/| |/ _ \|  _/  _/| || .` | (_ \__ \
-" |_|  |_/_/ \_\_| |_| |___|_|\_|\___|___/
 
 " Command mode
 nnoremap <space> :
-
-" Yank text to the OS X clipboard
-noremap <leader>y "*y
-noremap <leader>yy "*Y
-
-" Add semicolon or comma to the end of the line
-nnoremap <leader>; A;<ESC>
-nnoremap <leader>. A,<ESC>
-
-" Delete last character of line
-nnoremap <leader>x $x
-
-" Mapping for easier OmniCompletion
-inoremap <C-]> <C-X><C-]>
-inoremap <C-F> <C-X><C-F>
-inoremap <C-D> <C-X><C-D>
-inoremap <C-L> <C-X><C-L>
-inoremap <C-O> <C-X><C-O>
-
-" Switch of highlighting with ',h'
-nnoremap <silent> <leader>h :nohlsearch<CR>
-
-" Change marks mapping (ma)
-nnoremap ' `
-nnoremap ` '
-
-" Visuall select of just pasted stuff
-nnoremap gp `[v`]
-nnoremap gy `[v`]y
-
-" Faster linewise scrolling
-noremap <C-e> 3<C-e>
-noremap <C-y> 3<C-y>
-
-" Keep the window centered
-noremap G Gzzzv
-noremap n nzzzv
-noremap N Nzzzv
-noremap } }zzzv
-noremap { {zzzv
-
-" Add lines in NORMAL Mode
-nnoremap gn o<ESC>k
-nnoremap gN O<ESC>j
-
-" VSCode Mappings
-nnoremap <silent> ? :<C-u>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
-xmap gc  <Plug>VSCodeCommentary
-nmap gc  <Plug>VSCodeCommentary
-omap gc  <Plug>VSCodeCommentary
-nmap gcc <Plug>VSCodeCommentaryLine
-
 
 " }}}
