@@ -1,3 +1,6 @@
+" Setup {{{
+" *********************************************************
+
 if &compatible
   set nocompatible
 endif
@@ -7,37 +10,32 @@ filetype off
 let g:python_host_prog=$HOME.'/.pyenv/versions/neovim2/bin/python'
 let g:python3_host_prog=$HOME.'/.pyenv/versions/neovim3/bin/python'
 
-" {{{ *** *** *** Plugins *** *** ***
+" }}}
 
-" Check whether vim-plug is installed and install it if necessary
-let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
-if !filereadable(plugpath)
-  if executable('curl')
-    let plugurl = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-    call system('curl -fLo ' . shellescape(plugpath) . ' --create-dirs ' . plugurl)
-    if v:shell_error
-      echom "Error downloading vim-plug. Please install it manually.\n"
-      exit
-    endif
-  else
-    echom "vim-plug not installed. Please install it manually or install curl.\n"
-    exit
+" Imports {{{
+" *********************************************************
+
+runtime ./plug.vim
+if has("unix")
+  let s:uname = system("uname -s")
+  " Do Mac stuff
+  if s:uname == "Darwin\n"
+    runtime ./macos.vim
   endif
 endif
 
-call plug#begin("~/.vim/plugged")
-  " Base16 for Vim
-  Plug 'chriskempson/base16-vim'
-call plug#end()
+runtime ./maps.vim
 
-" }}}
-" {{{ *** *** *** Global Settings *** *** ***
+"}}}
+
+" Global Settings {{{
+" *********************************************************
 
 " Default shell
 set shell=/bin/zsh
 
 " Search for all files in all subfolders
-  set path+=**
+set path+=**
 
 " Encoding to UTF-8
 scriptencoding utf-8
@@ -88,12 +86,6 @@ set backupskip=/tmp/*,/private/tmp/*
 set nobackup
 set nowritebackup
 set noswapfile
-
-" Switch of modelines (it is a risk for security)
-set modelines=0
-
-" Command Line Height
-set cmdheight=1
 
 " Automatic save at file switch
 set autowrite
@@ -163,9 +155,6 @@ set backspace=indent,eol,start
 " Use hidden buffers
 set hidden
 
-" System clipboard
-set clipboard=unnamed
-
 " Add dashes to words
 set iskeyword+=-
 
@@ -233,9 +222,6 @@ set foldlevelstart=20
 set splitbelow
 set splitright
 
-" Active mouse in terminal mode
-set mouse=a
-
 " Hide mouse cursor while typing
 set mousehide
 
@@ -296,12 +282,6 @@ set thesaurus+="~/.vim/thesaurus/de_openthesaurus.txt"
 
 set complete+=kspell
 
-" Session Management
-let g:session_directory = "~/.vim/sessions"
-let g:session_autoload = "no"
-let g:session_autosave = "no"
-let g:session_command_aliases = 1
-
 " Extended TextObjects
 " http://connermcd.com/blog/2012/10/01/extending-vim%27s-text-objects/
 let pairs = { ":" : ":",
@@ -312,9 +292,67 @@ let pairs = { ":" : ":",
       \ "_" : "_" }
 
 " }}}
-" {{{ *** *** *** Mappings *** *** ***
 
-" Command mode
-nnoremap <space> :
+" File Types {{{
+" *********************************************************
 
-" }}}
+" JavaScript
+au BufNewFile,BufRead *.es6 setf javascript
+
+" TypeScript
+au BufNewFile,BufRead *.tsx setf typescriptreact
+
+" Markdown
+au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.mdx set filetype=markdown
+
+set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+
+autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+
+"}}}
+
+lua << EOF
+local nvim_lsp = require('lspconfig')
+local protocol = require('vim.lsp.protocol')
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  -- Enable completion triggered by <c-x><c-o>
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
+
+  -- Keymaps
+  buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
+end
+
+local lsp_installer = require('nvim-lsp-installer')
+
+lsp_installer.on_server_ready(function(server) 
+  local opts = {}
+
+  server:setup(opts)
+
+  lsp_installer.settings({
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
+      }
+    }
+  })
+end)
+
+EOF
+
+" vim: set foldmethod=marker foldlevel=0:"
+

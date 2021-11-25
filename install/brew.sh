@@ -166,6 +166,9 @@ brew install libpng
 # ➜ Hammerspoon
 brew install lua
 
+# Just-In-Time Compiler (JIT) for the Lua programming language
+brew install --HEAD luajit
+
 # Mac App Store command-line interface
 brew install mas
 
@@ -273,6 +276,9 @@ brew install tmux
 
 # Display directories as trees (with optional color/HTML output)
 brew install tree
+
+# Parser generator tool and incremental parsing library
+brew install --HEAD tree-sitter
 
 # URL extractor/launcher (needed for tmux-urlview)
 brew install urlview
