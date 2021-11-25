@@ -1,9 +1,4 @@
-" {{ ** *** *** Bundles *** *** ***
-"  ___ _   _ _  _ ___  _    ___ ___
-" | _ ) | | | \| |   \| |  | __/ __|
-" | _ \ |_| | .` | |) | |__| _|\__ \
-" |___/\___/|_|\_|___/|____|___|___/
-
+" {{{ *** *** *** Setup *** *** ***
 if exists('g:vscode')
   source $HOME/.vimrc.vscode
 else
@@ -32,6 +27,8 @@ else
       exit
     endif
   endif
+  " }}}
+  " {{{ *** *** *** Bundles *** *** ***
 
   call plug#begin('~/.vim/plugged')
 
@@ -182,7 +179,6 @@ else
   " Plug 'shawncplus/phpcomplete.vim'
   " Plug 'vim-scripts/PHP-correct-Indenting'
 
-
   " Interact with tmux
   Plug 'benmills/vimux'
   Plug 'christoomey/vim-tmux-navigator'
@@ -199,13 +195,8 @@ else
   " Add plugins to &runtimepath
   call plug#end()
 
-
   " }}}
   " {{{ *** *** *** Global Settings *** *** ***
-  "   ___ _    ___  ___   _   _      ___ ___ _____ _____ ___ _  _  ___ ___
-  "  / __| |  / _ \| _ ) /_\ | |    / __| __|_   _|_   _|_ _| \| |/ __/ __|
-  " | (_ | |_| (_) | _ \/ _ \| |__  \__ \ _|  | |   | |  | || .` | (_ \__ \
-  "  \___|____\___/|___/_/ \_\____| |___/___| |_|   |_| |___|_|\_|\___|___/
 
   " Default shell
   set shell=/bin/zsh
@@ -548,11 +539,6 @@ else
 
   " }}}
   " {{{ *** *** *** Mappings *** *** ***
-  "  __  __   _   ___ ___ ___ _  _  ___ ___
-  " |  \/  | /_\ | _ \ _ \_ _| \| |/ __/ __|
-  " | |\/| |/ _ \|  _/  _/| || .` | (_ \__ \
-  " |_|  |_/_/ \_\_| |_| |___|_|\_|\___|___/
-
 
   " Command mode
   nnoremap <space> :
@@ -710,11 +696,6 @@ else
 
   " }}}
   " {{{ *** *** *** Functions *** *** ***
-  "  ___ _   _ _  _  ___ _____ ___ ___  _  _ ___
-  " | __| | | | \| |/ __|_   _|_ _/ _ \| \| / __|
-  " | _|| |_| | .` | (__  | |  | | (_) | .` \__ \
-  " |_|  \___/|_|\_|\___| |_| |___\___/|_|\_|___/
-
 
   " Toggle between soft wrap and no wrap
   function! ToggleWrap()
@@ -834,11 +815,6 @@ else
 
   " }}}
   " {{{ *** *** *** Auto Commands *** *** ***
-  "    _  _   _ _____ ___     ___ ___  __  __ __  __   _   _  _ ___  ___
-  "   /_\| | | |_   _/ _ \   / __/ _ \|  \/  |  \/  | /_\ | \| |   \/ __|
-  "  / _ \ |_| | | || (_) | | (_| (_) | |\/| | |\/| |/ _ \| .` | |) \__ \
-  " /_/ \_\___/  |_| \___/   \___\___/|_|  |_|_|  |_/_/ \_\_|\_|___/|___/
-
 
   " Colorscheme changes
   function! s:after_colorscheme()
@@ -996,15 +972,8 @@ else
 
 
   " }}}
-  " {{{ *** *** *** Auto Commands *** *** ***
-  "  ___ _   _   _  ___ ___ _  _ ___
-  " | _ \ | | | | |/ __|_ _| \| / __|
-  " |  _/ |_| |_| | (_ || || .` \__ \
-  " |_| |____\___/ \___|___|_|\_|___/
-
-
-  " ### Ctrl-p ###
-  " ##############
+  " {{{ *** *** *** Plugins *** *** ***
+  " *** Ctrl-p ***
 
   let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
@@ -1014,8 +983,7 @@ else
   nnoremap <leader>yr :CtrlPYankring<CR>
   nnoremap <leader>cc :CtrlPClearCache<CR>
 
-  " ### FZF ###
-  " ###########
+  " *** FZF ***
 
   " Search files
   nnoremap <C-t> :Files<CR>
@@ -1041,9 +1009,7 @@ else
   nnoremap <leader>ft :Tags<space>
   nnoremap <leader>fbt :BTags<space>
 
-
-  " ### COC ###
-  " ###########
+  " *** COC ***
 
   let g:coc_global_extensions = [
         \ 'coc-css',
@@ -1095,7 +1061,6 @@ else
 
   let g:coc_snippet_next = '<tab>'
 
-
   " Prettier
   command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
@@ -1120,7 +1085,6 @@ else
   inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
   " Or use `complete_info` if your vim support it, like:
   " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
 
   " Use K to show documentation in preview window
   nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -1178,8 +1142,7 @@ else
   " Add status line support, for integration with other plugin, checkout `:h coc-status`
   set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-  " ### UltiSnips ###
-  " #################
+  " *** UltiSnips ***
 
   " If you want :UltiSnipsEdit to split your window.
   let g:UltiSnipsEditSplit="vertical"
@@ -1189,8 +1152,7 @@ else
         \ 'space-before-function-paren': 'never'
         \ }
 
-  " ### Vim Airline ###
-  " ###################
+  " *** Vim Airline ***
 
   try
     " Don't dispay mode in command line (airilne already shows it)
@@ -1239,24 +1201,20 @@ else
     echo 'Airline not installed. It should work after running :PlugInstall'
   endtry
 
-  " ### Vim-Bookmark ###
-  " ####################
+  " *** Vim-Bookmark ***
 
   let g:bookmark_center = 1
 
-  " ### EditorConfig ###
-  " ####################
+  " *** EditorConfig ***
 
   let g:EditorConfig_exec_path = '/usr/local/bin/editorconfig'
   let g:EditorConfig_core_mode = 'external_command'
 
-  " ### Better Whitespace ###
-  " #########################
+  " *** Whitespace ***
 
   " let g:better_whitespace_filetypes_blacklist = ['vim-plug', 'diff', 'gitcommit', 'help', 'pandoc', 'markdown']
 
-  " ### Vimux ###
-  " #############
+  " *** Vimux ***
 
   let g:VimuxHeight = "30"
   let g:VimuxOrientation = 'h'
@@ -1271,13 +1229,11 @@ else
   nmap <leader>vx :VimuxInterruptRunner<cr>
   nmap <leader>vt :VimuxRunCommand("yarn test")<CR>
 
-  " ### Tagbar ###
-  " ##############
+  " *** Tagbar ***
 
   nnoremap <leader>tb :TagbarToggle<CR>
 
-  " ### Pandoc ###
-  " ##############
+  " *** Pandoc ***
 
   let g:pandoc#filetypes#handled = ["pandoc", "markdown"]
   let g:pandoc#modules#disabled = ["folding", "chdir"]
@@ -1285,53 +1241,45 @@ else
   let g:pandoc#spell#enabled = 0
   let g:pandoc#folding#fold_fenced_codesblocks = 0
 
-  " ### AutoSave ###
-  " ################
+  " *** AutoSave ***
 
   let g:auto_save = 0
   let g:auto_save_in_insert_mode = 0
   let g:auto_save_silent = 0
 
-  " ### Emmet ###
-  " #############
+  " *** Emmet ***
 
   autocmd FileType html,eruby imap <c-e> <plug>(emmet-expand-abbr)
   autocmd FileType css,scss,pcss,postcss imap <c-e> <plug>(emmet-expand-abbr)
   autocmd FileType javascript imap <c-e> <plug>(emmet-expand-abbr)
 
-  " ### Fugitive ###
-  " ################
+  " *** Fugitive ***
 
   let g:fugitive_github_domains = ['source.xing.com']
 
-  " ### Tablular ###
-  " ################
+  " *** Tablular ***
 
   " Automatic Mapping with pipe
   inoremap <silent> <Bar> <Bar><Esc>:call <SID>align()<CR>a
 
-  " ### Vim-Commentary ###
-  " ######################
+  " *** Vim-Commentary ***
 
   autocmd FileType apache set commentstring=#\ %s
   autocmd FileType gspec set commentstring=#\ %s
   autocmd FileType eruby set commentstring=<!--%s-->
 
-  " ### Vim-Speeddating ###
-  " #######################
+  " *** Vim-Speeddating ***
 
   autocmd VimEnter * SpeedDatingFormat %d.%m.%Y
 
-  " ### Vim-Session ###
-  " ###################
+  " *** Vim-Session ***
 
   let g:session_autosave = 'no'
   let g:session_autoload = 'no'
   let g:session_autosave_periodic = "5"
   let g:session_default_name = 'default'
 
-  " ### Gitgutter ###
-  " #################
+  " *** Gitgutter ***
 
   let g:gitgutter_max_signs = 3000
   let g:gitgutter_sign_added = '•'
@@ -1339,36 +1287,28 @@ else
   let g:gitgutter_sign_removed = '•'
   let g:gitgutter_sign_modified_removed = '•'
 
-  " ### Echodoc ###
-  " ###############
+  " *** Echodoc ***
 
   " Enable echodoc on startup
   let g:echodoc#enable_at_startup = 1
 
-  " ### Vim-JavaScript ###
-  " ######################
+  " *** Vim-JavaScript ***
 
   " Enable syntax highlighting for JSDoc
   let g:javascript_plugin_jsdoc = 1
 
-  " ### JavaScript-Libraries-Syntax ###
-  " ###################################
-
+  "  *** JavaScript-Libraries-Syntax ***
   let g:used_javascript_libs = 'jquery,underscore,react,requirejs,handlebars,vue,ramda,d3'
 
-  " ### Vim-JSX ###
-  " ###############
+  " *** Vim-JSX ***
 
   " Highlight jsx syntax even in non .jsx files
   let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
-  " ### GitHub Line ###
-  " ################
+  " *** GitHub Line ***
 
   let g:gh_github_domain = "source.xing.com"
 
-
   let g:vimrcloaded = 1
-  " }}}
-
 endif
+  " }}}
