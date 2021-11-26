@@ -16,4 +16,8 @@ else
   runtime ./mappings.vim
   runtime ./functions.vim
   runtime ./autocmd.vim
+
+
 endif
+
+

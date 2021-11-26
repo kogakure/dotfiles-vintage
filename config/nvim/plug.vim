@@ -19,11 +19,12 @@
 
   call plug#begin('~/.vim/plugged')
 
-  " Base16 for Vim
-  Plug 'chriskempson/base16-vim'
+  " Theme
+  Plug 'chriskempson/base16-vim' " Base16 for Vim
 
-  Plug 'neovim/nvim-lspconfig'
-
+  " LSP
+  Plug 'neovim/nvim-lspconfig' " Quickstart configurations for the Nvim LSP client       
+  Plug 'williamboman/nvim-lsp-installer' " Install and manage LSP servers
 
   " *** *** OLD *** ***
 
